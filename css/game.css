@@ -1,3 +1,58 @@
 body {
     font-family: "Roboto", sans-serif;
 }
+.content {
+    background-color: #f7f9fc;
+}
+.main-header {
+    color: white;
+    font-weight: bold;
+    letter-spacing: 3px;
+    word-spacing: 5;
+}
+.headline {
+    color: #505b73;
+    font-size: 14;
+}
+.playerline {
+    align-items: center;
+    background-color: white;
+    border-bottom: 3px solid #f7f9fc;
+}
+.player {
+    flex: 1;
+    font-size: 18px;
+}
+.image {
+    width: 15%;
+    text-align: center;
+}
+.rank {
+    width: 20px;
+    padding-left: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.points {
+    width: 10%;
+    text-align: center;
+    font-size: 18;
+}
+.image img {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    border: 2px solid #f7f9fc;
+}
+.headline > * {
+    font-size: 14;
+    font-weight: normal;
+    padding: 0 0 3 0;
+}
+@media (max-width:576px) {
+    .image,
+    .points {
+        width: 80px;
+    }
+}
