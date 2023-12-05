@@ -34,7 +34,12 @@ body {
     font-weight: bold;
 }
 .points {
-    width: 10%;
+    width: 7%;
+    text-align: center;
+    font-size: 18;
+}
+.round {
+    width: 7%;
     text-align: center;
     font-size: 18;
 }
@@ -51,8 +56,20 @@ body {
     padding: 0 0 3 0;
 }
 @media (max-width:576px) {
-    .image,
-    .points {
+    .image {
         width: 80px;
+    }
+    .points,
+    .round {
+        width: 50px;
+    }
+    .points,
+    .round,
+    .player,
+    .rank {
+        font-size: 16px;
+    }
+    .headline > * {
+        font-size: 12px;
     }
 }
