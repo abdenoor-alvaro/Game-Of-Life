@@ -24,26 +24,32 @@ let players = [{
         name: "slimani",
         image: "slimani.jpg",
         points: 0,
+    },{
+        name: "youcef",
+        image: "youcef.jpg",
+        points: 0,
     },
 ]
 let days = [
     {
-        day:1,
-        abdenoor: 20,
-        yacine: 10,
-        islem: 39,
-        mahfoud: 41,
-        hamid: 40,
-        slimani:23,
+        day: 1,
+        abdenoor: 48,
+        yacine: 58.5,
+        islem: false,
+        mahfoud: 66,
+        hamid: false,
+        slimani: false,
+        youcef: 26,
     },
     {
         day:2,
-        abdenoor: 33,
-        yacine: 23,
-        islem: 54,
-        mahfoud: 32,
-        hamid: 40,
-        slimani:23,
+        abdenoor: 39,
+        yacine: 36,
+        islem: false,
+        mahfoud: false,
+        hamid: false,
+        slimani:false,
+        youcef: 17,
     },
     {
         day:3,
@@ -53,6 +59,7 @@ let days = [
         mahfoud: false,
         hamid: false,
         slimani:false,
+        youcef: false,
     },
     {
         day:4,
@@ -62,6 +69,7 @@ let days = [
         mahfoud: false,
         hamid: false,
         slimani:false,
+        youcef: false,
     },
     {
         day:5,
@@ -71,6 +79,7 @@ let days = [
         mahfoud: false,
         hamid: false,
         slimani:false,
+        youcef: false,
     },
 ]
 // End Data
