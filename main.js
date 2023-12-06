@@ -1,91 +1,69 @@
 
 // Start Data
-let players = [{
-        name: "abdenoor",
-        image: "abdenoor.jpg",
-        points: 0,
-        round: 0
-    },{
-        name: "yacine",
-        image: "yacine.jpg",
-        points: 0,
-        round: 0
-    },{
-        name: "islem",
-        image: "islem.jpg",
-        points: 0,
-        round: 0
-    },{
-        name: "mahfoud",
-        image: "mahfoud.jpg",
-        points: 0,
-        round: 0
-    },{
-        name: "hamid",
-        image: "abdelhamid.jpg",
-        points: 0,
-        round: 0
-    },{
-        name: "slimani",
-        image: "slimani.jpg",
-        points: 0,
-        round: 0
-    },{
-        name: "youcef",
-        image: "youcef.jpg",
-        points: 0,
-        round: 0
-    },
-]
+class Player {
+    constructor(name, image) {
+        this.Name = name
+        this.Image = image
+        this.Round = 0
+        this.Points = 0
+    }
+    newRound(roundPoints) {
+        this.Round += 1
+        this.Points += roundPoints
+    }
+}
+let mahfoud = new Player("mahfoud", "mahfoud.jpg")
+let islem = new Player("islem", "islem.jpg")
+let abdenoor = new Player("abdenoor", "slimani.jpg")
+let alvaro = new Player("alvaro", "abdenoor.jpg")
+let yacine = new Player("yacine", "yacine.jpg")
+let youcef = new Player("youcef", "youcef.jpg")
+let players = [mahfoud, islem, abdenoor, alvaro, yacine, youcef]
+
 let days = [
     {
         day: 1,
-        abdenoor: 48,
+        alvaro: 48,
         yacine: 58.5,
         islem: 47,
         mahfoud: 66,
-        hamid: false,
-        slimani: false,
+        abdenoor: 45,
         youcef: 26,
     },
     {
         day:2,
-        abdenoor: 39,
+        alvaro: 39,
         yacine: 36,
-        islem: false,
+        islem: 45.5,
         mahfoud: 52,
-        hamid: false,
-        slimani:false,
+        abdenoor: 37,
         youcef: 17,
     },
     {
         day:3,
-        abdenoor: false,
+        alvaro: false,
         yacine: false,
         islem: false,
         mahfoud: false,
-        hamid: false,
-        slimani:false,
+        abdenoor: false,
         youcef: false,
     },
     {
         day:4,
-        abdenoor: false,
+        alvaro: false,
         yacine: false,
         islem: false,
         mahfoud: false,
-        hamid: false,
-        slimani:false,
+        abdenoor: false,
         youcef: false,
     },
     {
         day:5,
-        abdenoor: false,
+        alvaro: false,
         yacine: false,
         islem: false,
         mahfoud: false,
-        hamid: false,
-        slimani:false,
+        abdenoor: false,
         youcef: false,
     },
 ]
@@ -99,7 +77,7 @@ function tableHtml(location, players) {
     <div class="headline w-100 d-flex justify-content-between">
         <span class="rank">Rank</span>
         <span class="image"></span>
-        <span class="player">Player</span>
+        <span class="player flex-grow-1">Player</span>
         <span class="round">Round</span>
         <span class="points">Points</span>
     </div>
@@ -109,10 +87,10 @@ function tableHtml(location, players) {
 }
 function playerHtml(...list) {
     let HTML = `
-    <div class="playerline w-100 d-flex justify-content-between py-3">
-        <span class="rank">${list[3]}</span>
+    <div class="playerline w-100 d-flex justify-content-between align-items-center bg-white py-3">
+        <span class="rank fw-bold">${list[3]}</span>
         <span class="image"><img src="images/${list[4]}" alt=""></span>
-        <span class="player">${list[1]}</span>
+        <span class="player flex-grow-1">${capitalize(list[1])}</span>
         <span class="round">${list[5]}</span>
         <span class="points">${list[2]}</span>
     </div>
@@ -120,20 +98,26 @@ function playerHtml(...list) {
     list[0].innerHTML += HTML
     return list[0].innerHTML
 }
+function capitalize(sentence) {
+    let teamName = sentence.split(" ")
+    for (let j = 0; j < teamName.length; j++) {
+        teamName[j] = `${teamName[j].charAt(0).toUpperCase()}${teamName[j].slice(1)}`
+    }
+    return  teamName.join(" ")
+}
 // End Functions
 
 
 
 // Start Calculating Points
 for (let i = 0; i < players.length; i++) {
-    let playerName = players[i].name
+    let playerName = players[i].Name
     for (let n = 0; n < days.length; n++) {
         let keys = Object.keys(days[n])
         let values = Object.values(days[n])
         for (let x = 0; x < keys.length; x++) {
             if (playerName === keys[x] && values[x] !== false) {
-                players[i].points += values[x]
-                players[i].round += 1
+                players[i].newRound(values[x])
             }
         }
     }
@@ -149,21 +133,21 @@ for (let i = 0; i < players.length; i++) {
     let bestValue = -1
     let nameOfBestValue = ""
     for (let i = 0; i < players.length; i++){
-        if (!sortedArray.includes(players[i].name)) {
-            if (players[i].points > bestValue) {
-                bestValue = players[i].points
-                nameOfBestValue = players[i].name
+        if (!sortedArray.includes(players[i].Name)) {
+            if (players[i].Points > bestValue) {
+                bestValue = players[i].Points
+                nameOfBestValue = players[i].Name
             }
         }
     }
 
     let rank = i +1
     for (let x = 0; x < players.length; x++) {
-        if (nameOfBestValue === players[x].name) {
+        if (nameOfBestValue === players[x].Name) {
             if (i === players.length - 1) {
-                tableHtml(htmlTableLocation, playerHtml(div, players[x].name, players[x].points, rank, players[x].image, players[x].round))
+                tableHtml(htmlTableLocation, playerHtml(div, players[x].Name, players[x].Points, rank, players[x].Image, players[x].Round))
             } else {
-                playerHtml(div, players[x].name, players[x].points, rank, players[x].image, players[x].round)
+                playerHtml(div, players[x].Name, players[x].Points, rank, players[x].Image, players[x].Round)
             }
             break 
         }
@@ -171,5 +155,11 @@ for (let i = 0; i < players.length; i++) {
 
     sortedArray.push(nameOfBestValue)
 }
-
 // End Sorting and Printing
+
+
+
+
+
+
+
