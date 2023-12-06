@@ -28,7 +28,7 @@ let days = [
         islem: 47,
         mahfoud: 66,
         abdenoor: 45,
-        youcef: 26,
+        youcef: 33,
     },
     {
         day:2,
