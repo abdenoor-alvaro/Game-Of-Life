@@ -4,67 +4,162 @@ body {
 .content {
     background-color: #f7f9fc;
 }
-.main-header {
+/* Start Page Table Content */
+.player-profile-content .main-header,
+.table-page-content .main-header {
     color: white;
     letter-spacing: 2px;
     word-spacing: 5;
 }
-.headline {
+
+
+
+.table-page-content .headline {
     color: #505b73;
     font-size: 14;
+    padding: 0px 10px 2px;
 }
-.playerline {
-    border-bottom: 3px solid #f7f9fc;
-}
-.player {
-    font-size: 18px;
-}
-.image {
+.table-page-content .headline .image {
     width: 15%;
     text-align: center;
 }
-.rank {
+.table-page-content .headline .rank {
     width: 20px;
-    padding-left: 10px;
+}
+.table-page-content .headline .round,
+.table-page-content .headline .points {
+    width: 80px;
+    text-align: center;
+}
+
+
+.table-page-content .playerline {
+    padding: 15px 10px;
+    border: 1px solid #e4e8f0;
+    border-radius: 6px;
+    margin-bottom: 3px;
     font-size: 18px;
 }
-.points {
-    width: 7%;
-    text-align: center;
-    font-size: 18;
+.table-page-content .playerline .player {
+    white-space: nowrap;
 }
-.round {
-    width: 7%;
+.table-page-content .playerline .image {
+    width: 15%;
     text-align: center;
-    font-size: 18;
 }
-.image img {
-    width: 40px;
-    height: 40px;
+.table-page-content .playerline .rank {
+    width: 20px;
+    padding-left: 5px;
+}
+.table-page-content .playerline .round,
+.table-page-content .playerline .points {
+    width: 80px;
+    text-align: center;
+}
+.table-page-content .image img {
+    width: 50px;
+    height: 50px;
     padding: 0;
     border-radius: 50%;
     border: 2px solid #f7f9fc;
 }
-.headline > * {
+@media (max-width:768px) {
+    .table-page-content .headline .image,
+    .table-page-content .playerline .image {
+        width: 80px;
+    }
+    .table-page-content .headline .points,
+    .table-page-content .headline .round,
+    .table-page-content .playerline .points,
+    .table-page-content .playerline .round {
+        width: 50px;
+    }
+    .table-page-content .playerline .points,
+    .table-page-content .playerline .round,
+    .table-page-content .playerline .player,
+    .table-page-content .playerline .rank {
+        font-size: 16px;
+    }
+    .table-page-content .playerline {
+        padding-block: 10px;
+    }
+    .table-page-content .headline {
+        font-size: 12px;
+    }
+    .table-page-content .image img {
+        width: 40px;
+        height: 40px;
+    }
+}
+@media (max-width:350px) {
+    .table-page-content .headline .points,
+    .table-page-content .headline .round,
+    .table-page-content .playerline .points,
+    .table-page-content .playerline .round {
+        width: 40px;
+    }
+    .table-page-content .headline .image,
+    .table-page-content .playerline .image {
+        width: 60px;
+    }
+    .table-page-content .playerline .points,
+    .table-page-content .playerline .round,
+    .table-page-content .playerline .player,
+    .table-page-content .playerline .rank {
+        font-size: 14px;
+    }
+    .table-page-content .playerline {
+        padding-block: 8px;
+    }
+    .table-page-content .headline {
+        font-size: 11px;
+    }
+    .table-page-content .image img {
+        width: 30px;
+        height: 30px;
+    }
+}
+/* End Page Table Content */
+/* Start Player Profile Content */
+.player-profile-content .main-header .image {
+    margin-right: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #f7f9fc;
+    overflow: hidden;
+}
+.player-profile-content .main-header img {
+    width: 100%;
+    height: 100%;
+}
+.player-profile-content .rank {
+    width: 60px;
+    padding-left: 10px;
+    font-size: 18px;
+}
+.player-profile-content .date {
+    font-size: 18px;
+}
+.player-profile-content .score {
+    width: 10%;
+    text-align: center;
+    font-size: 18;
+    font-weight: bold;
+}
+.player-profile-content .round {
+    width: 10%;
+    text-align: center;
+    font-size: 18;
+}
+.player-profile-content .headline {
+    color: #505b73;
+    font-size: 14;
+}
+.player-profile-content .headline > * {
     font-size: 14;
     font-weight: normal;
     padding: 0 0 3 0;
 }
-@media (max-width:576px) {
-    .image {
-        width: 80px;
-    }
-    .points,
-    .round {
-        width: 50px;
-    }
-    .points,
-    .round,
-    .player,
-    .rank {
-        font-size: 16px;
-    }
-    .headline > * {
-        font-size: 12px;
-    }
-}
+
+/* End Player Profile Content */

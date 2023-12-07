@@ -25,6 +25,7 @@ const playersData = [
 const daysData = [
     {
         day: 1,
+        date: "Monday 04 December 2023",
         scores: {
             abdenoor_alvaro: 48,
             sahel_yacine: 58.5,
@@ -35,6 +36,7 @@ const daysData = [
         }
     },{
         day: 2,
+        date: "Tuesday 05 December 2023",
         scores: {
             abdenoor_alvaro: 39,
             sahel_yacine: 36,
@@ -45,16 +47,18 @@ const daysData = [
         } 
     },{
         day: 3,
+        date: "Wednesday 06 December 2023",
         scores: {
             abdenoor_alvaro: 49,
-            sahel_yacine: false,
-            bourmel_islem: false,
+            sahel_yacine: 62,
+            bourmel_islem: 48,
             boussebain_mahfoud: 72,
-            slimani_abdenoor: false,
+            slimani_abdenoor: 56,
             salem_youcef: false,
         }
     },{
         day: 4,
+        date: "Thursday 07 December 2023",
         scores: {
             abdenoor_alvaro: false,
             sahel_yacine: false,
@@ -65,6 +69,7 @@ const daysData = [
         }
     },{
         day: 5,
+        date: "Friday 08 December 2023",
         scores: {
             abdenoor_alvaro: false,
             sahel_yacine: false,
@@ -97,26 +102,48 @@ function capitalize(sentence) {
     return sentence.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
 }
 
-function generateHtmlTable(players) {
-    const htmlTableLocation = document.querySelector(".table")
+
+function smallScreenName(name) {
+    let splitedName = name.split(" ")
+    return splitedName[0][0] + ". " + splitedName[1]
+}
+function generateHtmlTablePage(players) {
+    const htmlTableLocation = document.querySelector(".content")
     const html = `
-    <div class="headline w-100 d-flex justify-content-between">
-        <span class="rank">Rank</span>
-        <span class="image"></span>
-        <span class="player flex-grow-1">Player</span>
-        <span class="round">Round</span>
-        <span class="points">Points</span>
+    <div class="table-page-content">
+        <div class="main-header fw-bold bg-primary py-5 fs-1 mb-5">
+            <div class="container ">
+                <div class="header">Game Of Life (Ranking)</div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="table w-100">
+                <div class="headline w-100 d-flex">
+                    <span class="rank">Rank</span>
+                    <span class="image"></span>
+                    <span class="player flex-grow-1">Player</span>
+                    <span class="round">Round</span>
+                    <span class="points">Points</span>
+                </div>
+                ${players.map(player => generatePlayerHtml(player)).join("")}
+            </div>
+        </div>
     </div>
-    ${players.map(player => generatePlayerHtml(player)).join("")}
     `
     htmlTableLocation.innerHTML = html
 }
 function generatePlayerHtml(player) {
+    let playerName = player.Name
+    console.log(screen.width < 786)
+    console.log(screen.width)
+    if (screen.width < 786) {
+        playerName = smallScreenName(player.Name)
+    }
     return `
-    <div class="playerline w-100 d-flex justify-content-between align-items-center bg-white py-3">
+    <div class="playerline w-100 d-flex justify-content-between align-items-center bg-white">
         <span class="rank fw-bold">${player.Rank}</span>
         <span class="image"><img src="images/${player.Image}" alt=""></span>
-        <span class="player flex-grow-1">${capitalize(player.Name)}</span>
+        <span class="player flex-grow-1">${capitalize(playerName)}</span>
         <span class="round">${player.Round}</span>
         <span class="points">${player.Points}</span>
     </div>
@@ -132,7 +159,7 @@ const sortedPlayers = [...players].sort((a, b) => b.Points - a.Points)
 sortedPlayers.forEach((player, index) => {
     player.Rank = index +1
 })
-generateHtmlTable(sortedPlayers)
+generateHtmlTablePage(sortedPlayers)
 // End Sorting and Printing
 
 
