@@ -60,10 +60,10 @@ const daysData = [
         day: 4,
         date: "Thursday 07 December 2023",
         scores: {
-            abdenoor_alvaro: false,
+            abdenoor_alvaro: 44.5,
             sahel_yacine: false,
-            bourmel_islem: false,
-            boussebain_mahfoud: false,
+            bourmel_islem: 50.5,
+            boussebain_mahfoud: 73.5,
             slimani_abdenoor: false,
             salem_youcef: false,
         }
