@@ -13,7 +13,6 @@ body {
 }
 
 
-
 .table-page-content .headline {
     color: #505b73;
     font-size: 14;
@@ -34,7 +33,7 @@ body {
 
 
 .table-page-content .playerline {
-    padding: 15px 10px;
+    padding: 10px 10px;
     border: 1px solid #e4e8f0;
     border-radius: 6px;
     margin-bottom: 3px;
@@ -42,6 +41,13 @@ body {
 }
 .table-page-content .playerline .player {
     white-space: nowrap;
+}
+.table-page-content .playerline .player .player-name {
+    cursor: pointer;
+}
+.table-page-content .playerline .player .player-name:hover {
+    color: #0070df;
+    text-decoration: underline;
 }
 .table-page-content .playerline .image {
     width: 15%;
@@ -62,6 +68,7 @@ body {
     padding: 0;
     border-radius: 50%;
     border: 2px solid #f7f9fc;
+    cursor: pointer;
 }
 @media (max-width:768px) {
     .table-page-content .headline .image,
@@ -133,33 +140,98 @@ body {
     width: 100%;
     height: 100%;
 }
-.player-profile-content .rank {
-    width: 60px;
-    padding-left: 10px;
-    font-size: 18px;
+.player-profile-content .main-header .header {
+    font-size: 30px;
 }
-.player-profile-content .date {
-    font-size: 18px;
-}
-.player-profile-content .score {
-    width: 10%;
-    text-align: center;
-    font-size: 18;
-    font-weight: bold;
-}
-.player-profile-content .round {
-    width: 10%;
-    text-align: center;
-    font-size: 18;
-}
+
+
 .player-profile-content .headline {
     color: #505b73;
     font-size: 14;
+    padding: 0px 10px 2px;
 }
-.player-profile-content .headline > * {
-    font-size: 14;
-    font-weight: normal;
-    padding: 0 0 3 0;
+.player-profile-content .headline .rank {
+    width: 60px;
+}
+.player-profile-content .headline .round,
+.player-profile-content .headline .score {
+    width: 80px;
+    text-align: center;
 }
 
+
+.player-profile-content .day-line {
+    padding: 15px 10px;
+    border: 1px solid #e4e8f0;
+    border-radius: 6px;
+    margin-bottom: 3px;
+    font-size: 18px;
+}
+.player-profile-content .day-line .date {
+    white-space: nowrap;
+}
+.player-profile-content .day-line .rank {
+    width: 60px;
+    padding-left: 5px;
+}
+.player-profile-content .day-line .round,
+.player-profile-content .day-line .score {
+    width: 80px;
+    text-align: center;
+}
+
+@media (max-width:768px) {
+    .player-profile-content .main-header .header {
+        font-size: 26px;
+    }
+    .player-profile-content .main-header .image {
+        margin-right: 15px;
+        width: 80px;
+        height: 80px;
+    }
+    .player-profile-content .headline .round,
+    .player-profile-content .headline .score,
+    .player-profile-content .day-line .round,
+    .player-profile-content .day-line .score {
+        width: 50px;
+    } 
+    .player-profile-content .day-line .rank,
+    .player-profile-content .day-line .date,
+    .player-profile-content .day-line .round,
+    .player-profile-content .day-line .score {
+        font-size: 16px;
+    }
+    .player-profile-content .headline {
+        font-size: 12;
+    }
+    .player-profile-content .day-line {
+        padding-block: 11px;
+    }
+}
+@media (max-width:350px) {
+    .player-profile-content .main-header .header {
+        font-size: 22px;
+    }
+    .player-profile-content .headline .round,
+    .player-profile-content .headline .score,
+    .player-profile-content .day-line .round,
+    .player-profile-content .day-line .score {
+        width: 40px;
+    }
+    .player-profile-content .day-line .rank,
+    .player-profile-content .day-line .date,
+    .player-profile-content .day-line .round,
+    .player-profile-content .day-line .score {
+        font-size: 14px;
+    }
+    .player-profile-content .headline {
+        font-size: 11;
+    }
+    .player-profile-content .headline .rank {
+        width: 40px;
+    }
+    .player-profile-content .day-line .rank {
+        width: 40px;
+    }
+}
 /* End Player Profile Content */

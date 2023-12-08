@@ -1,4 +1,24 @@
 
+// Start Global Functions 
+const currentPage = window.location.pathname;
+console.log(currentPage)
+let idCounter = 2002
+function generateUniqueId() {
+    return "id" + idCounter++
+}
+function capitalize(sentence) {
+    return sentence.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+}
+function smallScreenName(name) {
+    let splitedName = name.split(" ")
+    return splitedName[0][0] + ". " + splitedName[1]
+}
+function smallScreenDate(date) {
+    let dateArray = date.split(" ")
+    const smallDate = `${dateArray[1]} ${dateArray[2].slice(0, 3).toUpperCase()} ${dateArray[3]}`
+    return smallDate
+}
+// End Global Functions 
 // Start Data
 class Player {
     constructor(name, image) {
@@ -6,6 +26,7 @@ class Player {
         this.Image = image
         this.Round = 0
         this.Points = 0
+        this.Id = generateUniqueId()
     }
     newRound(roundPoints) {
         this.Round += 1
@@ -49,7 +70,7 @@ const daysData = [
         day: 3,
         date: "Wednesday 06 December 2023",
         scores: {
-            abdenoor_alvaro: 49,
+            abdenoor_alvaro: 50,
             sahel_yacine: 62,
             bourmel_islem: 48,
             boussebain_mahfoud: 72,
@@ -71,7 +92,7 @@ const daysData = [
         day: 5,
         date: "Friday 08 December 2023",
         scores: {
-            abdenoor_alvaro: false,
+            abdenoor_alvaro: 55,
             sahel_yacine: false,
             bourmel_islem: false,
             boussebain_mahfoud: false,
@@ -81,6 +102,7 @@ const daysData = [
     },
 ]
 // End Data
+// Start Table Page
 // Start Functions
 function calculatePoints(players, daysData) {
     for (const player of players) {
@@ -97,20 +119,10 @@ function calculatePoints(players, daysData) {
     }
 }
 
-
-function capitalize(sentence) {
-    return sentence.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
-}
-
-
-function smallScreenName(name) {
-    let splitedName = name.split(" ")
-    return splitedName[0][0] + ". " + splitedName[1]
-}
 function generateHtmlTablePage(players) {
     const htmlTableLocation = document.querySelector(".content")
     const html = `
-    <div class="table-page-content">
+    <div class="table-page-content pb-3">
         <div class="main-header fw-bold bg-primary py-5 fs-1 mb-5">
             <div class="container ">
                 <div class="header">Game Of Life (Ranking)</div>
@@ -132,18 +144,17 @@ function generateHtmlTablePage(players) {
     `
     htmlTableLocation.innerHTML = html
 }
+
 function generatePlayerHtml(player) {
     let playerName = player.Name
-    console.log(screen.width < 786)
-    console.log(screen.width)
     if (screen.width < 786) {
         playerName = smallScreenName(player.Name)
     }
     return `
     <div class="playerline w-100 d-flex justify-content-between align-items-center bg-white">
         <span class="rank fw-bold">${player.Rank}</span>
-        <span class="image"><img src="images/${player.Image}" alt=""></span>
-        <span class="player flex-grow-1">${capitalize(playerName)}</span>
+        <span class="image"><img class="generateProfile" id="${player.Id}" src="images/${player.Image}" alt=""></span>
+        <span class="player flex-grow-1"><span class="player-name p-0 generateProfile" id="${player.Id}">${capitalize(playerName)}</span></span>
         <span class="round">${player.Round}</span>
         <span class="points">${player.Points}</span>
     </div>
@@ -161,8 +172,93 @@ sortedPlayers.forEach((player, index) => {
 })
 generateHtmlTablePage(sortedPlayers)
 // End Sorting and Printing
+// End Table Page
 
 
+
+
+// Start Player Profile
+
+const clickedPlayer = document.querySelectorAll(".generateProfile");
+clickedPlayer.forEach(element => {
+    element.addEventListener("click", () => window.location.href = `player-profile.html?id=${element.id}`);
+});
+let gameContent = document.querySelector(".gameGenerateJs")
+const urlParams = new URLSearchParams(window.location.search);
+const gameId = urlParams.get('id');
+
+
+function generateProfilePage(id) {
+    let player = ""
+    for (let i = 0; i < players.length; i++) {
+        if (players[i].Id === id) {
+            player = players[i]
+        }
+    }
+    let playerName = player.Name
+    if (screen.width < 786) {
+        playerName = smallScreenName(player.Name)
+    }
+    const htmlTableLocation = document.querySelector(".content")
+    const pageHtml = `
+    <div class="player-profile-content pb-3">
+        <div class="main-header fw-bold bg-primary py-5 mb-5">
+            <div class="container d-flex align-items-center">
+                <div class="image"><img src="images/${player.Image}" alt=""></div>
+                <div class="header">${capitalize(playerName)}</div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="table w-100">
+                <div class="headline w-100 d-flex">
+                    <span class="rank">rank</span>
+                    <span class="date flex-grow-1">Date</span>
+                    <span class="round">Round</span>
+                    <span class="score">Score</span>
+                </div>
+                ${generateDayHtml(player)}
+            </div>
+        </div>
+    </div>
+    `
+    htmlTableLocation.innerHTML = pageHtml
+}
+function generateDayHtml(player) {
+    let div = document.createElement("div")
+
+    let playerName = player.Name
+    if (player.Name.split(" ").length > 1) {
+        playerName = player.Name.split(" ").join("_")
+    }
+
+    for (let i = 1; i <= daysData.length;i++){
+        let date = daysData[daysData.length - i].date
+        if (screen.width < 786) {
+            date = smallScreenDate(daysData[daysData.length - i].date)
+        }
+
+        const scores = daysData[daysData.length - i].scores
+        let score 
+        if (scores[playerName]) {
+            score = scores[playerName]
+            div.innerHTML += `
+            <div class="day-line d-flex align-items-center bg-white">
+                <span class="rank fw-bold">1</span>
+                <span class="date flex-grow-1">${date}</span>
+                <span class="round">${daysData[daysData.length - i].day}</span>
+                <span class="score">${score}</span>
+            </div>
+            `
+        }
+    }
+    return div.innerHTML
+}
+if (currentPage.includes("player-profile.html")) {
+    generateProfilePage(gameId)
+}
+
+
+// End Player Profile
 
 
 
