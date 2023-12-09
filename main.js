@@ -99,6 +99,72 @@ const daysData = [
             slimani_abdenoor: 27,
             salem_youcef: false,
         }
+    },{
+        day: 6,
+        date: "Saturday 09 December 2023",
+        scores: {
+            abdenoor_alvaro: 20,
+            sahel_yacine: false,
+            bourmel_islem: false,
+            boussebain_mahfoud: false,
+            slimani_abdenoor: false,
+            salem_youcef: false,
+        }
+    },{
+        day: 7,
+        date: "Sunday 10 December 2023",
+        scores: {
+            abdenoor_alvaro: false,
+            sahel_yacine: false,
+            bourmel_islem: false,
+            boussebain_mahfoud: false,
+            slimani_abdenoor: false,
+            salem_youcef: false,
+        }
+    },{
+        day: 8,
+        date: "Monday 11 December 2023",
+        scores: {
+            abdenoor_alvaro: false,
+            sahel_yacine: false,
+            bourmel_islem: false,
+            boussebain_mahfoud: false,
+            slimani_abdenoor: false,
+            salem_youcef: false,
+        }
+    },{
+        day: 9,
+        date: "Tuesday 12 December 2023",
+        scores: {
+            abdenoor_alvaro: false,
+            sahel_yacine: false,
+            bourmel_islem: false,
+            boussebain_mahfoud: false,
+            slimani_abdenoor: false,
+            salem_youcef: false,
+        }
+    },{
+        day: 10,
+        date: "Wednesday 13 December 2023",
+        scores: {
+            abdenoor_alvaro: false,
+            sahel_yacine: false,
+            bourmel_islem: false,
+            boussebain_mahfoud: false,
+            slimani_abdenoor: false,
+            salem_youcef: false,
+        }
+    },{
+        day: 11,
+        date: "Thursday 14 December 2023",
+        scores: {
+            abdenoor_alvaro: false,
+            sahel_yacine: false,
+            bourmel_islem: false,
+            boussebain_mahfoud: false,
+            slimani_abdenoor: false,
+            salem_youcef: false,
+        }
     },
 ]
 // End Data
