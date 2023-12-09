@@ -107,7 +107,7 @@ const daysData = [
             sahel_yacine: false,
             bourmel_islem: false,
             boussebain_mahfoud: false,
-            slimani_abdenoor: false,
+            slimani_abdenoor: 42,
             salem_youcef: false,
         }
     },{
