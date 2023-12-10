@@ -156,7 +156,7 @@ body {
 }
 .player-profile-content .headline .round,
 .player-profile-content .headline .score {
-    width: 80px;
+    width: 90px;
     text-align: center;
 }
 
@@ -177,10 +177,30 @@ body {
 }
 .player-profile-content .day-line .round,
 .player-profile-content .day-line .score {
-    width: 80px;
+    width: 90px;
     text-align: center;
+    position: relative;
 }
-
+.player-profile-content .day-line .first-icon::after {
+    font-family: 'FontAwesome'; 
+    content: '\f005'; 
+    color: #ffff00;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.player-profile-content .day-line .best-ever::after {
+    content: '';
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    background-image: url('../images/pngegg.png');
+    background-size: cover;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+}
 @media (max-width:768px) {
     .player-profile-content .main-header .header {
         font-size: 26px;
@@ -194,7 +214,7 @@ body {
     .player-profile-content .headline .score,
     .player-profile-content .day-line .round,
     .player-profile-content .day-line .score {
-        width: 50px;
+        width: 60px;
     } 
     .player-profile-content .day-line .rank,
     .player-profile-content .day-line .date,
@@ -208,6 +228,15 @@ body {
     .player-profile-content .day-line {
         padding-block: 11px;
     }
+    .player-profile-content .day-line .first-icon::after {
+        right: -5;
+        font-size: 14;
+    }
+    .player-profile-content .day-line .best-ever::after {
+        right: -5;
+        width: 18px;
+        height: 18px;
+    }
 }
 @media (max-width:350px) {
     .player-profile-content .main-header .header {
@@ -217,7 +246,7 @@ body {
     .player-profile-content .headline .score,
     .player-profile-content .day-line .round,
     .player-profile-content .day-line .score {
-        width: 40px;
+        width: 50px;
     }
     .player-profile-content .day-line .rank,
     .player-profile-content .day-line .date,
@@ -233,6 +262,15 @@ body {
     }
     .player-profile-content .day-line .rank {
         width: 40px;
+    }
+    .player-profile-content .day-line .first-icon::after {
+        right: -7;
+        font-size: 12;
+    }
+    .player-profile-content .day-line .best-ever::after {
+        right: -8;
+        width: 18px;
+        height: 18px;
     }
 }
 /* End Player Profile Content */

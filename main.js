@@ -54,7 +54,8 @@ const daysData = [
             boussebain_mahfoud: 66,
             slimani_abdenoor: 45,
             salem_youcef: 33,
-        }
+        },
+        bestScore:""
     },{
         day: 2,
         date: "Tuesday 05 December 2023",
@@ -65,7 +66,8 @@ const daysData = [
             boussebain_mahfoud: 52,
             slimani_abdenoor: 37,
             salem_youcef: 17,
-        } 
+        },
+        bestScore:""
     },{
         day: 3,
         date: "Wednesday 06 December 2023",
@@ -76,7 +78,8 @@ const daysData = [
             boussebain_mahfoud: 72,
             slimani_abdenoor: 56,
             salem_youcef: false,
-        }
+        },
+        bestScore:""
     },{
         day: 4,
         date: "Thursday 07 December 2023",
@@ -87,7 +90,8 @@ const daysData = [
             boussebain_mahfoud: 73.5,
             slimani_abdenoor: 49,
             salem_youcef: false,
-        }
+        },
+        bestScore:""
     },{
         day: 5,
         date: "Friday 08 December 2023",
@@ -98,7 +102,8 @@ const daysData = [
             boussebain_mahfoud: 66,
             slimani_abdenoor: 27,
             salem_youcef: false,
-        }
+        },
+        bestScore:""
     },{
         day: 6,
         date: "Saturday 09 December 2023",
@@ -109,7 +114,8 @@ const daysData = [
             boussebain_mahfoud: 72,
             slimani_abdenoor: 42,
             salem_youcef: false,
-        }
+        },
+        bestScore:""
     },{
         day: 7,
         date: "Sunday 10 December 2023",
@@ -120,7 +126,8 @@ const daysData = [
             boussebain_mahfoud: false,
             slimani_abdenoor: false,
             salem_youcef: false,
-        }
+        },
+        bestScore:""
     },{
         day: 8,
         date: "Monday 11 December 2023",
@@ -131,7 +138,8 @@ const daysData = [
             boussebain_mahfoud: false,
             slimani_abdenoor: false,
             salem_youcef: false,
-        }
+        },
+        bestScore:""
     },{
         day: 9,
         date: "Tuesday 12 December 2023",
@@ -142,7 +150,8 @@ const daysData = [
             boussebain_mahfoud: false,
             slimani_abdenoor: false,
             salem_youcef: false,
-        }
+        },
+        bestScore:""
     },{
         day: 10,
         date: "Wednesday 13 December 2023",
@@ -153,7 +162,8 @@ const daysData = [
             boussebain_mahfoud: false,
             slimani_abdenoor: false,
             salem_youcef: false,
-        }
+        },
+        bestScore:""
     },{
         day: 11,
         date: "Thursday 14 December 2023",
@@ -164,12 +174,62 @@ const daysData = [
             boussebain_mahfoud: false,
             slimani_abdenoor: false,
             salem_youcef: false,
-        }
+        },
+        bestScore:""
     },
 ]
+const highestValdue = [{
+    value: false,
+    player: false,
+    day:false
+}]
 // End Data
 // Start Table Page
 // Start Functions
+let highestScore = -1
+let highestScorePlayers = []
+function gettingBestScore(daysData) {
+    
+    for (const day of daysData) {
+        let bestValue = -1
+        let bestValuePlayer = []
+        const scores = Object.values(day.scores)
+        const players = Object.keys(day.scores)
+        for (let i = 0; i < scores.length; i++) {
+            if (scores[i] > bestValue && scores[i] !== false) {
+                bestValue = scores[i]
+                bestValuePlayer = []
+                bestValuePlayer.push(players[i])
+            } else if (scores[i] === bestValue) {
+                bestValuePlayer.push(players[i])
+            }
+
+            if (scores[i] > highestScore && scores[i] !== false) {
+                highestScore = scores[i]
+                highestScorePlayers = []
+                highestScorePlayers.push({
+                    value: scores[i],
+                    player: players[i],
+                    day:day.day
+                })
+            } else if (scores[i] === highestScore) {
+                highestScorePlayers.push({
+                    value: scores[i],
+                    player: players[i],
+                    day:day.day
+                })
+            }
+        }
+        if (day.bestScore !== undefined) {
+            day.bestScore = bestValuePlayer
+        }
+    }
+    // 
+    // console.log(bestValueOfAllTimePlayers)
+}
+gettingBestScore(daysData)
+console.log(highestScorePlayers)
+
 function calculatePoints(players, daysData) {
     for (const player of players) {
         let playerName = player.Name
@@ -298,7 +358,21 @@ function generateDayHtml(player) {
         playerName = player.Name.split(" ").join("_")
     }
 
-    for (let i = 1; i <= daysData.length;i++){
+    for (let i = 1; i <= daysData.length; i++){
+        let firstIcon = ""
+        let day = daysData[daysData.length - i].day
+        const bestScoreArray = daysData[daysData.length - i].bestScore
+        for (const best of bestScoreArray) {
+            if (best === playerName) {
+                firstIcon = "first-icon"
+            }
+        }
+
+        for (const highest of highestScorePlayers) {
+            if (highest.player === playerName && highest.day === day) {
+                firstIcon = "best-ever"
+            }
+        }
         let date = daysData[daysData.length - i].date
         if (screen.width < 786) {
             date = smallScreenDate(daysData[daysData.length - i].date)
@@ -313,7 +387,7 @@ function generateDayHtml(player) {
                 <span class="rank fw-bold">1</span>
                 <span class="date flex-grow-1">${date}</span>
                 <span class="round">${daysData[daysData.length - i].day}</span>
-                <span class="score">${score}</span>
+                <span class="score ${firstIcon}">${score}</span>
             </div>
             `
         }
