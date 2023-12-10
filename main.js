@@ -104,7 +104,7 @@ const daysData = [
         date: "Saturday 09 December 2023",
         scores: {
             abdenoor_alvaro: 20,
-            sahel_yacine: false,
+            sahel_yacine: 59.5,
             bourmel_islem: false,
             boussebain_mahfoud: false,
             slimani_abdenoor: 42,
@@ -220,7 +220,7 @@ function generatePlayerHtml(player) {
     <div class="playerline w-100 d-flex justify-content-between align-items-center bg-white">
         <span class="rank fw-bold">${player.Rank}</span>
         <span class="image"><img class="generateProfile" id="${player.Id}" src="images/${player.Image}" alt=""></span>
-        <span class="player flex-grow-1"><span class="player-name p-0 generateProfile" id="${player.Id}">${capitalize(playerName)}</span></span>
+        <span class="player flex-grow-1"><a href="player-profile.html?id=${player.Id}"class="player-name p-0 generateProfile" id="${player.Id}">${capitalize(playerName)}</a></span>
         <span class="round">${player.Round}</span>
         <span class="points">${player.Points}</span>
     </div>
@@ -265,6 +265,7 @@ function generateProfilePage(id) {
     if (screen.width < 786) {
         playerName = smallScreenName(player.Name)
     }
+    document.querySelector('title').textContent = `${playerName}`
     const htmlTableLocation = document.querySelector(".content")
     const pageHtml = `
     <div class="player-profile-content pb-3">
