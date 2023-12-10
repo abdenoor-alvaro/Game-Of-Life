@@ -106,7 +106,7 @@ const daysData = [
             abdenoor_alvaro: 20,
             sahel_yacine: 59.5,
             bourmel_islem: false,
-            boussebain_mahfoud: false,
+            boussebain_mahfoud: 72,
             slimani_abdenoor: 42,
             salem_youcef: false,
         }
