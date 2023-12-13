@@ -40,7 +40,6 @@ const playersData = [
     {name:"slimani abdenoor",image: "slimani.jpg"},
     {name:"abdenoor alvaro",image: "abdenoor.jpg"},
     {name:"sahel yacine",image: "yacine.jpg"},
-    {name:"salem youcef",image: "youcef.jpg"},
 ]
 
 const daysData = [
@@ -144,11 +143,11 @@ const daysData = [
         day: 9,
         date: "Tuesday 12 December 2023",
         scores: {
-            abdenoor_alvaro: 75,
-            sahel_yacine: false,
+            abdenoor_alvaro: 93,
+            sahel_yacine: 49.5,
             bourmel_islem: 44.5,
             boussebain_mahfoud: 81,
-            slimani_abdenoor: false,
+            slimani_abdenoor: 48,
             salem_youcef: false,
         },
         bestScore:""
@@ -156,11 +155,11 @@ const daysData = [
         day: 10,
         date: "Wednesday 13 December 2023",
         scores: {
-            abdenoor_alvaro: false,
-            sahel_yacine: false,
+            abdenoor_alvaro: 52,
+            sahel_yacine: 70.5,
             bourmel_islem: false,
-            boussebain_mahfoud: false,
-            slimani_abdenoor: false,
+            boussebain_mahfoud: 72,
+            slimani_abdenoor: 59,
             salem_youcef: false,
         },
         bestScore:""
@@ -296,7 +295,9 @@ const sortedPlayers = [...players].sort((a, b) => b.Points - a.Points)
 sortedPlayers.forEach((player, index) => {
     player.Rank = index +1
 })
-generateHtmlTablePage(sortedPlayers)
+if (currentPage.includes("index.html") || currentPage === "/") {
+    generateHtmlTablePage(sortedPlayers)
+}
 // End Sorting and Printing
 // End Table Page
 
