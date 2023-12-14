@@ -3,6 +3,7 @@
 const currentPage = window.location.pathname;
 console.log(currentPage)
 let idCounter = 2002
+
 function generateUniqueId() {
     return "id" + idCounter++
 }
@@ -27,10 +28,12 @@ class Player {
         this.Round = 0
         this.Points = 0
         this.Id = generateUniqueId()
+        this.Score = []
     }
-    newRound(roundPoints) {
+    newRound(roundPoints, roundNumber) {
         this.Round += 1
         this.Points += roundPoints
+        this.Score.push({roundNumber:roundNumber,roundScore:roundPoints})
     }
 }
 
@@ -52,7 +55,6 @@ const daysData = [
             bourmel_islem: 47,
             boussebain_mahfoud: 66,
             slimani_abdenoor: 45,
-            salem_youcef: 33,
         },
         bestScore:""
     },{
@@ -64,7 +66,6 @@ const daysData = [
             bourmel_islem: 45.5,
             boussebain_mahfoud: 52,
             slimani_abdenoor: 37,
-            salem_youcef: 17,
         },
         bestScore:""
     },{
@@ -76,7 +77,6 @@ const daysData = [
             bourmel_islem: 48,
             boussebain_mahfoud: 72,
             slimani_abdenoor: 56,
-            salem_youcef: false,
         },
         bestScore:""
     },{
@@ -88,7 +88,6 @@ const daysData = [
             bourmel_islem: 50.5,
             boussebain_mahfoud: 73.5,
             slimani_abdenoor: 49,
-            salem_youcef: false,
         },
         bestScore:""
     },{
@@ -100,7 +99,6 @@ const daysData = [
             bourmel_islem: 34,
             boussebain_mahfoud: 66,
             slimani_abdenoor: 27,
-            salem_youcef: false,
         },
         bestScore:""
     },{
@@ -112,7 +110,6 @@ const daysData = [
             bourmel_islem: 41,
             boussebain_mahfoud: 72,
             slimani_abdenoor: 42,
-            salem_youcef: false,
         },
         bestScore:""
     },{
@@ -124,7 +121,6 @@ const daysData = [
             bourmel_islem: 22,
             boussebain_mahfoud: 68,
             slimani_abdenoor: 50,
-            salem_youcef: false,
         },
         bestScore:""
     },{
@@ -136,7 +132,6 @@ const daysData = [
             bourmel_islem: 32,
             boussebain_mahfoud: 103,
             slimani_abdenoor: 27,
-            salem_youcef: false,
         },
         bestScore:""
     },{
@@ -148,7 +143,6 @@ const daysData = [
             bourmel_islem: 44.5,
             boussebain_mahfoud: 81,
             slimani_abdenoor: 48,
-            salem_youcef: false,
         },
         bestScore:""
     },{
@@ -160,19 +154,17 @@ const daysData = [
             bourmel_islem: 83.5,
             boussebain_mahfoud: 72,
             slimani_abdenoor: 59,
-            salem_youcef: false,
         },
         bestScore:""
     },{
         day: 11,
         date: "Thursday 14 December 2023",
         scores: {
-            abdenoor_alvaro: false,
-            sahel_yacine: false,
-            bourmel_islem: false,
-            boussebain_mahfoud: false,
+            abdenoor_alvaro: 66,
+            sahel_yacine: 67,
+            bourmel_islem: 70,
+            boussebain_mahfoud: 79,
             slimani_abdenoor: false,
-            salem_youcef: false,
         },
         bestScore:""
     },
@@ -188,7 +180,6 @@ const highestValdue = [{
 let highestScore = -1
 let highestScorePlayers = []
 function gettingBestScore(daysData) {
-    
     for (const day of daysData) {
         let bestValue = -1
         let bestValuePlayer = []
@@ -223,11 +214,8 @@ function gettingBestScore(daysData) {
             day.bestScore = bestValuePlayer
         }
     }
-    // 
-    // console.log(bestValueOfAllTimePlayers)
 }
 gettingBestScore(daysData)
-console.log(highestScorePlayers)
 
 function calculatePoints(players, daysData) {
     for (const player of players) {
@@ -238,13 +226,13 @@ function calculatePoints(players, daysData) {
         for (const day of daysData) {
             const scores = day.scores
             if (scores[playerName]) {
-                player.newRound(scores[playerName])
+                player.newRound(scores[playerName],day.day)
             }
         }
     }
 }
 
-function generateHtmlTablePage(players) {
+function generateHtmlTablePage(sortedPlayers) {
     const htmlTableLocation = document.querySelector(".content")
     const html = `
     <div class="table-page-content pb-3">
@@ -262,7 +250,7 @@ function generateHtmlTablePage(players) {
                     <span class="round">Round</span>
                     <span class="points">Points</span>
                 </div>
-                ${players.map(player => generatePlayerHtml(player)).join("")}
+                ${sortedPlayers.map(player => generatePlayerHtml(player)).join("")}
             </div>
         </div>
     </div>
@@ -300,7 +288,6 @@ if (currentPage.includes("index.html") || currentPage === "/Game-Of-Life/") {
 }
 // End Sorting and Printing
 // End Table Page
-
 
 
 
@@ -398,9 +385,88 @@ function generateDayHtml(player) {
 if (currentPage.includes("player-profile.html")) {
     generateProfilePage(gameId)
 }
-
-
 // End Player Profile
+// Start Rounds Page
+function generateRoundPage() {
+    const htmlLocation = document.querySelector(".content")
+    for (const round of daysData) {
+        let date = round.date
+        if (screen.width < 786) {
+            date = smallScreenDate(round.date)
+        }
+        const div = document.createElement("div")
+        const scoresKeys = Object.keys(round.scores)
+        const scoresValues = Object.values(round.scores)
+        const list = []
+        
+        for (let i = 0; i < scoresValues.length; i++) {
+            if (scoresValues[i] !== false) {
+                list.push({point: scoresValues[i], name:scoresKeys[i]})
+            }
+        }
+        if (list.length === 0) {
+            continue
+        }
+        let sortedList = list.sort((a, b) => b.point - a.point)
+        const roundPageHtml = `
+        <div class="round">
+                <div class="round-header container">Round ${round.day} <span>(${date})</span></div>
+                <div class="round-body">
+                    <div class="table-page-content pb-3">
+                        <div class="container">
+                            <div class="table w-100 m-0">
+                                <div class="headline w-100 d-flex">
+                                    <span class="rank">Rank</span>
+                                    <span class="image"></span>
+                                    <span class="player flex-grow-1">Player</span>
+                                    <span class="points">Points</span>
+                                </div>
+                            </div>
+                            ${generatePlayerHtmlOnRoundsPage(sortedList) }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `
+        div.innerHTML = roundPageHtml
+        htmlLocation.prepend(div) 
+    }
+    
+}
+function generatePlayerHtmlOnRoundsPage(sortedList) {
+    let roundTable =``
+    let rank = 1
+    for (let x = 0; x < sortedList.length; x++){
+        let player
+        playerName = sortedList[x].name.split("_").join(" ")
+        
+        console.log(sortedList[x].name)
+        for (let i = 0; i < players.length; i++) {
+            if (players[i].Name === playerName) {
+                player = players[i]
+            }
+        }
+
+        if (screen.width < 786) {
+            playerName = smallScreenName(playerName)
+        }
+
+        roundTable += `
+        <div class="playerline w-100 d-flex justify-content-between align-items-center bg-white">
+            <span class="rank fw-bold">${rank}</span>
+            <span class="image"><img class="generateProfile" id="${player.Id}" src="images/${player.Image}" alt=""></span>
+            <span class="player flex-grow-1"><a href="player-profile.html?id=${player.Id}"class="player-name p-0 generateProfile" id="${player.Id}">${playerName}</a></span>
+            <span class="points">${sortedList[x].point}</span>
+        </div>
+        `
+        rank += 1
+    }
+    return roundTable
+}
+if (currentPage.includes("rounds.html")) {
+    generateRoundPage(playersData)
+}
+// End Rounds Page
 
 
 
