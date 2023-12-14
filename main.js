@@ -295,7 +295,7 @@ const sortedPlayers = [...players].sort((a, b) => b.Points - a.Points)
 sortedPlayers.forEach((player, index) => {
     player.Rank = index +1
 })
-if (currentPage.includes("index.html") || currentPage === "/") {
+if (currentPage.includes("index.html") || currentPage === "/Game-Of-Life/") {
     generateHtmlTablePage(sortedPlayers)
 }
 // End Sorting and Printing
