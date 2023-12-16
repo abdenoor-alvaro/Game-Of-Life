@@ -196,7 +196,7 @@ const daysData = [
         day: 13,
         date: "Saturday 16 December 2023",
         scores: {
-            abdenoor_alvaro: false,
+            abdenoor_alvaro: 42,
             sahel_yacine: false,
             bourmel_islem: false,
             boussebain_mahfoud: false,
