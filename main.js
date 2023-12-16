@@ -29,11 +29,25 @@ class Player {
         this.Points = 0
         this.Id = generateUniqueId()
         this.Score = []
+        this.Stars = 0
     }
     newRound(roundPoints, roundNumber) {
         this.Round += 1
         this.Points += roundPoints
-        this.Score.push({roundNumber:roundNumber,roundScore:roundPoints})
+        this.Score.push({ roundNumber: roundNumber, roundScore: roundPoints })
+    }
+    calculatePlayerStats() {
+        this.bestScore = 0
+        this.lowestScore = 500
+        this.average = this.Points / this.Round
+        for (let round of this.Score) {
+            if (round.roundScore > this.bestScore) {
+                this.bestScore = round.roundScore
+            }
+            if (round.roundScore < this.lowestScore) {
+                this.lowestScore = round.roundScore
+            }
+        }
     }
 }
 
@@ -167,6 +181,83 @@ const daysData = [
             slimani_abdenoor: false,
         },
         bestScore:""
+    },{
+        day: 12,
+        date: "Friday 15 December 2023",
+        scores: {
+            abdenoor_alvaro: 47,
+            sahel_yacine: false,
+            bourmel_islem: 66,
+            boussebain_mahfoud: 110,
+            slimani_abdenoor: false,
+        },
+        bestScore:""
+    },{
+        day: 13,
+        date: "Saturday 16 December 2023",
+        scores: {
+            abdenoor_alvaro: false,
+            sahel_yacine: false,
+            bourmel_islem: false,
+            boussebain_mahfoud: false,
+            slimani_abdenoor: false,
+        },
+        bestScore:""
+    },{
+        day: 14,
+        date: "Sunday 17 December 2023",
+        scores: {
+            abdenoor_alvaro: false,
+            sahel_yacine: false,
+            bourmel_islem: false,
+            boussebain_mahfoud: false,
+            slimani_abdenoor: false,
+        },
+        bestScore:""
+    },{
+        day: 15,
+        date: "Monday 18 December 2023",
+        scores: {
+            abdenoor_alvaro: false,
+            sahel_yacine: false,
+            bourmel_islem: false,
+            boussebain_mahfoud: false,
+            slimani_abdenoor: false,
+        },
+        bestScore:""
+    },{
+        day: 16,
+        date: "Tuesday 19 December 2023",
+        scores: {
+            abdenoor_alvaro: false,
+            sahel_yacine: false,
+            bourmel_islem: false,
+            boussebain_mahfoud: false,
+            slimani_abdenoor: false,
+        },
+        bestScore:""
+    },{
+        day: 17,
+        date: "Wednesday 20 December 2023",
+        scores: {
+            abdenoor_alvaro: false,
+            sahel_yacine: false,
+            bourmel_islem: false,
+            boussebain_mahfoud: false,
+            slimani_abdenoor: false,
+        },
+        bestScore:""
+    },{
+        day: 18,
+        date: "Thursday 21 December 2023",
+        scores: {
+            abdenoor_alvaro: false,
+            sahel_yacine: false,
+            bourmel_islem: false,
+            boussebain_mahfoud: false,
+            slimani_abdenoor: false,
+        },
+        bestScore:""
     },
 ]
 const highestValdue = [{
@@ -229,16 +320,16 @@ function calculatePoints(players, daysData) {
                 player.newRound(scores[playerName],day.day)
             }
         }
+        player.calculatePlayerStats()
     }
 }
-
 function generateHtmlTablePage(sortedPlayers) {
     const htmlTableLocation = document.querySelector(".content")
     const html = `
-    <div class="table-page-content pb-3">
+    <div class="table-page-content">
         <div class="main-header fw-bold bg-primary py-5 fs-1 mb-5">
             <div class="container ">
-                <div class="header">Game Of Life (Ranking)</div>
+                <div class="header">Overall Ranking</div>
             </div>
         </div>
         <div class="container">
@@ -290,7 +381,6 @@ if (currentPage.includes("index.html") || currentPage === "/Game-Of-Life/") {
 // End Table Page
 
 
-
 // Start Player Profile
 
 const clickedPlayer = document.querySelectorAll(".generateProfile");
@@ -316,10 +406,10 @@ function generateProfilePage(id) {
     document.querySelector('title').textContent = `${playerName}`
     const htmlTableLocation = document.querySelector(".content")
     const pageHtml = `
-    <div class="player-profile-content pb-3">
+    <div class="player-profile-content">
         <div class="main-header fw-bold bg-primary py-5 mb-5">
             <div class="container d-flex align-items-center">
-                <div class="image"><img src="images/${player.Image}" alt=""></div>
+                <div class="image"><img src="images/${player.Image}" alt="" class="thumbnail" onclick="openImage('images/${player.Image}')"></div>
                 <div class="header">${capitalize(playerName)}</div>
             </div>
         </div>
@@ -332,10 +422,33 @@ function generateProfilePage(id) {
                     <span class="score">Score</span>
                 </div>
                 ${generateDayHtml(player)}
+                <hr>
+                <div class="player-stats">
+                    <div class="player-stats-header">${capitalize(playerName).split(" ")[1]}'s <span>Stats</span> </div>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="value">${player.bestScore}</div>
+                            <div class="description">Best Score</div>
+                        </div>
+                        <div class="stat">
+                            <div class="value">${player.average.toFixed(2)}</div>
+                            <div class="description">Average</div>
+                        </div>
+                        <div class="stat">
+                            <div class="value">${player.lowestScore}</div>
+                            <div class="description">Lowest Score</div>
+                        </div>
+                        <div class="stat">
+                            <div class="value">${player.Stars}</div>
+                            <div class="description">Stars</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     `
+    
     htmlTableLocation.innerHTML = pageHtml
 }
 function generateDayHtml(player) {
@@ -353,6 +466,7 @@ function generateDayHtml(player) {
         for (const best of bestScoreArray) {
             if (best === playerName) {
                 firstIcon = "first-icon"
+                player.Stars += 1
             }
         }
 
@@ -412,7 +526,7 @@ function generateRoundPage() {
         <div class="round">
                 <div class="round-header container">Round ${round.day} <span>(${date})</span></div>
                 <div class="round-body">
-                    <div class="table-page-content pb-3">
+                    <div class="table-page-content">
                         <div class="container">
                             <div class="table w-100 m-0">
                                 <div class="headline w-100 d-flex">
@@ -471,4 +585,14 @@ if (currentPage.includes("rounds.html")) {
 
 
 
+function openImage(imageSrc) {
+    const fullscreen = document.getElementById('fullscreen');
+    const fullscreenImage = document.getElementById('fullscreen-image');
+    fullscreenImage.src = imageSrc;
+    fullscreen.style.display = 'block';
+}
+function closeFullscreen() {
+    const fullscreen = document.getElementById('fullscreen');
+    fullscreen.style.display = 'none';
+}
 

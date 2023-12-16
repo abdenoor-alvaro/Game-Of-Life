@@ -13,13 +13,40 @@
 </head>
 <body>
     <!-- Start Header -->
-    <div class="content">
-        
-    </div> 
-    <!-- <a href="/dd" onclick="navigateTo('/dd'); return false;">Home</a>
-    <a href="/contact" onclick="navigateTo('/contact'); return false;">Contact</a> -->
-
+    <header>
+        <div class="container">
+            <div class="logo"><a href="index.html">GAME OF LIFE</a></div>
+            <input type="checkbox" id="burger">
+            <label class="burger" for="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rounds.html">Rounds</a></li>
+                <li><a href="all-news.html">Rules</a></li>
+                <li><a href="Players.html">Players</a></li>
+            </ul>
+        </div>
+    </header>
     <!-- End Header -->
+
+    <div class="content">
+                
+    </div> 
+
+
+    <div class="fullscreen" id="fullscreen">
+        <span class="close" onclick="closeFullscreen()">&times;</span>
+        <img src="" alt="Fullscreen Image" class="fullscreen-image"id="fullscreen-image">
+    </div>
+    <div class="fullscreenHighlightNT" id="fullscreenHighlightNT">
+        <span class="closee" onclick="closeFullscreenn()">&times;</span>
+        Highlight Not Available
+    </div>
+
+
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="main.js"></script>
 </body>

@@ -1,9 +1,160 @@
 body {
     font-family: "Roboto", sans-serif;
 }
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+}
+html {
+    scroll-behavior: smooth;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
 .content {
     background-color: #f7f9fc;
 }
+/* Start Header */
+header {
+    background-color: #550065;
+    position: relative;
+}
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 10px;
+    color: white;
+}
+header .container .logo {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 2;
+}
+header .container .logo a {
+    color: white;
+}
+header .container > ul {
+    display: flex;
+    margin: 0;
+}
+header .container ul::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #550060;
+    z-index: -1;
+}
+header ul .hide {
+    display: none;
+}
+header .container ul li a {
+    font-weight: bold;
+    margin-inline: 20px;
+    transition: 0.2s;
+    color: white;
+}
+header .container ul li a:hover {
+    color: #D5C46C;
+}
+/* Start Burger Icon */
+.burger {
+    position: relative;
+    width: 40px;
+    height: 30px;
+    background: transparent;
+    cursor: pointer;
+    display: none;
+    z-index: 100001;
+}
+
+input {
+    display: none;
+}
+
+header span {
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: white;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+header span:nth-of-type(1) {
+    top: 0px;
+    transform-origin: left center;
+}
+
+header span:nth-of-type(2) {
+    top: 50%;
+    transform: translateY(-50%);
+    transform-origin: left center;
+}
+header span:nth-of-type(3) {
+    top: 100%;
+    transform-origin: left center;
+    transform: translateY(-100%);
+}
+header input:checked ~ .burger span:nth-of-type(1) {
+    transform: rotate(45deg);
+    top: 0px;
+    left: 5px;
+}
+header input:checked ~ .burger span:nth-of-type(2) {
+    width: 0%;
+    opacity: 0;
+}
+header input:checked ~ .burger span:nth-of-type(3) {
+    transform: rotate(-45deg);
+    top: 28px;
+    left: 5px;
+}
+/* End Burger Icon */
+@media (max-width:992px) {
+    .burger {
+        display: block;
+    }
+    header .container ul {
+        display: none ;
+    }
+    header .container ul {
+        height:  calc(100vh - 50px);
+        width: 100%;
+    }
+    header input:checked ~ ul {
+        display: block;
+        position: absolute;
+        text-align: center;
+        left: 0;
+        top: 50px;
+        padding-top: 80;
+        z-index: 1;
+        text-align: left;
+        padding-left: 20px;
+        z-index: 10;
+    }
+    header ul li {
+        margin-bottom: 50px;
+        text-transform: uppercase;
+    }
+    header ul .hide {
+        display: block;
+    }
+}
+/* End Header */
 /* Start Page Table Content */
 .player-profile-content .main-header,
 .table-page-content .main-header {
@@ -11,7 +162,9 @@ body {
     letter-spacing: 2px;
     word-spacing: 5;
 }
-
+.table-page-content {
+    padding-bottom: 40px;
+}
 
 .table-page-content .headline {
     color: #505b73;
@@ -38,6 +191,7 @@ body {
     border-radius: 6px;
     margin-bottom: 3px;
     font-size: 18px;
+    color: #00182f;
 }
 .table-page-content .playerline .player {
     white-space: nowrap;
@@ -168,6 +322,8 @@ body {
     border-radius: 6px;
     margin-bottom: 3px;
     font-size: 18px;
+    
+    color: #00182f;
 }
 .player-profile-content .day-line .date {
     white-space: nowrap;
@@ -274,11 +430,111 @@ body {
         height: 18px;
     }
 }
+
+hr {
+    margin-block: 50px;
+}
+.player-stats {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+}
+.player-stats .player-stats-header {
+    font-size: 30px;
+    width: fit-content;
+    word-spacing: 0;
+    letter-spacing: 0.5;
+    padding-right: 40px;
+}
+.player-stats .player-stats-header span{
+    display: block;
+    background-color: inherit;
+    color: inherit;
+    padding: 0;
+}
+.player-stats .stats {
+    display: flex;
+    flex: 1;
+    background-color: white;
+}
+.player-stats .stats .stat {
+    flex: 1;
+    padding-block: 20px;
+    position: relative;
+}
+.player-stats .stats .stat .description {
+    color: #505b73;
+    text-align: center;
+    font-weight: 100;
+    font-size: 18px;
+    padding-block: 10px;
+}
+.player-stats .stats .stat .value {
+    font-size: 28px;
+    color: #df1c3c;
+    text-align: center;
+    font-weight: bold;
+    /* margin-bottom: 10px; */
+    padding-top: 10px;
+}
+.player-stats .stats .stat:not(:last-of-type):after {
+    content: "";
+    position: absolute;
+    width: 1;
+    height: calc(100% - 40px) ;
+    background-color: #505b73;
+    opacity: .4;
+    right: 0px;
+    top: 20;
+}
+@media (max-width:992px) {
+    .player-stats .player-stats-header {
+        font-size: 22px;
+    }
+    .player-stats .stats .stat .description {
+        font-size: 14px;
+    }
+    .player-stats .stats .stat .value {
+        font-size: 20px;
+    }
+}
+@media (max-width:768px) {
+    .player-stats {
+        flex-direction: column;
+        align-items: unset;
+    }
+    .player-stats .player-stats-header {
+        margin-bottom: 10px;
+    }
+    .player-stats .player-stats-header span{
+        display: inline;
+    }
+}
+@media (max-width:500px) {
+    .player-stats .stats {
+        flex-wrap: wrap;
+    }
+    .player-stats .stats .stat {
+        flex: unset;
+        width: 50%;
+    }
+    .player-stats .stats .stat:not(:last-of-type):after {
+        display: none;
+    }
+    .player-stats .stats .stat:nth-of-type(1),
+    .player-stats .stats .stat:nth-of-type(2) {
+        border-bottom: 1px solid rgba(50, 91, 115, 0.4);
+    }
+    .player-stats .stats .stat:nth-of-type(1),
+    .player-stats .stats .stat:nth-of-type(3) {
+        border-right: 1px solid rgba(50, 91, 115, 0.4);
+    }
+}
 /* End Player Profile Content */
 .round-header {
     font-weight: 500;
     padding-block: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     position: relative;
     font-size: 24px;
 }
@@ -318,4 +574,112 @@ body {
     .round-header::after {
         right: 12px;
     }
+}
+
+
+
+/* Start Open Flag Image In Teams Profiles Functions */
+.thumbnail {
+    cursor: pointer;
+}
+
+.thumbnail img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.2s;
+}
+
+.thumbnail img:hover {
+    transform: scale(1.1);
+}
+
+.fullscreen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000000;
+    overflow: auto;
+    text-align: center;
+    /* padding-top: 35vh; */
+}
+
+.fullscreen-image {
+    /* width: 90%; */
+    height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+}
+@media (max-width:992px) {
+    .fullscreen-image {
+        width: 90%;
+        height: unset;
+    }
+}
+.close {
+    position: absolute;
+    top: 5px;
+    right: 40px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: red;
+}
+/* Start Open Flag Image In Teams Profiles Functions */
+.fullscreenn {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000000;
+    overflow: hidden;
+    text-align: center;
+    /* padding-top: 35vh; */
+}
+
+.fullscreenn iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.closee {
+    position: absolute;
+    top: 50px;
+    right: 30px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+}
+.closee:hover {
+    color: red;
+}
+.fullscreenHighlightNT {
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000000;
+    overflow: hidden;
+    text-align: center;
+    padding-top: 35vh;
 }
