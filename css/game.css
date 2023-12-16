@@ -20,6 +20,14 @@ li {
 .content {
     background-color: #f7f9fc;
 }
+.comming-soon {
+    /* width: 100%; */
+    height: calc(100vh - 53px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
 /* Start Header */
 header {
     background-color: #550065;
