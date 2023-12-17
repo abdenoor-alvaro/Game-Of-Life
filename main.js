@@ -19,6 +19,16 @@ function smallScreenDate(date) {
     const smallDate = `${dateArray[1]} ${dateArray[2].slice(0, 3).toUpperCase()} ${dateArray[3]}`
     return smallDate
 }
+function openImage(imageSrc) {
+    const fullscreen = document.getElementById('fullscreen');
+    const fullscreenImage = document.getElementById('fullscreen-image');
+    fullscreenImage.src = imageSrc;
+    fullscreen.style.display = 'block';
+}
+function closeFullscreen() {
+    const fullscreen = document.getElementById('fullscreen');
+    fullscreen.style.display = 'none';
+}
 // End Global Functions 
 // Start Data
 class Player {
@@ -30,6 +40,7 @@ class Player {
         this.Id = generateUniqueId()
         this.Score = []
         this.Stars = 0
+        this.SortedPlayersThisRound = []
     }
     newRound(roundPoints, roundNumber) {
         this.Round += 1
@@ -186,7 +197,7 @@ const daysData = [
         date: "Friday 15 December 2023",
         scores: {
             abdenoor_alvaro: 47,
-            sahel_yacine: false,
+            sahel_yacine: 63,
             bourmel_islem: 66,
             boussebain_mahfoud: 110,
             slimani_abdenoor: false,
@@ -197,9 +208,9 @@ const daysData = [
         date: "Saturday 16 December 2023",
         scores: {
             abdenoor_alvaro: 42,
-            sahel_yacine: false,
+            sahel_yacine: 58,
             bourmel_islem: false,
-            boussebain_mahfoud: false,
+            boussebain_mahfoud: 60,
             slimani_abdenoor: false,
         },
         bestScore:""
@@ -207,8 +218,8 @@ const daysData = [
         day: 14,
         date: "Sunday 17 December 2023",
         scores: {
-            abdenoor_alvaro: false,
-            sahel_yacine: false,
+            abdenoor_alvaro: 110.5,
+            sahel_yacine: 64,
             bourmel_islem: false,
             boussebain_mahfoud: false,
             slimani_abdenoor: false,
@@ -309,19 +320,23 @@ function gettingBestScore(daysData) {
 gettingBestScore(daysData)
 
 function calculatePoints(players, daysData) {
-    for (const player of players) {
-        let playerName = player.Name
-        if (player.Name.split(" ").length > 1) {
-            playerName = player.Name.split(" ").join("_")
-        }
+    
         for (const day of daysData) {
             const scores = day.scores
+            for (const player of players) {
+                let playerName = player.Name
+                if (player.Name.split(" ").length > 1) {
+                    playerName = player.Name.split(" ").join("_")
+                }
             if (scores[playerName]) {
                 player.newRound(scores[playerName],day.day)
             }
+            player.calculatePlayerStats()
+            }
+            
+            const sortedPlayersThisRound = [...players].sort((a, b) => b.Points - a.Points)
+            day.SortedPlayersThisRound = sortedPlayersThisRound
         }
-        player.calculatePlayerStats()
-    }
 }
 function generateHtmlTablePage(sortedPlayers) {
     const htmlTableLocation = document.querySelector(".content")
@@ -336,6 +351,7 @@ function generateHtmlTablePage(sortedPlayers) {
             <div class="table w-100">
                 <div class="headline w-100 d-flex">
                     <span class="rank">Rank</span>
+                    <span class="rank-change"></span>
                     <span class="image"></span>
                     <span class="player flex-grow-1">Player</span>
                     <span class="round">Round</span>
@@ -351,12 +367,44 @@ function generateHtmlTablePage(sortedPlayers) {
 
 function generatePlayerHtml(player) {
     let playerName = player.Name
+    let counter = 0
+    for (let i = 0; i < daysData.length; i++) {
+        let day = daysData[i]
+        if (day.bestScore.length === 0) {
+            break
+        }
+        counter += 1
+    }
+    let thisRound = daysData[counter - 1].SortedPlayersThisRound
+    let beforeRound = daysData[counter - 2].SortedPlayersThisRound
+    let thisRank
+    let beforeRank
+    let rankChange = "circle"
+    let rankChangeValue = ""
+    for (let x = 0; x < beforeRound.length; x++) {
+        if (playerName === beforeRound[x].Name) {
+            beforeRank = x
+        }
+    }
+    for (let x = 0; x < thisRound.length; x++) {
+        if (playerName === thisRound[x].Name) {
+            thisRank = x
+        }
+    }
+    if (beforeRank < thisRank) {
+        rankChange = "arrow-down"
+        rankChangeValue = beforeRank - thisRank
+    } else if (beforeRank > thisRank) {
+        rankChange = "arrow-up"
+        rankChangeValue = beforeRank - thisRank
+    }
     if (screen.width < 786) {
         playerName = smallScreenName(player.Name)
     }
     return `
     <div class="playerline w-100 d-flex justify-content-between align-items-center bg-white">
         <span class="rank fw-bold">${player.Rank}</span>
+        <span class="rank-change"><i class="fa-solid fa-${rankChange}"><span>${rankChangeValue}</span></i></span>
         <span class="image"><img class="generateProfile" id="${player.Id}" src="images/${player.Image}" alt=""></span>
         <span class="player flex-grow-1"><a href="player-profile.html?id=${player.Id}"class="player-name p-0 generateProfile" id="${player.Id}">${capitalize(playerName)}</a></span>
         <span class="round">${player.Round}</span>
@@ -453,14 +501,23 @@ function generateProfilePage(id) {
 }
 function generateDayHtml(player) {
     let div = document.createElement("div")
-
     let playerName = player.Name
-    if (player.Name.split(" ").length > 1) {
-        playerName = player.Name.split(" ").join("_")
-    }
-
     for (let i = 1; i <= daysData.length; i++){
         let firstIcon = ""
+        let playerName = player.Name
+        let rankList = daysData[daysData.length - i].SortedPlayersThisRound
+        console.log(rankList)
+        for (let x = 0; x < rankList.length; x++) {
+            if (playerName === rankList[x].Name) {
+                console.log(x)
+            }
+        }
+    
+        
+        if (player.Name.split(" ").length > 1) {
+            playerName = player.Name.split(" ").join("_")
+        }
+
         let day = daysData[daysData.length - i].day
         const bestScoreArray = daysData[daysData.length - i].bestScore
         for (const best of bestScoreArray) {
@@ -553,8 +610,6 @@ function generatePlayerHtmlOnRoundsPage(sortedList) {
     for (let x = 0; x < sortedList.length; x++){
         let player
         playerName = sortedList[x].name.split("_").join(" ")
-        
-        console.log(sortedList[x].name)
         for (let i = 0; i < players.length; i++) {
             if (players[i].Name === playerName) {
                 player = players[i]
@@ -585,14 +640,4 @@ if (currentPage.includes("rounds.html")) {
 
 
 
-function openImage(imageSrc) {
-    const fullscreen = document.getElementById('fullscreen');
-    const fullscreenImage = document.getElementById('fullscreen-image');
-    fullscreenImage.src = imageSrc;
-    fullscreen.style.display = 'block';
-}
-function closeFullscreen() {
-    const fullscreen = document.getElementById('fullscreen');
-    fullscreen.style.display = 'none';
-}
 
