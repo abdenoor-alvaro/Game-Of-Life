@@ -1,5 +1,7 @@
 
 // Start Global Functions 
+// Start Global Functions 
+// Start Global Functions  
 const currentPage = window.location.pathname;
 console.log(currentPage)
 let idCounter = 2002
@@ -404,9 +406,9 @@ function generatePlayerHtml(player) {
     return `
     <div class="playerline w-100 d-flex justify-content-between align-items-center bg-white">
         <span class="rank fw-bold">${player.Rank}</span>
-        <span class="rank-change"><i class="fa-solid fa-${rankChange}"><span>${rankChangeValue}</span></i></span>
+        <span class="rank-change" title="Previous position: ${beforeRank + 1}"><i class="fa-solid fa-${rankChange}"><span>${rankChangeValue}</span></i></span>
         <span class="image"><img class="generateProfile" id="${player.Id}" src="images/${player.Image}" alt=""></span>
-        <span class="player flex-grow-1"><a href="player-profile.html?id=${player.Id}"class="player-name p-0 generateProfile" id="${player.Id}">${capitalize(playerName)}</a></span>
+        <span class="player flex-grow-1"><a href="player-profile.html?id=${player.Id}"class="player-name p-0 generateProfile" id="${player.Id}" title="${player.Name}">${capitalize(playerName)}</a></span>
         <span class="round">${player.Round}</span>
         <span class="points">${player.Points}</span>
     </div>
