@@ -189,7 +189,7 @@ const daysData = [
             sahel_yacine: 67,
             bourmel_islem: 70,
             boussebain_mahfoud: 79,
-            slimani_abdenoor: false,
+            slimani_abdenoor: 42,
         },
         bestScore:""
     },{
@@ -200,7 +200,7 @@ const daysData = [
             sahel_yacine: 63,
             bourmel_islem: 66,
             boussebain_mahfoud: 110,
-            slimani_abdenoor: false,
+            slimani_abdenoor: 43,
         },
         bestScore:""
     },{
@@ -211,7 +211,7 @@ const daysData = [
             sahel_yacine: 58,
             bourmel_islem: 16,
             boussebain_mahfoud: 60,
-            slimani_abdenoor: false,
+            slimani_abdenoor: 30,
         },
         bestScore:""
     },{
@@ -221,8 +221,8 @@ const daysData = [
             abdenoor_alvaro: 110.5,
             sahel_yacine: 64,
             bourmel_islem: 28.5,
-            boussebain_mahfoud: false,
-            slimani_abdenoor: false,
+            boussebain_mahfoud: 58,
+            slimani_abdenoor: 45,
         },
         bestScore:""
     },{
@@ -465,6 +465,7 @@ function generateProfilePage(id) {
             <div class="table w-100">
                 <div class="headline w-100 d-flex">
                     <span class="rank">rank</span>
+                    <span class="rank-change"></span>
                     <span class="date flex-grow-1">Date</span>
                     <span class="round">Round</span>
                     <span class="score">Score</span>
@@ -502,18 +503,43 @@ function generateProfilePage(id) {
 function generateDayHtml(player) {
     let div = document.createElement("div")
     let playerName = player.Name
+    let oldRank = 0
+    let newRank = 1
     for (let i = 1; i <= daysData.length; i++){
+        let counter = 0
+        if (daysData[daysData.length - i].bestScore.length === 0) {
+            counter += 1
+            continue
+        }
         let firstIcon = ""
         let playerName = player.Name
-        let rankList = daysData[daysData.length - i].SortedPlayersThisRound
-        console.log(rankList)
-        for (let x = 0; x < rankList.length; x++) {
-            if (playerName === rankList[x].Name) {
-                console.log(x)
+        let rankChange = "circle"
+        let rankChangeValue = ""
+        let newRankList = daysData[daysData.length - i].SortedPlayersThisRound
+        let oldRankList
+        if (i !== daysData.length - counter) {
+            oldRankList = daysData[daysData.length - i - 1].SortedPlayersThisRound
+        } else {
+            oldRankList = daysData[daysData.length - i].SortedPlayersThisRound
+        }
+        
+        for (let x = 0; x < newRankList.length; x++) {
+            if (playerName === newRankList[x].Name) {
+                newRank = x + 1
             }
         }
-    
-        
+        for (let x = 0; x < oldRankList.length; x++) {
+            if (playerName === oldRankList[x].Name) {
+                oldRank = x + 1
+            }
+        }
+        if (oldRank < newRank) {
+            rankChange = "arrow-down"
+            rankChangeValue = oldRank - newRank
+        } else if (oldRank > newRank) {
+            rankChange = "arrow-up"
+            rankChangeValue = oldRank - newRank
+        }
         if (player.Name.split(" ").length > 1) {
             playerName = player.Name.split(" ").join("_")
         }
@@ -543,7 +569,8 @@ function generateDayHtml(player) {
             score = scores[playerName]
             div.innerHTML += `
             <div class="day-line d-flex align-items-center bg-white">
-                <span class="rank fw-bold">1</span>
+                <span class="rank fw-bold">${newRank}</span>
+                <span class="rank-change"><i class="fa-solid fa-${rankChange}"><span>${rankChangeValue}</span></i></span>
                 <span class="date flex-grow-1">${date}</span>
                 <span class="round">${daysData[daysData.length - i].day}</span>
                 <span class="score ${firstIcon}">${score}</span>
