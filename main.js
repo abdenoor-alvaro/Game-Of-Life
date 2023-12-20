@@ -2,6 +2,8 @@ const currentPage = window.location.pathname;
 console.log(currentPage)
 // Start Global Functions 
 let idCounter = 2002
+const urlParams = new URLSearchParams(window.location.search);
+const UrlId = urlParams.get('id');
 
 let highestScore = -1
 let highestScorePlayers = []
@@ -304,11 +306,11 @@ const daysData = [
         day: 17,
         date: "Wednesday 20 December 2023",
         scores: {
-            abdenoor_alvaro: false,
-            sahel_yacine: false,
+            abdenoor_alvaro: 71,
+            sahel_yacine: 72,
             bourmel_islem: false,
-            boussebain_mahfoud: false,
-            slimani_abdenoor: false,
+            boussebain_mahfoud: 56.5,
+            slimani_abdenoor: 44,
         },
         bestScore:""
     },{
@@ -420,19 +422,10 @@ if (currentPage.includes("index.html") || currentPage === "/Game-Of-Life/") {
 
 
 // Start Player Profile Page
-
-const clickedPlayer = document.querySelectorAll(".generateProfile");
-clickedPlayer.forEach(element => {
-    element.addEventListener("click", () => window.location.href = `player-profile.html?id=${element.id}`);
-});
-const urlParams = new URLSearchParams(window.location.search);
-const playerProfileId = urlParams.get('id');
-
-
-function generateProfilePage(playerProfileId) {
+function generateProfilePage() {
     let player = ""
     for (let i = 0; i < players.length; i++) {
-        if (players[i].Id === playerProfileId) {
+        if (players[i].Id === UrlId) {
             player = players[i]
         }
     }
@@ -574,7 +567,7 @@ function generateDayHtml(player) {
     return div.innerHTML
 }
 if (currentPage.includes("player-profile.html")) {
-    generateProfilePage(playerProfileId)
+    generateProfilePage()
 }
 // End Player Profile Page
 // Start Rounds Page
@@ -631,8 +624,6 @@ function generatePlayerHtmlOnRoundsPage(sortedList, day) {
         let player
         let pointSpan = `<span class="points">${sortedList[x].point}</span>`
         for (const highest of highestScorePlayers) {
-            console.log(highest.player)
-            console.log(sortedList[x].name)
             if (highest.player === sortedList[x].name && highest.day === day) {
                 pointSpan = `<span class="points best-ever" title="Highest Round Score Ever">${sortedList[x].point}</span>`
             }
@@ -667,6 +658,9 @@ if (currentPage.includes("rounds.html")) {
 // End Rounds Page
 
 
-
-
-
+// Start Generating links
+const clickedPlayer = document.querySelectorAll(".generateProfile");
+clickedPlayer.forEach(element => {
+    element.addEventListener("click", () => window.location.href = `player-profile.html?id=${element.id}`);
+});
+// End Generating links
