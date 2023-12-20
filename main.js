@@ -1,11 +1,76 @@
-
-// Start Global Functions 
-// Start Global Functions 
-// Start Global Functions  
 const currentPage = window.location.pathname;
 console.log(currentPage)
+// Start Global Functions 
 let idCounter = 2002
 
+let highestScore = -1
+let highestScorePlayers = []
+function calculatePoints(players, daysData) {
+    let num = 0
+    for (const day of daysData) {
+        const scores = day.scores
+
+        // calculating the total points and the total rounds and adding the scores of every round for every player
+        for (const player of players) {
+            let playerName = player.Name
+            if (player.Name.split(" ").length > 1) {
+                playerName = player.Name.split(" ").join("_")
+            }
+            if (scores[playerName]) {
+                player.TotalRounds += 1
+                player.TotalPoints += scores[playerName]
+                player.RoundsScores.push({ roundNumber: day.day, roundScore: scores[playerName] })
+            }
+        }
+
+        // sorting the overall ranking of the players on every round and storing it in that perticular day
+        day.SortedPlayersThisRound = [...players].sort((a, b) => b.TotalPoints - a.TotalPoints)
+
+        // calculating the highest round score ever and calculating the the highest score on every round
+        let bestValue = -1
+        let bestValuePlayer = []
+        const scoresArray = Object.values(day.scores)
+        const playersArray = Object.keys(day.scores)
+        for (let i = 0; i < scoresArray.length; i++) {
+            if (scoresArray[i] > bestValue && scoresArray[i] !== false) {
+                bestValue = scoresArray[i]
+                bestValuePlayer = []
+                bestValuePlayer.push(playersArray[i])
+            } else if (scoresArray[i] === bestValue) {
+                bestValuePlayer.push(playersArray[i])
+            }
+
+            if (scoresArray[i] > highestScore && scoresArray[i] !== false) {
+                highestScore = scoresArray[i]
+                highestScorePlayers = []
+                highestScorePlayers.push({
+                    value: scoresArray[i],
+                    player: playersArray[i],
+                    day:day.day
+                })
+            } else if (scoresArray[i] === highestScore) {
+                highestScorePlayers.push({
+                    value: scoresArray[i],
+                    player: playersArray[i],
+                    day:day.day
+                })
+            }
+        }
+        day.bestScore = bestValuePlayer
+    }
+
+    // Calculating the highest score and the lowest score of every player by iterating over the player Round scores 
+    for (const player of players) {
+        for (let round of player.RoundsScores) {
+            if (round.roundScore > player.bestScore) {
+                player.bestScore = round.roundScore
+            }
+            if (round.roundScore < player.lowestScore) {
+                player.lowestScore = round.roundScore
+            }
+        }
+    }
+}
 function generateUniqueId() {
     return "id" + idCounter++
 }
@@ -37,31 +102,16 @@ class Player {
     constructor(name, image) {
         this.Name = name
         this.Image = image
-        this.Round = 0
-        this.Points = 0
         this.Id = generateUniqueId()
-        this.Score = []
-        this.Stars = 0
-        this.SortedPlayersThisRound = []
-    }
-    newRound(roundPoints, roundNumber) {
-        this.Round += 1
-        this.Points += roundPoints
-        this.Score.push({ roundNumber: roundNumber, roundScore: roundPoints })
-    }
-    calculatePlayerStats() {
+        this.TotalRounds = 0
+        this.TotalPoints = 0
+        this.TotalStars = 0
+        this.Rank = 0
+        this.RoundsScores = []
         this.bestScore = 0
-        this.lowestScore = 500
-        this.average = this.Points / this.Round
-        for (let round of this.Score) {
-            if (round.roundScore > this.bestScore) {
-                this.bestScore = round.roundScore
-            }
-            if (round.roundScore < this.lowestScore) {
-                this.lowestScore = round.roundScore
-            }
-        }
+        this.lowestScore = 500    
     }
+    average = () => { return this.TotalPoints / this.TotalRounds }
 }
 
 const playersData = [
@@ -71,6 +121,7 @@ const playersData = [
     {name:"abdenoor alvaro",image: "abdenoor.jpg"},
     {name:"sahel yacine",image: "yacine.jpg"},
 ]
+const players = playersData.map(playerData => new Player(playerData.name, playerData.image))
 
 const daysData = [
     {
@@ -235,18 +286,18 @@ const daysData = [
             sahel_yacine: 55,
             bourmel_islem: false,
             boussebain_mahfoud: 69.5,
-            slimani_abdenoor: false,
+            slimani_abdenoor: 50,
         },
         bestScore:""
     },{
         day: 16,
         date: "Tuesday 19 December 2023",
         scores: {
-            abdenoor_alvaro: false,
+            abdenoor_alvaro: 56,
             sahel_yacine: false,
             bourmel_islem: false,
-            boussebain_mahfoud: false,
-            slimani_abdenoor: false,
+            boussebain_mahfoud: 66,
+            slimani_abdenoor: 47,
         },
         bestScore:""
     },{
@@ -273,73 +324,20 @@ const daysData = [
         bestScore:""
     },
 ]
-const highestValdue = [{
-    value: false,
-    player: false,
-    day:false
-}]
 // End Data
+
+// Start Calculating Points
+calculatePoints(players,daysData)
+// End Calculating Points
+// Start Sorting
+const sortedPlayers = [...players].sort((a, b) => b.TotalPoints - a.TotalPoints)
+sortedPlayers.forEach((player, index) => {
+    player.Rank = index +1
+})
+// End Sorting
+
 // Start Table Page
 // Start Functions
-let highestScore = -1
-let highestScorePlayers = []
-function gettingBestScore(daysData) {
-    for (const day of daysData) {
-        let bestValue = -1
-        let bestValuePlayer = []
-        const scores = Object.values(day.scores)
-        const players = Object.keys(day.scores)
-        for (let i = 0; i < scores.length; i++) {
-            if (scores[i] > bestValue && scores[i] !== false) {
-                bestValue = scores[i]
-                bestValuePlayer = []
-                bestValuePlayer.push(players[i])
-            } else if (scores[i] === bestValue) {
-                bestValuePlayer.push(players[i])
-            }
-
-            if (scores[i] > highestScore && scores[i] !== false) {
-                highestScore = scores[i]
-                highestScorePlayers = []
-                highestScorePlayers.push({
-                    value: scores[i],
-                    player: players[i],
-                    day:day.day
-                })
-            } else if (scores[i] === highestScore) {
-                highestScorePlayers.push({
-                    value: scores[i],
-                    player: players[i],
-                    day:day.day
-                })
-            }
-        }
-        if (day.bestScore !== undefined) {
-            day.bestScore = bestValuePlayer
-        }
-    }
-}
-gettingBestScore(daysData)
-
-function calculatePoints(players, daysData) {
-    
-        for (const day of daysData) {
-            const scores = day.scores
-            for (const player of players) {
-                let playerName = player.Name
-                if (player.Name.split(" ").length > 1) {
-                    playerName = player.Name.split(" ").join("_")
-                }
-            if (scores[playerName]) {
-                player.newRound(scores[playerName],day.day)
-            }
-            player.calculatePlayerStats()
-            }
-            
-            const sortedPlayersThisRound = [...players].sort((a, b) => b.Points - a.Points)
-            day.SortedPlayersThisRound = sortedPlayersThisRound
-        }
-}
 function generateHtmlTablePage(sortedPlayers) {
     const htmlTableLocation = document.querySelector(".content")
     const html = `
@@ -409,43 +407,32 @@ function generatePlayerHtml(player) {
         <span class="rank-change" title="Previous position: ${beforeRank + 1}"><i class="fa-solid fa-${rankChange}"><span>${rankChangeValue}</span></i></span>
         <span class="image"><img class="generateProfile" id="${player.Id}" src="images/${player.Image}" alt=""></span>
         <span class="player flex-grow-1"><a href="player-profile.html?id=${player.Id}"class="player-name p-0 generateProfile" id="${player.Id}" title="${player.Name}">${capitalize(playerName)}</a></span>
-        <span class="round">${player.Round}</span>
-        <span class="points">${player.Points}</span>
+        <span class="round">${player.TotalRounds}</span>
+        <span class="points">${player.TotalPoints}</span>
     </div>
     `
 }
 // End Functions
-// Start Calculating Points
-const players = playersData.map(playerData => new Player(playerData.name, playerData.image))
-calculatePoints(players,daysData)
-// End Calculating Points
-// Start Sorting and Printing
-const sortedPlayers = [...players].sort((a, b) => b.Points - a.Points)
-sortedPlayers.forEach((player, index) => {
-    player.Rank = index +1
-})
 if (currentPage.includes("index.html") || currentPage === "/Game-Of-Life/") {
     generateHtmlTablePage(sortedPlayers)
 }
-// End Sorting and Printing
 // End Table Page
 
 
-// Start Player Profile
+// Start Player Profile Page
 
 const clickedPlayer = document.querySelectorAll(".generateProfile");
 clickedPlayer.forEach(element => {
     element.addEventListener("click", () => window.location.href = `player-profile.html?id=${element.id}`);
 });
-let gameContent = document.querySelector(".gameGenerateJs")
 const urlParams = new URLSearchParams(window.location.search);
-const gameId = urlParams.get('id');
+const playerProfileId = urlParams.get('id');
 
 
-function generateProfilePage(id) {
+function generateProfilePage(playerProfileId) {
     let player = ""
     for (let i = 0; i < players.length; i++) {
-        if (players[i].Id === id) {
+        if (players[i].Id === playerProfileId) {
             player = players[i]
         }
     }
@@ -482,7 +469,7 @@ function generateProfilePage(id) {
                             <div class="description">Best Score</div>
                         </div>
                         <div class="stat">
-                            <div class="value">${player.average.toFixed(2)}</div>
+                            <div class="value">${player.average().toFixed(2)}</div>
                             <div class="description">Average</div>
                         </div>
                         <div class="stat">
@@ -490,7 +477,7 @@ function generateProfilePage(id) {
                             <div class="description">Lowest Score</div>
                         </div>
                         <div class="stat">
-                            <div class="value">${player.Stars}</div>
+                            <div class="value">${player.TotalStars}</div>
                             <div class="description">Stars</div>
                         </div>
                     </div>
@@ -504,7 +491,6 @@ function generateProfilePage(id) {
 }
 function generateDayHtml(player) {
     let div = document.createElement("div")
-    let playerName = player.Name
     let oldRank = 0
     let newRank = 1
     for (let i = 1; i <= daysData.length; i++){
@@ -513,7 +499,6 @@ function generateDayHtml(player) {
             counter += 1
             continue
         }
-        let firstIcon = ""
         let playerName = player.Name
         let rankChange = "circle"
         let rankChangeValue = ""
@@ -548,18 +533,7 @@ function generateDayHtml(player) {
 
         let day = daysData[daysData.length - i].day
         const bestScoreArray = daysData[daysData.length - i].bestScore
-        for (const best of bestScoreArray) {
-            if (best === playerName) {
-                firstIcon = "first-icon"
-                player.Stars += 1
-            }
-        }
-
-        for (const highest of highestScorePlayers) {
-            if (highest.player === playerName && highest.day === day) {
-                firstIcon = "best-ever"
-            }
-        }
+        
         let date = daysData[daysData.length - i].date
         if (screen.width < 786) {
             date = smallScreenDate(daysData[daysData.length - i].date)
@@ -567,15 +541,32 @@ function generateDayHtml(player) {
 
         const scores = daysData[daysData.length - i].scores
         let score 
+        
+        
         if (scores[playerName]) {
+            console.log("hello")
             score = scores[playerName]
+            
+            let scoreSpan = `<span class="score">${score}</span>`
+            for (const best of bestScoreArray) {
+                if (best === playerName) {
+                    scoreSpan = `<span class="score first-icon" title="Highest Score In Round ${day}">${score}</span>`
+                    player.TotalStars += 1
+                }
+            }
+    
+            for (const highest of highestScorePlayers) {
+                if (highest.player === playerName && highest.day === day) {
+                    scoreSpan = `<span class="score best-ever" title="Highest Round Score Ever">${score}</span>`
+                }
+            }
             div.innerHTML += `
             <div class="day-line d-flex align-items-center bg-white">
                 <span class="rank fw-bold">${newRank}</span>
                 <span class="rank-change"><i class="fa-solid fa-${rankChange}"><span>${rankChangeValue}</span></i></span>
                 <span class="date flex-grow-1">${date}</span>
                 <span class="round">${daysData[daysData.length - i].day}</span>
-                <span class="score ${firstIcon}">${score}</span>
+                ${scoreSpan}
             </div>
             `
         }
@@ -583,9 +574,9 @@ function generateDayHtml(player) {
     return div.innerHTML
 }
 if (currentPage.includes("player-profile.html")) {
-    generateProfilePage(gameId)
+    generateProfilePage(playerProfileId)
 }
-// End Player Profile
+// End Player Profile Page
 // Start Rounds Page
 function generateRoundPage() {
     const htmlLocation = document.querySelector(".content")
@@ -622,7 +613,7 @@ function generateRoundPage() {
                                     <span class="points">Points</span>
                                 </div>
                             </div>
-                            ${generatePlayerHtmlOnRoundsPage(sortedList) }
+                            ${generatePlayerHtmlOnRoundsPage(sortedList, round.day) }
                         </div>
                     </div>
                 </div>
@@ -633,11 +624,19 @@ function generateRoundPage() {
     }
     
 }
-function generatePlayerHtmlOnRoundsPage(sortedList) {
+function generatePlayerHtmlOnRoundsPage(sortedList, day) {
     let roundTable =``
     let rank = 1
     for (let x = 0; x < sortedList.length; x++){
         let player
+        let pointSpan = `<span class="points">${sortedList[x].point}</span>`
+        for (const highest of highestScorePlayers) {
+            console.log(highest.player)
+            console.log(sortedList[x].name)
+            if (highest.player === sortedList[x].name && highest.day === day) {
+                pointSpan = `<span class="points best-ever" title="Highest Round Score Ever">${sortedList[x].point}</span>`
+            }
+        }
         playerName = sortedList[x].name.split("_").join(" ")
         for (let i = 0; i < players.length; i++) {
             if (players[i].Name === playerName) {
@@ -645,16 +644,17 @@ function generatePlayerHtmlOnRoundsPage(sortedList) {
             }
         }
 
+
         if (screen.width < 786) {
             playerName = smallScreenName(playerName)
         }
-
+        
         roundTable += `
         <div class="playerline w-100 d-flex justify-content-between align-items-center bg-white">
             <span class="rank fw-bold">${rank}</span>
             <span class="image"><img class="generateProfile" id="${player.Id}" src="images/${player.Image}" alt=""></span>
             <span class="player flex-grow-1"><a href="player-profile.html?id=${player.Id}"class="player-name p-0 generateProfile" id="${player.Id}">${playerName}</a></span>
-            <span class="points">${sortedList[x].point}</span>
+            ${pointSpan}
         </div>
         `
         rank += 1
@@ -662,7 +662,7 @@ function generatePlayerHtmlOnRoundsPage(sortedList) {
     return roundTable
 }
 if (currentPage.includes("rounds.html")) {
-    generateRoundPage(playersData)
+    generateRoundPage()
 }
 // End Rounds Page
 

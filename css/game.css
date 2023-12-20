@@ -586,8 +586,6 @@ header input:checked ~ .burger span:nth-of-type(3) {
     }
     .player-profile-content .day-line .best-ever::after {
         right: -10;
-        width: 18px;
-        height: 18px;
     }
 }
 
@@ -720,6 +718,23 @@ hr {
     right: 0;
     transform: rotate(45deg) translate(50%);
 }
+
+.round .table-page-content .headline .points,
+.round .table-page-content .playerline .points {
+    position: relative;
+    width: 90px;
+}
+.round .table-page-content .playerline .best-ever::after {
+    content: '';
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    background-image: url('../images/pngegg.png');
+    background-size: cover;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+}
 @media (max-width:768px) {
     .round-header {
         font-size: 20px;
@@ -733,6 +748,20 @@ hr {
     }
     .round-header::after {
         right: 12px;
+    }
+    .round .table-page-content .headline .points,
+    .round .table-page-content .playerline .points {
+        width: 60px;
+    }
+    .round .table-page-content .playerline .best-ever::after {
+        right: -7;
+        width: 18px;
+        height: 18px;
+    }
+}
+@media (max-width:350px) {
+    .round .table-page-content .playerline .best-ever::after {
+        right: -10;
     }
 }
 
