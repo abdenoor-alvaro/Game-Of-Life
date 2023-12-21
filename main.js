@@ -317,11 +317,11 @@ const daysData = [
         day: 18,
         date: "Thursday 21 December 2023",
         scores: {
-            abdenoor_alvaro: false,
-            sahel_yacine: false,
+            abdenoor_alvaro: 79,
+            sahel_yacine: 53.5,
             bourmel_islem: false,
-            boussebain_mahfoud: false,
-            slimani_abdenoor: false,
+            boussebain_mahfoud: 126.5,
+            slimani_abdenoor: 47,
         },
         bestScore:""
     },
