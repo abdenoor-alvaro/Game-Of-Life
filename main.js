@@ -74,7 +74,7 @@ function calculatePoints(players, daysData) {
     }
 }
 function generateUniqueId() {
-    return "id" + idCounter++
+    return "id=" + idCounter++
 }
 function capitalize(sentence) {
     return sentence.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
@@ -408,7 +408,7 @@ function generatePlayerHtml(player) {
         <span class="rank fw-bold">${player.Rank}</span>
         <span class="rank-change" title="Previous position: ${beforeRank + 1}"><i class="fa-solid fa-${rankChange}"><span>${rankChangeValue}</span></i></span>
         <span class="image"><img class="generateProfile" id="${player.Id}" src="images/${player.Image}" alt=""></span>
-        <span class="player flex-grow-1"><a href="player-profile.html?id=${player.Id}"class="player-name p-0 generateProfile" id="${player.Id}" title="${player.Name}">${capitalize(playerName)}</a></span>
+        <span class="player flex-grow-1"><a href="player-profile.html?${player.Id}"class="player-name p-0 generateProfile" id="${player.Id}" title="${player.Name}">${capitalize(playerName)}</a></span>
         <span class="round">${player.TotalRounds}</span>
         <span class="points">${player.TotalPoints}</span>
     </div>
@@ -426,7 +426,7 @@ function generateProfilePage() {
     let pageHead = document.querySelector("head")
     let player = ""
     for (let i = 0; i < players.length; i++) {
-        if (players[i].Id === UrlId) {
+        if (players[i].Id === `id=${UrlId}`) {
             player = players[i]
         }
     }
@@ -435,7 +435,7 @@ function generateProfilePage() {
     let openGraphMetadata = `
     <meta property="og:title" content="Game Of Life (${playerName})" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://abdenoor-alvaro.github.io/Game-Of-Life/player-profile.html?id=${player.Id}/" />
+    <meta property="og:url" content="https://abdenoor-alvaro.github.io/Game-Of-Life/player-profile.html?${player.Id}/" />
     <meta property="og:image" content="images/${player.Image}" />
     <meta property="og:description" content="a self development game that you can play in the real world with your friends" />
     <meta property="og:locale" content="ar_DZ" />
@@ -672,6 +672,6 @@ if (currentPage.includes("rounds.html")) {
 // Start Generating links
 const clickedPlayer = document.querySelectorAll(".generateProfile");
 clickedPlayer.forEach(element => {
-    element.addEventListener("click", () => window.location.href = `player-profile.html?id=${element.id}`);
-});
+    element.addEventListener("click", () => window.location.href = `player-profile.html?${element.id}`);
+    console.log(element.id)});
 // End Generating links
