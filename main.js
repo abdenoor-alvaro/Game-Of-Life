@@ -423,6 +423,7 @@ if (currentPage.includes("index.html") || currentPage === "/Game-Of-Life/") {
 
 // Start Player Profile Page
 function generateProfilePage() {
+    let pageHead = document.querySelector("head")
     let player = ""
     for (let i = 0; i < players.length; i++) {
         if (players[i].Id === UrlId) {
@@ -430,6 +431,16 @@ function generateProfilePage() {
         }
     }
     let playerName = player.Name
+    
+    let openGraphMetadata = `
+    <meta property="og:title" content="Game Of Life (${playerName})" />
+    <meta property="og:type" content="website" />
+
+    <meta property="og:image" content="images/${player.Image}" />
+    <meta property="og:description" content="a self development game that you can play in the real world with your friends" />
+    <meta property="og:locale" content="ar_DZ" />
+    `
+    pageHead.innerHTML += openGraphMetadata
     if (screen.width < 786) {
         playerName = smallScreenName(player.Name)
     }
