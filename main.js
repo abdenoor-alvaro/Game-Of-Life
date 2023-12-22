@@ -117,7 +117,7 @@ class Player {
 }
 
 const playersData = [
-    {name:"boussebain mahfoud",image: "mahfoud.jpg"},
+    {name:"boussebain mahfoud",image: "self-development-cover-image.png"},
     {name:"bourmel islem",image: "islem.jpg"},
     {name:"slimani abdenoor",image: "slimani.jpg"},
     {name:"abdenoor alvaro",image: "abdenoor.jpg"},
