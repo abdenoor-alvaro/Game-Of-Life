@@ -360,7 +360,6 @@ function generateHtmlTablePage(sortedPlayers) {
                     <span class="points">Points</span>
                 </div>
                 ${sortedPlayers.map(player => generatePlayerHtml(player)).join("")}
-                <img src="/images/islem.jpg" alt="">
             </div>
         </div>
     </div>
