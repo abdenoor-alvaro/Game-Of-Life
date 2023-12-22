@@ -435,8 +435,7 @@ function generateProfilePage() {
     let openGraphMetadata = `
     <meta property="og:title" content="Game Of Life (${playerName})" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://abdenoor-alvaro.github.io/Game-Of-Life/" />
-    <meta property="og:url" content="https://abdenoor-alvaro.github.io/Game-Of-Life/player-profile.html?id=id${player.Id}/" />
+    <meta property="og:url" content="https://abdenoor-alvaro.github.io/Game-Of-Life/player-profile.html?id=${player.Id}/" />
     <meta property="og:image" content="images/${player.Image}" />
     <meta property="og:description" content="a self development game that you can play in the real world with your friends" />
     <meta property="og:locale" content="ar_DZ" />
