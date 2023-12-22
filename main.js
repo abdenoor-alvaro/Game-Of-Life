@@ -444,7 +444,7 @@ function generateProfilePage() {
     if (screen.width < 786) {
         playerName = smallScreenName(player.Name)
     }
-    document.querySelector('title').textContent = `${playerName}`
+    document.querySelector('title').textContent = `${capitalize(playerName)}`
     const htmlTableLocation = document.querySelector(".content")
     const pageHtml = `
     <div class="player-profile-content">
