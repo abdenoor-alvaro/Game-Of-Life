@@ -29,8 +29,13 @@ li {
     font-size: 50px;
 }
 /* Start Header */
+.main-header {
+    background-color: #008080;
+}
 header {
-    background-color: #550065;
+    background-color: #04396c;
+}
+body header {
     position: relative;
 }
 header .container {

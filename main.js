@@ -341,7 +341,7 @@ const daysData = [
         scores: {
             abdenoor_alvaro: 49,
             sahel_yacine: false,
-            bourmel_islem: 42,
+            bourmel_islem: 62,
             boussebain_mahfoud: 60,
             slimani_abdenoor: 30,
         },
@@ -366,7 +366,7 @@ function generateHtmlTablePage(sortedPlayers) {
     const htmlTableLocation = document.querySelector(".content")
     const html = `
     <div class="table-page-content">
-        <div class="main-header fw-bold bg-primary py-5 fs-1 mb-5">
+        <div class="main-header fw-bold py-5 fs-1 mb-5">
             <div class="container ">
                 <div class="header">Overall Ranking</div>
             </div>
@@ -470,7 +470,7 @@ function generateProfilePage() {
     const htmlTableLocation = document.querySelector(".content")
     const pageHtml = `
     <div class="player-profile-content">
-        <div class="main-header fw-bold bg-primary py-5 mb-5">
+        <div class="main-header fw-bold py-5 mb-5">
             <div class="container d-flex align-items-center">
                 <div class="image"><img src="images/${player.Image}" alt="" class="thumbnail" onclick="openImage('images/${player.Image}')"></div>
                 <div class="header">${capitalize(playerName)}</div>
