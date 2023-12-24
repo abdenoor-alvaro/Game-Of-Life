@@ -64,7 +64,7 @@ header .container ul::after {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #550060;
+    background-color: #04396c;
     z-index: -1;
 }
 header ul .hide {
