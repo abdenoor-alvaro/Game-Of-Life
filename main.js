@@ -340,7 +340,7 @@ const daysData = [
         date: "Saturday 23 December 2023",
         scores: {
             abdenoor_alvaro: 49,
-            sahel_yacine: false,
+            sahel_yacine: 41.5,
             bourmel_islem: 42,
             boussebain_mahfoud: 60,
             slimani_abdenoor: 30,
@@ -348,13 +348,24 @@ const daysData = [
         bestScore:""
     },{
         day: 21,
-        date: "Monday 24 December 2023",
+        date: "Sunday 24 December 2023",
         scores: {
             abdenoor_alvaro: 105,
-            sahel_yacine: false,
+            sahel_yacine: 61,
             bourmel_islem: 25,
             boussebain_mahfoud: 75,
             slimani_abdenoor: 50,
+        },
+        bestScore:""
+    },{
+        day: 22,
+        date: "Monday 25 December 2023",
+        scores: {
+            abdenoor_alvaro: 116,
+            sahel_yacine: false,
+            bourmel_islem: false,
+            boussebain_mahfoud: 85,
+            slimani_abdenoor: 45,
         },
         bestScore:""
     },
