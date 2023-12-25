@@ -341,7 +341,7 @@ const daysData = [
         scores: {
             abdenoor_alvaro: 49,
             sahel_yacine: false,
-            bourmel_islem: 62,
+            bourmel_islem: 42,
             boussebain_mahfoud: 60,
             slimani_abdenoor: 30,
         },
@@ -350,11 +350,11 @@ const daysData = [
         day: 21,
         date: "Monday 24 December 2023",
         scores: {
-            abdenoor_alvaro: false,
+            abdenoor_alvaro: 105,
             sahel_yacine: false,
-            bourmel_islem: false,
-            boussebain_mahfoud: false,
-            slimani_abdenoor: false,
+            bourmel_islem: 25,
+            boussebain_mahfoud: 75,
+            slimani_abdenoor: 50,
         },
         bestScore:""
     },
