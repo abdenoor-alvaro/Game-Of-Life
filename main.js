@@ -384,9 +384,20 @@ const daysData = [
         date: "Wednesday 27 December 2023",
         scores: {
             abdenoor_alvaro: 130,
-            sahel_yacine: false,
+            sahel_yacine: 45,
             bourmel_islem: 34,
             boussebain_mahfoud: 91,
+            slimani_abdenoor: 64,
+        },
+        bestScore:""
+    },{
+        day: 25,
+        date: "Thursday 28 December 2023",
+        scores: {
+            abdenoor_alvaro: 98,
+            sahel_yacine: false,
+            bourmel_islem: false,
+            boussebain_mahfoud: false,
             slimani_abdenoor: false,
         },
         bestScore:""
