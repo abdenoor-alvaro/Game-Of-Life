@@ -712,7 +712,6 @@ function generatePlayerHtmlOnRoundsPage(sortedList, day) {
             }
         }
 
-
         if (screen.width < 786) {
             playerName = smallScreenName(playerName)
         }
@@ -721,7 +720,7 @@ function generatePlayerHtmlOnRoundsPage(sortedList, day) {
         <div class="playerline w-100 d-flex justify-content-between align-items-center bg-white">
             <span class="rank fw-bold">${rank}</span>
             <span class="image"><img class="generateProfile" id="${player.Id}" src="images/${player.Image}" alt=""></span>
-            <span class="player flex-grow-1"><a href="player-profile.html?id=${player.Id}"class="player-name p-0 generateProfile" id="${player.Id}">${playerName}</a></span>
+            <span class="player flex-grow-1"><a href="player-profile.html?${player.Id}"class="player-name p-0 generateProfile" id="${player.Id}">${playerName}</a></span>
             ${pointSpan}
         </div>
         `
