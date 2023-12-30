@@ -412,6 +412,17 @@ const daysData = [
             slimani_abdenoor: false,
         },
         bestScore:""
+    },{
+        day: 27,
+        date: "Saturday 30 December 2023",
+        scores: {
+            abdenoor_alvaro: 92,
+            sahel_yacine: false,
+            bourmel_islem: false,
+            boussebain_mahfoud: false,
+            slimani_abdenoor: false,
+        },
+        bestScore:""
     },
 ]
 // End Data
@@ -636,7 +647,6 @@ function generateDayHtml(player) {
         
         
         if (scores[playerName]) {
-            console.log("hello")
             score = scores[playerName]
             
             let scoreSpan = `<span class="score">${score}</span>`
@@ -754,11 +764,23 @@ if (currentPage.includes("rounds.html")) {
     generateRoundPage()
 }
 // End Rounds Page
-
+// Start Rules Page
+function showMore() {
+    let moreDetails = document.querySelector(`.${event.target.id}`)
+    let showMoreBtn = document.querySelector(`#${event.target.id}`)
+    if (moreDetails.style.display === "block") {
+        moreDetails.style.display = "none"
+        showMoreBtn.innerHTML = "عرض تفاصيل اكثر"
+        return
+    } 
+    moreDetails.style.display = "block"
+    showMoreBtn.innerHTML = "اخفاء تفاصيل اكثر"
+}
+// End Rules Page
 
 // Start Generating links
 const clickedPlayer = document.querySelectorAll(".generateProfile");
 clickedPlayer.forEach(element => {
     element.addEventListener("click", () => window.location.href = `player-profile.html?${element.id}`);
-    console.log(element.id)});
+    });
 // End Generating links

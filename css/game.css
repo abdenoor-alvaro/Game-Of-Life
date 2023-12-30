@@ -879,49 +879,46 @@ hr {
 }
 
 /* #2f4858 #212529 */
-/* Start News Generage page */
-.news-generate-page .container {
-    background: white;
+/* Start Rules page */
+.rules-page {
     padding: 65px 0 320px;
+}
+.rules-page .container {
+    background: white;
     border-radius: 20px;
 }
-.news-generate-page .container .header-section {
+.rules-page .header-section {
     padding-inline: 160px;
 }
-.news-generate-page .container .header-section .news-header {
+.rules-page .header-section .rules-header {
     font-size: 50px;
     font-weight: 500;
     direction: rtl;
     font-family: 'Cairo', sans-serif;
     color: #212529;
 }
-.news-generate-page .container .header-section .date-section {
+.rules-page .header-section .date-section {
     font-size: 14px;
     padding: 30px 0px 15px;
     width: 100%;
     border-bottom: 1px solid #00b8ff;
     color: #505b73;
 }
-.news-generate-page .container .header-section .date {
+.rules-page .header-section .date {
     font-weight: 500;
     margin-top: 5px;
 }
-.news-generate-page .container .image {
+.rules-page .image {
     aspect-ratio: 3 / 2;
     /* overflow: hidden; */
 }
-.news-generate-page .container .image img {
+.rules-page img {
     width: 100%;
     margin-block: 40px;
     object-fit: cover;
     aspect-ratio: 3 / 2;
 }
-.news-generate-page .container .image iframe {
-    width: 100%;
-    height: 100%;
-    margin-block: 40px;
-}
-.news-generate-page .container .news {
+.rules-page .the-rules {
     padding-inline: 160px;
     font-size: 20px;
     line-height: 1.7;
@@ -930,64 +927,114 @@ hr {
     color: #2f4858;
     font-weight: 500;
 }
-.news-generate-page .container .news h1 ,
-.news-generate-page .container .news h2 {
+.rules-page .the-rules h4 {
+    /* font-weight: 700; */
+    
+    color: #212529;
+}
+.rules-page .the-rules h1 ,
+.rules-page .the-rules h2 {
     font-weight: 500;
     color: #212529;
 }
-.news-generate-page .container .news span {
+.rules-page .the-rules span {
     font-weight: 700;
 }
-.news-generate-page .container table {
+.rules-page table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
     direction: rtl;
-    margin-top: 10px;
+    margin-block: 10px;
 }
-.news-generate-page .container td, th {
+.rules-page td, th {
     border: 1px solid #ccc;
     text-align: right;
     padding: 6px;
     font-family: 'Cairo', sans-serif;
     color: #2f4858;
 }
-.news-generate-page .container th:nth-of-type(1) ,
-.news-generate-page .container th:nth-of-type(2) ,
-.news-generate-page .container td:nth-of-type(2) {
+.rules-page th:nth-of-type(1) ,
+.rules-page th:nth-of-type(2) ,
+.rules-page td:nth-of-type(2) {
     font-weight: 700;
     text-align: center;
 }
-.news-generate-page .container  tr:nth-child(even) {
+.rules-page  tr:nth-child(even) {
     background-color: #dddddd;
 }
+.exitment-phrase {
+    margin: auto; 
+    max-width: 500px; 
+    text-align: center; 
+    font-size: 24px;
+} 
+.rules-page .show-more {
+    font-size: 14;
+    text-decoration: underline;
+    cursor: pointer;
+    width: fit-content;
+    margin: auto;
+    color: #04396c;
+    margin-bottom: 10px;
+}
+.rules-page .more-details {
+    display: none;
+    font-size: 18px;
+}
 @media (max-width:992px) {
-    .news-generate-page .container {
+    .rules-page {
         padding: 65px 0 195px;
     }
-    .news-generate-page .container .header-section {
+    .rules-page .header-section {
         padding-inline: 97px;
     }
-    .news-generate-page .container .header-section .news-header {
+    .rules-page .header-section .rules-header {
         font-size: 40px;
     }
-    .news-generate-page .container .news {
+    .rules-page .the-rules {
         padding-inline: 97px;
     }
 }
 @media (max-width:768px) {
-    .news-generate-page .container {
+    .rules-page {
         padding: 30px 0 130px;
     }
-    .news-generate-page .container .header-section {
+    .rules-page .header-section {
         padding-inline: 25px;
     }
-    .news-generate-page .container .header-section .news-header {
+    .rules-page .header-section .rules-header {
         font-size: 32px;
     }
-    .news-generate-page .container .news {
+    .rules-page .the-rules {
         padding-inline: 25px;
         font-size: 16px;
     }
+    .exitment-phrase {
+        font-size: 20px;
+        width: 85%;
+    }
+    .rules-page .more-details {
+        font-size: 15px;
+    }
 }
-/* End News Generage page */
+.show-all-btn {
+    width: fit-content;
+    margin: auto;
+    margin-top: 30px;
+}
+.show-all-btn a {
+    text-decoration: underline;
+    color: #008080;
+    padding: 8px 16px;
+    border: 2px solid #008080;
+    font-size: 16px;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+.show-all-btn a:hover {
+    background-color: #008080;
+    color: white;
+}
+/* End Rules page */
