@@ -980,13 +980,13 @@ hr {
         padding: 30px 0 130px;
     }
     .news-generate-page .container .header-section {
-        padding-inline: 30px;
+        padding-inline: 25px;
     }
     .news-generate-page .container .header-section .news-header {
-        font-size: 40px;
+        font-size: 32px;
     }
     .news-generate-page .container .news {
-        padding-inline: 40px;
+        padding-inline: 25px;
         font-size: 16px;
     }
 }
