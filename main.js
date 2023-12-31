@@ -409,18 +409,29 @@ const daysData = [
             sahel_yacine: 41,
             bourmel_islem: 39.5,
             boussebain_mahfoud: 63,
-            slimani_abdenoor: false,
+            slimani_abdenoor: 25,
         },
         bestScore:""
     },{
         day: 27,
         date: "Saturday 30 December 2023",
         scores: {
-            abdenoor_alvaro: 92,
+            abdenoor_alvaro: 91,
             sahel_yacine: false,
             bourmel_islem: 31.5,
-            boussebain_mahfoud: false,
-            slimani_abdenoor: false,
+            boussebain_mahfoud: 86.5,
+            slimani_abdenoor: 30,
+        },
+        bestScore:""
+    },{
+        day: 28,
+        date: "Sunday 31 December 2023",
+        scores: {
+            abdenoor_alvaro: 100,
+            sahel_yacine: false,
+            bourmel_islem: false,
+            boussebain_mahfoud: 93,
+            slimani_abdenoor: 53,
         },
         bestScore:""
     },
