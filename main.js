@@ -1,5 +1,42 @@
 const currentPage = window.location.pathname;
 console.log(currentPage)
+
+let footer = document.querySelector("footer")
+footer.innerHTML = `
+        <div class="footer">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+            <div class="container footer-content">
+                <div class="left-side">
+                    <a href="#home" class="logo">
+                        GAME
+                        <br>
+                        OF
+                        <br>
+                        LIFE                        
+                    </a>
+                    <div class="contact-us-btn"><span>interested to join?</span><a href="https://www.facebook.com/abdenoor.alvaro" target="_blank">CONTACT US</a></div>
+                </div>
+                <div class="right-side">
+                    <ul>
+                        <li><a href="index.html"><div>OVERALL&nbsp;</div>  RANKING</a></li>
+                        <li><a href="rounds.html">ROUNDS</a></li>
+                        <li><a href="rules.html">RULES</a></li>
+                        <li><a href="players.html">PLAYERS</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="bottom-footer">Made With <i class="fa-solid fa-heart" style="color: #ff0000;"></i> By Alvaro</p>
+        </div>
+`
+if (currentPage.includes("players.html") || currentPage.includes("rounds.html") || currentPage.includes("player-profile.html")) {
+    let hh = document.querySelector(".shape-fill")
+    hh.style.fill = "#f7f9fc"
+    if (currentPage.includes("player-profile.html")) {
+        footer.style.marginTop = "-20px"
+    }
+}
 // Start Global Functions 
 let idCounter = 2002
 const urlParams = new URLSearchParams(window.location.search);
@@ -417,7 +454,7 @@ const daysData = [
         date: "Saturday 30 December 2023",
         scores: {
             abdenoor_alvaro: 91,
-            sahel_yacine: false,
+            sahel_yacine: 59,
             bourmel_islem: 31.5,
             boussebain_mahfoud: 86.5,
             slimani_abdenoor: 30,
@@ -428,7 +465,7 @@ const daysData = [
         date: "Sunday 31 December 2023",
         scores: {
             abdenoor_alvaro: 100,
-            sahel_yacine: false,
+            sahel_yacine: 64,
             bourmel_islem: false,
             boussebain_mahfoud: 93,
             slimani_abdenoor: 53,
