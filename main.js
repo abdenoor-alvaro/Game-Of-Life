@@ -1,6 +1,8 @@
 const currentPage = window.location.pathname;
 console.log(currentPage)
 
+const body = document.querySelector("body")
+
 let footer = document.querySelector("footer")
 footer.innerHTML = `
         <div class="footer">
@@ -110,6 +112,17 @@ function calculatePoints(players, daysData) {
         }
     }
 }
+let indicator = true
+function disableScrolling() {
+    
+    if (indicator) {
+        body.style.overflow = "hidden"
+        indicator = false
+        return
+    }
+    indicator = true
+    body.style.overflow = "visible"
+}
 function generateUniqueId() {
     return "id=" + idCounter++
 }
@@ -129,11 +142,24 @@ function openImage(imageSrc) {
     const fullscreen = document.getElementById('fullscreen');
     const fullscreenImage = document.getElementById('fullscreen-image');
     fullscreenImage.src = imageSrc;
+    const selectedImage = new Image()
+    selectedImage.src = imageSrc
+    let widthDifference = screen.width - selectedImage.width
+    let heightDifference = screen.height - selectedImage.height
+
+    if (widthDifference < heightDifference) {
+        fullscreenImage.style.width = "90%"
+    } else {
+        fullscreenImage.style.height = "90%"
+        fullscreenImage.style.width = "unset"
+    }
+    body.style.overflow = "hidden"
     fullscreen.style.display = 'block';
 }
 function closeFullscreen() {
     const fullscreen = document.getElementById('fullscreen');
     fullscreen.style.display = 'none';
+    body.style.overflow = "visible"
 }
 // End Global Functions 
 // Start Data
@@ -466,9 +492,20 @@ const daysData = [
         scores: {
             abdenoor_alvaro: 100,
             sahel_yacine: 64,
-            bourmel_islem: false,
+            bourmel_islem: 27,
             boussebain_mahfoud: 93,
             slimani_abdenoor: 53,
+        },
+        bestScore:""
+    },{
+        day: 29,
+        date: "Monday 01 January 2024",
+        scores: {
+            abdenoor_alvaro: 72,
+            sahel_yacine: 65,
+            bourmel_islem: 35,
+            boussebain_mahfoud: 67,
+            slimani_abdenoor: 55,
         },
         bestScore:""
     },

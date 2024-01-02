@@ -154,7 +154,6 @@ header input:checked ~ .burger span:nth-of-type(3) {
         left: 0;
         top: 50px;
         padding-top: 80;
-        z-index: 1;
         text-align: left;
         padding-left: 20px;
         z-index: 10;
@@ -271,6 +270,24 @@ header input:checked ~ .burger span:nth-of-type(3) {
     text-align: center;
 }
 
+.show-all-btn {
+    width: fit-content;
+    margin: auto;
+    margin-top: 30px;
+}
+.show-all-btn a {
+    text-decoration: underline;
+    padding: 10px 30px;
+    color: #05b9ca;
+    border: 5px solid #05b9ca;
+    font-size: 18px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+.show-all-btn a:hover {
+    background-color: #05b9ca;
+    color: white;
+}
 footer {
     position: relative;
 }
@@ -950,113 +967,7 @@ hr {
 
 
 
-/* Start Open Flag Image In Teams Profiles Functions */
-.thumbnail {
-    cursor: pointer;
-}
 
-.thumbnail img {
-    max-width: 100%;
-    height: auto;
-    transition: transform 0.2s;
-}
-
-.thumbnail img:hover {
-    transform: scale(1.1);
-}
-
-.fullscreen {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 1000000;
-    overflow: auto;
-    text-align: center;
-    /* padding-top: 35vh; */
-}
-
-.fullscreen-image {
-    /* width: 90%; */
-    height: 90%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: block;
-}
-@media (max-width:992px) {
-    .fullscreen-image {
-        width: 90%;
-        height: unset;
-    }
-}
-.close {
-    position: absolute;
-    top: 5px;
-    right: 40px;
-    font-size: 40px;
-    font-weight: bold;
-    color: #fff;
-    cursor: pointer;
-}
-
-.close:hover {
-    color: red;
-}
-/* Start Open Flag Image In Teams Profiles Functions */
-.fullscreenn {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 1000000;
-    overflow: hidden;
-    text-align: center;
-    /* padding-top: 35vh; */
-}
-
-.fullscreenn iframe {
-    width: 100%;
-    height: 100%;
-}
-
-.closee {
-    position: absolute;
-    top: 50px;
-    right: 30px;
-    font-size: 40px;
-    font-weight: bold;
-    color: #fff;
-    cursor: pointer;
-}
-.closee:hover {
-    color: red;
-}
-.fullscreenHighlightNT {
-    color: white;
-    font-size: 30px;
-    font-weight: 500;
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 1000000;
-    overflow: hidden;
-    text-align: center;
-    padding-top: 35vh;
-}
-
-/* #2f4858 #212529 */
 /* Start Rules page */
 .rules-page {
     padding: 65px 0 120px;
@@ -1088,7 +999,6 @@ hr {
 }
 .rules-page .image {
     aspect-ratio: 3 / 2;
-    /* overflow: hidden; */
 }
 .rules-page img {
     width: 100%;
@@ -1194,22 +1104,50 @@ hr {
         font-size: 15px;
     }
 }
-.show-all-btn {
-    width: fit-content;
-    margin: auto;
-    margin-top: 30px;
-}
-.show-all-btn a {
-    text-decoration: underline;
-    padding: 10px 30px;
-    color: #05b9ca;
-    border: 5px solid #05b9ca;
-    font-size: 18px;
-    font-weight: 700;
-    transition: 0.3s;
-}
-.show-all-btn a:hover {
-    background-color: #05b9ca;
-    color: white;
-}
 /* End Rules page */
+/* Start Open Flag Image In Teams Profiles Functions */
+.thumbnail {
+    cursor: pointer;
+}
+.fullscreen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000000;
+    overflow: auto;
+    text-align: center;
+}
+
+.fullscreen .fullscreen-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    margin: 0;
+}
+/* @media (max-width:992px) {
+    .fullscreen-image {
+        width: 90%;
+        height: unset;
+    }
+} */
+.close {
+    position: absolute;
+    top: 5px;
+    right: 40px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.close:hover {
+    color: red;
+}
+/* Start Open Flag Image In Teams Profiles Functions */
