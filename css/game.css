@@ -235,6 +235,10 @@ header input:checked ~ .burger span:nth-of-type(3) {
     font-size: 18px;
     color: #df1c3c;
 }
+.table-page-content .playerline .rank-change .fa-crown{
+    font-size: 24px;
+    transform: translate(7px, -2px);
+}
 .table-page-content .playerline .rank {
     width: 15px;
     text-align: right;
@@ -422,6 +426,10 @@ footer {
     }
     .table-page-content .playerline .rank-change .fa-circle {
         font-size: 6px;
+    }
+    .table-page-content .playerline .rank-change .fa-crown{
+        font-size: 20px;
+        transform: translate(6px, 0px);
     }
     .table-page-content .headline .image,
     .table-page-content .playerline .image {

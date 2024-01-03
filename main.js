@@ -508,6 +508,17 @@ const daysData = [
             slimani_abdenoor: 55,
         },
         bestScore:""
+    },{
+        day: 30,
+        date: "Thursday 02 January 2024",
+        scores: {
+            abdenoor_alvaro: 60,
+            sahel_yacine: 40,
+            bourmel_islem: false,
+            boussebain_mahfoud: 52,
+            slimani_abdenoor: false,
+        },
+        bestScore:""
     },
 ]
 // End Data
@@ -565,7 +576,7 @@ function generatePlayerHtml(player) {
     let beforeRound = daysData[counter - 2].SortedPlayersThisRound
     let thisRank
     let beforeRank
-    let rankChange = "circle"
+    let rankChange = `<i class="fa-solid fa-circle">`
     let rankChangeValue = ""
     for (let x = 0; x < beforeRound.length; x++) {
         if (playerName === beforeRound[x].Name) {
@@ -578,11 +589,16 @@ function generatePlayerHtml(player) {
         }
     }
     if (beforeRank < thisRank) {
-        rankChange = "arrow-down"
+        rankChange = `<i class="fa-solid fa-arrow-down">`
         rankChangeValue = beforeRank - thisRank
     } else if (beforeRank > thisRank) {
-        rankChange = "arrow-up"
+        rankChange = `<i class="fa-solid fa-arrow-up">`
         rankChangeValue = beforeRank - thisRank
+    }
+    console.log(playerName === thisRound[0].Name)
+
+    if (daysData[counter - 1].day === 30 && playerName === thisRound[0].Name) {
+        rankChange = `<i class="fa-solid fa-crown" style="color: #fee500;"></i>`
     }
     if (screen.width < 786) {
         playerName = smallScreenName(player.Name)
@@ -590,7 +606,7 @@ function generatePlayerHtml(player) {
     return `
     <div class="playerline w-100 d-flex justify-content-between align-items-center bg-white">
         <span class="rank fw-bold">${player.Rank}</span>
-        <span class="rank-change" title="Previous position: ${beforeRank + 1}"><i class="fa-solid fa-${rankChange}"><span>${rankChangeValue}</span></i></span>
+        <span class="rank-change" title="Previous position: ${beforeRank + 1}">${rankChange}<span>${rankChangeValue}</span></i></span>
         <span class="image"><img class="generateProfile" id="${player.Id}" src="images/${player.Image}" alt=""></span>
         <span class="player flex-grow-1"><a href="player-profile.html?${player.Id}"class="player-name p-0 generateProfile" id="${player.Id}" title="${player.Name}">${capitalize(playerName)}</a></span>
         <span class="round">${player.TotalRounds}</span>
