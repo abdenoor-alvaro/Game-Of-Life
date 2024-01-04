@@ -514,9 +514,9 @@ const daysData = [
         scores: {
             abdenoor_alvaro: 60,
             sahel_yacine: 40,
-            bourmel_islem: false,
+            bourmel_islem: 40,
             boussebain_mahfoud: 52,
-            slimani_abdenoor: false,
+            slimani_abdenoor: 45,
         },
         bestScore:""
     },
