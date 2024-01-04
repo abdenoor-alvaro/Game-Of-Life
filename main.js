@@ -2,7 +2,7 @@ const currentPage = window.location.pathname;
 console.log(currentPage)
 
 const body = document.querySelector("body")
-
+console.log(body)
 let footer = document.querySelector("footer")
 footer.innerHTML = `
         <div class="footer">
@@ -110,6 +110,9 @@ function calculatePoints(players, daysData) {
                 player.lowestScore = round.roundScore
             }
         }
+        if (player.lowestScore === 500) {
+            player.lowestScore = 0
+        }
     }
 }
 let indicator = true
@@ -131,6 +134,9 @@ function capitalize(sentence) {
 }
 function smallScreenName(name) {
     let splitedName = name.split(" ")
+    if (splitedName.length < 2) {
+        return name
+    }
     return splitedName[0][0] + ". " + splitedName[1]
 }
 function smallScreenDate(date) {
@@ -176,15 +182,37 @@ class Player {
         this.bestScore = 0
         this.lowestScore = 500    
     }
-    average = () => { return this.TotalPoints / this.TotalRounds }
+    average = () => {return this.TotalPoints / this.TotalRounds}
 }
 
 const playersData = [
-    {name:"boussebain mahfoud",image: "mahfoud.jpg"},
-    {name:"bourmel islem",image: "islem.jpg"},
-    {name:"slimani abdenoor",image: "slimani.jpg"},
-    {name:"abdenoor alvaro",image: "abdenoor.jpg"},
-    {name:"sahel yacine",image: "yacine.jpg"},
+    { name: "boussebain mahfoud",image: "mahfoud.jpg" },
+    { name: "bourmel islem",image: "islem.jpg" },
+    { name: "slimani abdenoor",image: "slimani.jpg" },
+    { name: "abdenoor alvaro",image: "abdenoor.jpg" },
+    { name: "sahel yacine", image: "yacine.jpg" },
+    { name: "marceline", image: "marceline.jpg" },
+    { name: "mohamed djawad", image: "djawad.jpg" },
+    { name: "kaouthar", image: "kaouthar.jpg" },
+    { name: "ahmed larbi", image: "hmida.jpg" },
+    { name: "bhm ikram ", image: "ikram.jpg" },
+    { name: "boussebain mourad", image: "mourad.jpg" },
+    { name: "mahrouz youcef ", image: "mahrouz.jpg" },
+    { name: "il sabile", image: "sabil.jpg" },
+    { name: "lee chin", image: "lechin.jpg" },
+    { name: "lagraa hanene", image: "hanene.jpg" },
+    { name: "amar harrouz", image: "amar.jpg" },
+    { name: "hayet", image: "hayet.jpg" },
+    { name: "seoyoon zahra", image: "zahra.jpg" },
+    { name: "abdel hamid", image: "abdelhamid.jpg" },
+    { name: "wahiba mohamedi", image: "wahiba.jpg" },
+    { name: "bochra assouma ", image: "bouchra.jpg" },
+    { name: "lircan fetihovic", image: "lucran.jpg" },
+    { name: "rose rosette", image: "rose.jpg" },
+    { name: "chahinez chanez", image: "chahinez.jpg" },
+    { name: "bnsdk iman", image: "iman.jpg" },
+    { name: "profeseur youcef", image: "profesuer-youcef.jpg" },
+    
 ]
 const players = playersData.map(playerData => new Player(playerData.name, playerData.image))
 
@@ -521,6 +549,33 @@ const daysData = [
         bestScore:""
     },
 ]
+
+// Start Latest News Data
+let newsData = {
+    news9: {
+        img: "abdenoor.jpg",
+        header: "AFCON 2023 | FINAL DRAW",
+        description: `<b>Groups:</b>
+<br>
+<b>Group A:</b> Ivory Coast, Nigeria, Equatorial Guinea, Guinea Bissau
+<br>
+<b>Group B:</b> Egypt, Ghana, Cape Verde Islands, Mozambique
+<br>
+<b>Group C:</b> Senegal, Cameroon, Guinea, Gambia
+<br>
+<b>Group D:</b> Algeria, Burkina Faso, Mauritania, Angola
+<br>
+<b>Group E:</b> Tunisia, Mali, South Africa, Namibia
+<br>
+<b>Group F:</b> Morocco, DR Congo, Zambia, Tanzania`,
+        date: "15 Oct 2023",
+        lan: "english",
+        postId: "n1",
+        // video: "TVV95Cw05og?si=Vl6BRuQVvy3K1I77"
+    },
+}
+let news = Object.values(newsData)
+// End Latest News Data
 // End Data
 
 // Start Calculating Points
@@ -533,6 +588,170 @@ sortedPlayers.forEach((player, index) => {
 })
 // End Sorting
 
+// // Start All News Page
+// if (currentPage.includes("all-news.html")) {
+//     function allNewsPageHtml(newsBoxes) {
+//         let allNewsPageHtml = `
+//         <div class="all-news-page">
+//             <div class="all-news-header">Latest News</div>
+//             <div class="all-news">
+//                 ${newsBoxes}
+//             </div>
+//         </div>
+//         `
+//         document.querySelector(".news-content").innerHTML += allNewsPageHtml
+//     }
+//     function newsBoxes(...list) {
+//         let newsBox = `
+//         <a href="#" class="news-box forNewsPage" id="${list[3]}" title="Read More">
+//             <div class="image">
+//                 ${list[5]}
+//                 <img src="images/${list[0]}" alt="">
+//             </div>
+//             <div class="news-header ${list[2]}">
+//                 <p>${list[1]}</p>
+//             </div>
+//         </a>
+//         `
+//         list[4].innerHTML += newsBox
+//         console.log(list[4])
+//         return list[4].innerHTML
+//     }
+
+
+//     let newsBoxLocation = document.createElement("div")
+//     for (let i = 0; i < news.length; i++) {
+//         let post = Object.values(news[i])
+//         let video = " "
+//         if (post[6] !== undefined) {
+//             video = `<div class="video-icon-in-news-page"></div> `
+//         }
+//         let list = [post[0], post[1], post[4], post[5], newsBoxLocation, video]
+//         if (i === news.length - 1) {
+//             allNewsPageHtml(newsBoxes(...list))
+//         } else {
+//         console.log(news.length)
+//             newsBoxes(...list)
+//         }
+//     }
+// }
+
+// // End All News Page
+
+// // Start Latest News In Home Page
+// function postHtml(...list) {
+//     let postHtml = `
+//                 <div class="post-slide">
+//                     <div class="post-img">
+//                         ${list[8]}
+//                         <img src="images/${list[0]}" alt="">
+//                         <a href="${list[5]}" class="over-layer forNewsPage" id="${list[7]}"><i class="fa fa-link"></i></a>
+//                     </div>
+//                     <div class="post-content">
+//                         <h3 class="post-title ${list[4]}">
+//                             <a href="${list[5]}" class="forNewsPage" id="${list[7]}">${list[1]}</a>
+//                         </h3>
+//                         <p class="post-description ${list[4]}">${list[2]}</p>
+//                         <span class="post-date"><i class="fa fa-clock"></i>${list[3]}</span>
+//                         <a href="${list[5]}" class="read-more forNewsPage" id="${list[7]}">read more</a>
+//                     </div>
+//                 </div>
+//     `
+//     list[6].innerHTML += postHtml
+// }
+
+
+// if (currentPage.includes("index.html") || currentPage === "/" || currentPage === "/mini_championnat_coup-u11/") {
+//     let position = document.querySelector("#news-slider")
+//     let newsContainer = document.querySelector(".news-container")
+//     let seeAllBtn = document.querySelectorAll(".see-all-btn")
+//     if (news.length === 0) {
+//         newsContainer.style.margin = "0px auto 20px"
+//         newsContainer.style.fontWeight = "500"
+//         seeAllBtn.forEach(element => {
+//             element.style.display = "none"
+//         });
+//         newsContainer.innerHTML += "No News Available Yet"
+//     }
+//     for (let i = 0; i < news.length; i++) {
+//         if (i === 6) {
+//             break;
+//         }
+//         let post = Object.values(news[i])
+//         let file = "#"
+//         let video = " "
+//         if (post[6] !== undefined) {
+//             video = `<a href="${file}" class="forNewsPage" id="${post[5]}"><div class="video-icon-in-post-slide"></div></a> `
+//         }
+//         let list = [post[0], post[1], post[2], post[3], post[4], file, position, post[5], video]
+        
+//         postHtml(...list)
+//     }
+//     $(document).ready(function() {
+//         $("#news-slider").owlCarousel({
+//             items : 3,
+//             itemsDesktop:[1199,3],
+//             itemsDesktopSmall:[980,2],
+//             itemsMobile : [600,1],
+//             navigation:true,
+//             navigationText:["",""],
+//             pagination:true,
+//             autoPlay:true
+//         });
+//     });
+// }
+
+// // End Latest News In Home Page
+// // Start News Generate
+// function newsGenerateHtml(...list) {
+//     let newsGenerateHtml = `
+//     <div class="news-generate-page">
+//         <div class="container">
+//             <div class="header-section">
+//                 <div class="news-header ${list[4]}">${list[1]}</div>
+//                 <div class="date-section">
+//                     <p>published:</p>
+//                     <div class="date">${list[3]}</div>
+//                 </div>
+//             </div>
+//             <div class="image">
+//                 ${list[5]}
+//             </div>
+//             <div class="news ${list[4]}">
+//             ${list[2]}
+//             </div>
+//             <div class="fullscreen" id="fullscreen">
+//                 <span class="close" onclick="closeFullscreen()">&times;</span>
+//                 <img src="" alt="Fullscreen Image" class="fullscreen-image"id="fullscreen-image">
+//             </div>
+//         </div>
+//     </div>
+//     `
+//     document.querySelector(".news-generate-content").innerHTML += newsGenerateHtml
+// }
+// let clickednews = document.querySelectorAll('.forNewsPage');
+// let newsUrlParams = new URLSearchParams(window.location.search);
+// let newsId = newsUrlParams.get('id');
+
+// if (currentPage.includes("index.html") || currentPage.includes("all-news.html") || currentPage === "/" || currentPage === "/mini_championnat_coup-u11/") {
+//     clickednews.forEach(element => {
+//         element.addEventListener("click", () => window.location.href = `news-generate.html?id=${element.id}` );
+//     });
+// }
+
+// for (let i = 0; i < news.length; i++) {
+//     let post = Object.values(news[i])
+//     let newsMedia = `<img src="images/${post[0]}" alt="" class="thumbnail" onclick="openImage('images/${post[0]}')"></img>`
+//     if (post[6] !== undefined) {
+//         newsMedia = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${post[6]}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`
+//     }
+//     if (newsId === post[5]) {
+//         let list = [post[0], post[1], post[2], post[3], post[4], newsMedia]
+//         newsGenerateHtml(...list)
+//     }
+// }
+
+// // End News Generate
 // Start Table Page
 // Start Functions
 function generateHtmlTablePage(sortedPlayers) {
