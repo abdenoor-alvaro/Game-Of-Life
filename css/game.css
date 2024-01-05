@@ -271,7 +271,7 @@ header .container ul::after {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #04396c;
+    background-color: #19057a;
     z-index: -1;
 }
 header ul .hide {
