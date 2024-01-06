@@ -60,13 +60,23 @@ function calculatePoints(players, daysData) {
             if (scores[playerName]) {
                 player.TotalRounds += 1
                 player.TotalPoints += scores[playerName]
-                player.RoundsScores.push({ roundNumber: day.day, roundScore: scores[playerName] })
+                player.RoundsScores.push({ date: day.date, roundNumber: day.day, roundScore: scores[playerName] })
+            } else {
+                player.RoundsScores.push({ date: day.date, roundNumber: day.day, roundScore: false })
             }
         }
 
         // sorting the overall ranking of the players on every round and storing it in that perticular day
-        day.SortedPlayersThisRound = [...players].sort((a, b) => b.TotalPoints - a.TotalPoints)
-
+        let SortedPlayersThisRound = [...players].sort((a, b) => b.TotalPoints - a.TotalPoints)
+        day.SortedPlayersThisRound = SortedPlayersThisRound
+        for (let i = 0; i < SortedPlayersThisRound.length; i++) {
+            if ((i !== 0) && (SortedPlayersThisRound[i].TotalPoints === SortedPlayersThisRound[i - 1].TotalPoints)) {
+                SortedPlayersThisRound[i].RoundsScores[SortedPlayersThisRound[i].RoundsScores.length - 1].thisRoundRank = SortedPlayersThisRound[i - 1].RoundsScores[SortedPlayersThisRound[i].RoundsScores.length - 1].thisRoundRank
+            } else {
+                SortedPlayersThisRound[i].RoundsScores[SortedPlayersThisRound[i].RoundsScores.length - 1].thisRoundRank = i + 1
+            }
+        }
+        
         // calculating the highest round score ever and calculating the the highest score on every round
         let bestValue = -1
         let bestValuePlayer = []
@@ -106,7 +116,7 @@ function calculatePoints(players, daysData) {
             if (round.roundScore > player.bestScore) {
                 player.bestScore = round.roundScore
             }
-            if (round.roundScore < player.lowestScore) {
+            if (round.roundScore < player.lowestScore && round.roundScore !== false) {
                 player.lowestScore = round.roundScore
             }
         }
@@ -117,7 +127,6 @@ function calculatePoints(players, daysData) {
 }
 let indicator = true
 function disableScrolling() {
-    
     if (indicator) {
         body.style.overflow = "hidden"
         indicator = false
@@ -177,7 +186,6 @@ class Player {
         this.TotalRounds = 0
         this.TotalPoints = 0
         this.TotalStars = 0
-        this.Rank = 0
         this.RoundsScores = []
         this.bestScore = 0
         this.lowestScore = 500    
@@ -195,9 +203,9 @@ const playersData = [
     { name: "mohamed djawad", image: "djawad.jpg" },
     { name: "kaouthar", image: "kaouthar.jpg" },
     { name: "ahmed larbi", image: "hmida.jpg" },
-    { name: "bhm ikram ", image: "ikram.jpg" },
+    { name: "bhm ikram", image: "ikram.jpg" },
     { name: "boussebain mourad", image: "mourad.jpg" },
-    { name: "mahrouz youcef ", image: "mahrouz.jpg" },
+    { name: "mahrouz youcef", image: "mahrouz.jpg" },
     { name: "il sabile", image: "sabil.jpg" },
     { name: "lee chin", image: "lechin.jpg" },
     { name: "lagraa hanene", image: "hanene.jpg" },
@@ -206,12 +214,14 @@ const playersData = [
     { name: "seoyoon zahra", image: "zahra.jpg" },
     { name: "abdel hamid", image: "abdelhamid.jpg" },
     { name: "wahiba mohamedi", image: "wahiba.jpg" },
-    { name: "bochra assouma ", image: "bouchra.jpg" },
+    { name: "bochra assouma", image: "bouchra.jpg" },
     { name: "lircan fetihovic", image: "lucran.jpg" },
     { name: "rose rosette", image: "rose.jpg" },
     { name: "chahinez chanez", image: "chahinez.jpg" },
     { name: "bnsdk iman", image: "iman.jpg" },
     { name: "profeseur youcef", image: "profesuer-youcef.jpg" },
+    { name: "meghdir habibo", image: "habibo.jpg" },
+    { name: "mani ilaa", image: "manel.jpg" },
     
 ]
 const players = playersData.map(playerData => new Player(playerData.name, playerData.image))
@@ -219,334 +229,36 @@ const players = playersData.map(playerData => new Player(playerData.name, player
 const daysData = [
     {
         day: 1,
-        date: "Monday 04 December 2023",
+        date: "Saturday 06 December 2023",
         scores: {
-            abdenoor_alvaro: 48,
-            sahel_yacine: 58.5,
-            bourmel_islem: 47,
-            boussebain_mahfoud: 66,
-            slimani_abdenoor: 45,
+            abdenoor_alvaro: false,
+            sahel_yacine: false,
+            bourmel_islem: false,
+            boussebain_mahfoud: false,
+            slimani_abdenoor: false,
+            marceline: false,
+            mohamed_djawad: false,
+            kaouthar: false,
+            ahmed_larbi: false,
+            bhm_ikram: false,
+            boussebain_mourad: false,
+            mahrouz_youcef: false,
+            il_sabile: false,
+            lee_chin: false,
+            lagraa_hanene: false,
+            amar_harrouz: false,
+            hayet: false,
+            seoyoon_zahra: false,
+            abdel_hamid: false,
+            wahiba_mohamedi: false,
+            bochra_assouma: false,
+            lircan_fetihovic: false,
+            rose_rosette: false,
+            chahinez_chanez: false,
+            bnsdk_iman: false,
+            profeseur_youcef: false,
         },
-        bestScore:""
-    },{
-        day: 2,
-        date: "Tuesday 05 December 2023",
-        scores: {
-            abdenoor_alvaro: 39,
-            sahel_yacine: 36,
-            bourmel_islem: 45.5,
-            boussebain_mahfoud: 52,
-            slimani_abdenoor: 37,
-        },
-        bestScore:""
-    },{
-        day: 3,
-        date: "Wednesday 06 December 2023",
-        scores: {
-            abdenoor_alvaro: 50,
-            sahel_yacine: 62,
-            bourmel_islem: 48,
-            boussebain_mahfoud: 72,
-            slimani_abdenoor: 56,
-        },
-        bestScore:""
-    },{
-        day: 4,
-        date: "Thursday 07 December 2023",
-        scores: {
-            abdenoor_alvaro: 44.5,
-            sahel_yacine: 59,
-            bourmel_islem: 50.5,
-            boussebain_mahfoud: 73.5,
-            slimani_abdenoor: 49,
-        },
-        bestScore:""
-    },{
-        day: 5,
-        date: "Friday 08 December 2023",
-        scores: {
-            abdenoor_alvaro: 55,
-            sahel_yacine: 67,
-            bourmel_islem: 34,
-            boussebain_mahfoud: 66,
-            slimani_abdenoor: 27,
-        },
-        bestScore:""
-    },{
-        day: 6,
-        date: "Saturday 09 December 2023",
-        scores: {
-            abdenoor_alvaro: 20,
-            sahel_yacine: 59.5,
-            bourmel_islem: 41,
-            boussebain_mahfoud: 72,
-            slimani_abdenoor: 42,
-        },
-        bestScore:""
-    },{
-        day: 7,
-        date: "Sunday 10 December 2023",
-        scores: {
-            abdenoor_alvaro: 93,
-            sahel_yacine: 64,
-            bourmel_islem: 22,
-            boussebain_mahfoud: 68,
-            slimani_abdenoor: 50,
-        },
-        bestScore:""
-    },{
-        day: 8,
-        date: "Monday 11 December 2023",
-        scores: {
-            abdenoor_alvaro: 83,
-            sahel_yacine: 59.5,
-            bourmel_islem: 32,
-            boussebain_mahfoud: 103,
-            slimani_abdenoor: 27,
-        },
-        bestScore:""
-    },{
-        day: 9,
-        date: "Tuesday 12 December 2023",
-        scores: {
-            abdenoor_alvaro: 93,
-            sahel_yacine: 49.5,
-            bourmel_islem: 44.5,
-            boussebain_mahfoud: 81,
-            slimani_abdenoor: 48,
-        },
-        bestScore:""
-    },{
-        day: 10,
-        date: "Wednesday 13 December 2023",
-        scores: {
-            abdenoor_alvaro: 52,
-            sahel_yacine: 70.5,
-            bourmel_islem: 83.5,
-            boussebain_mahfoud: 72,
-            slimani_abdenoor: 59,
-        },
-        bestScore:""
-    },{
-        day: 11,
-        date: "Thursday 14 December 2023",
-        scores: {
-            abdenoor_alvaro: 66,
-            sahel_yacine: 67,
-            bourmel_islem: 70,
-            boussebain_mahfoud: 79,
-            slimani_abdenoor: 42,
-        },
-        bestScore:""
-    },{
-        day: 12,
-        date: "Friday 15 December 2023",
-        scores: {
-            abdenoor_alvaro: 47,
-            sahel_yacine: 63,
-            bourmel_islem: 66,
-            boussebain_mahfoud: 110,
-            slimani_abdenoor: 43,
-        },
-        bestScore:""
-    },{
-        day: 13,
-        date: "Saturday 16 December 2023",
-        scores: {
-            abdenoor_alvaro: 42,
-            sahel_yacine: 58,
-            bourmel_islem: 16,
-            boussebain_mahfoud: 60,
-            slimani_abdenoor: 30,
-        },
-        bestScore:""
-    },{
-        day: 14,
-        date: "Sunday 17 December 2023",
-        scores: {
-            abdenoor_alvaro: 110.5,
-            sahel_yacine: 64,
-            bourmel_islem: 28.5,
-            boussebain_mahfoud: 58,
-            slimani_abdenoor: 45,
-        },
-        bestScore:""
-    },{
-        day: 15,
-        date: "Monday 18 December 2023",
-        scores: {
-            abdenoor_alvaro: 56,
-            sahel_yacine: 55,
-            bourmel_islem: 30.5,
-            boussebain_mahfoud: 69.5,
-            slimani_abdenoor: 50,
-        },
-        bestScore:""
-    },{
-        day: 16,
-        date: "Tuesday 19 December 2023",
-        scores: {
-            abdenoor_alvaro: 56,
-            sahel_yacine: 58.5,
-            bourmel_islem: 48.5,
-            boussebain_mahfoud: 66,
-            slimani_abdenoor: 47,
-        },
-        bestScore:""
-    },{
-        day: 17,
-        date: "Wednesday 20 December 2023",
-        scores: {
-            abdenoor_alvaro: 71,
-            sahel_yacine: 72,
-            bourmel_islem: 25.5,
-            boussebain_mahfoud: 56.5,
-            slimani_abdenoor: 44,
-        },
-        bestScore:""
-    },{
-        day: 18,
-        date: "Thursday 21 December 2023",
-        scores: {
-            abdenoor_alvaro: 79,
-            sahel_yacine: 53.5,
-            bourmel_islem: 39,
-            boussebain_mahfoud: 126.5,
-            slimani_abdenoor: 47,
-        },
-        bestScore:""
-    },{
-        day: 19,
-        date: "Friday 22 December 2023",
-        scores: {
-            abdenoor_alvaro: 103,
-            sahel_yacine: 49,
-            bourmel_islem: 19,
-            boussebain_mahfoud: 61,
-            slimani_abdenoor: 30,
-        },
-        bestScore:""
-    },{
-        day: 20,
-        date: "Saturday 23 December 2023",
-        scores: {
-            abdenoor_alvaro: 49,
-            sahel_yacine: 41.5,
-            bourmel_islem: 42,
-            boussebain_mahfoud: 60,
-            slimani_abdenoor: 30,
-        },
-        bestScore:""
-    },{
-        day: 21,
-        date: "Sunday 24 December 2023",
-        scores: {
-            abdenoor_alvaro: 105,
-            sahel_yacine: 61,
-            bourmel_islem: 25,
-            boussebain_mahfoud: 75,
-            slimani_abdenoor: 50,
-        },
-        bestScore:""
-    },{
-        day: 22,
-        date: "Monday 25 December 2023",
-        scores: {
-            abdenoor_alvaro: 115,
-            sahel_yacine: 60,
-            bourmel_islem: 51,
-            boussebain_mahfoud: 85,
-            slimani_abdenoor: 45,
-        },
-        bestScore:""
-    },{
-        day: 23,
-        date: "Tuesday 26 December 2023",
-        scores: {
-            abdenoor_alvaro: 95,
-            sahel_yacine: 57,
-            bourmel_islem: 36,
-            boussebain_mahfoud: 91,
-            slimani_abdenoor: 64,
-        },
-        bestScore:""
-    },{
-        day: 24,
-        date: "Wednesday 27 December 2023",
-        scores: {
-            abdenoor_alvaro: 129,
-            sahel_yacine: 45,
-            bourmel_islem: 34,
-            boussebain_mahfoud: 91,
-            slimani_abdenoor: 64,
-        },
-        bestScore:""
-    },{
-        day: 25,
-        date: "Thursday 28 December 2023",
-        scores: {
-            abdenoor_alvaro: 98,
-            sahel_yacine: 68.5,
-            bourmel_islem: 33.5,
-            boussebain_mahfoud: 140,
-            slimani_abdenoor: 68,
-        },
-        bestScore:""
-    },{
-        day: 26,
-        date: "Friday 29 December 2023",
-        scores: {
-            abdenoor_alvaro: 74,
-            sahel_yacine: 41,
-            bourmel_islem: 39.5,
-            boussebain_mahfoud: 63,
-            slimani_abdenoor: 25,
-        },
-        bestScore:""
-    },{
-        day: 27,
-        date: "Saturday 30 December 2023",
-        scores: {
-            abdenoor_alvaro: 91,
-            sahel_yacine: 59,
-            bourmel_islem: 31.5,
-            boussebain_mahfoud: 86.5,
-            slimani_abdenoor: 30,
-        },
-        bestScore:""
-    },{
-        day: 28,
-        date: "Sunday 31 December 2023",
-        scores: {
-            abdenoor_alvaro: 100,
-            sahel_yacine: 64,
-            bourmel_islem: 27,
-            boussebain_mahfoud: 93,
-            slimani_abdenoor: 53,
-        },
-        bestScore:""
-    },{
-        day: 29,
-        date: "Monday 01 January 2024",
-        scores: {
-            abdenoor_alvaro: 72,
-            sahel_yacine: 65,
-            bourmel_islem: 35,
-            boussebain_mahfoud: 67,
-            slimani_abdenoor: 55,
-        },
-        bestScore:""
-    },{
-        day: 30,
-        date: "Thursday 02 January 2024",
-        scores: {
-            abdenoor_alvaro: 60,
-            sahel_yacine: 40,
-            bourmel_islem: 40,
-            boussebain_mahfoud: 52,
-            slimani_abdenoor: 45,
-        },
-        bestScore:""
+        bestScore: ""
     },
 ]
 
@@ -583,9 +295,10 @@ calculatePoints(players,daysData)
 // End Calculating Points
 // Start Sorting
 const sortedPlayers = [...players].sort((a, b) => b.TotalPoints - a.TotalPoints)
-sortedPlayers.forEach((player, index) => {
-    player.Rank = index +1
-})
+// sortedPlayers.forEach((player, i) => {
+//     player.Rank = i + 1
+//     console.log(player[i-1])
+// })
 // End Sorting
 
 // // Start All News Page
@@ -754,7 +467,7 @@ sortedPlayers.forEach((player, index) => {
 // // End News Generate
 // Start Table Page
 // Start Functions
-function generateHtmlTablePage(sortedPlayers) {
+function generateHtmlTablePage() {
     const htmlTableLocation = document.querySelector(".content")
     const html = `
     <div class="table-page-content">
@@ -764,7 +477,7 @@ function generateHtmlTablePage(sortedPlayers) {
             </div>
         </div>
         <div class="container">
-            <div class="table w-100">
+            <div class="table tableJs w-100">
                 <div class="headline w-100 d-flex">
                     <span class="rank">Rank</span>
                     <span class="rank-change"></span>
@@ -773,7 +486,7 @@ function generateHtmlTablePage(sortedPlayers) {
                     <span class="round">Round</span>
                     <span class="points">Points</span>
                 </div>
-                ${sortedPlayers.map(player => generatePlayerHtml(player)).join("")}
+                ${generatePlayerHtml()}
             </div>
         </div>
     </div>
@@ -781,57 +494,48 @@ function generateHtmlTablePage(sortedPlayers) {
     htmlTableLocation.innerHTML = html
 }
 
-function generatePlayerHtml(player) {
-    let playerName = player.Name
-    let counter = 0
-    for (let i = 0; i < daysData.length; i++) {
-        let day = daysData[i]
-        if (day.bestScore.length === 0) {
-            break
+function generatePlayerHtml() {
+    let playersHtml = ``
+    for (let i = 0; i < sortedPlayers.length; i++) {
+        let player = sortedPlayers[i]
+        // let rank = player.Rank
+        // if ((i !== 0) && (player.TotalPoints === sortedPlayers[i - 1].TotalPoints) ) {
+        //     rank = sortedPlayers[i - 1].Rank
+        // }
+        let playerName = player.Name
+        
+        let beforeRank  
+        let thisRank = player.RoundsScores[player.RoundsScores.length - 1].thisRoundRank
+        if (player.RoundsScores.length > 1) {
+            beforeRank = player.RoundsScores[player.RoundsScores.length - 2].thisRoundRank
         }
-        counter += 1
-    }
-    let thisRound = daysData[counter - 1].SortedPlayersThisRound
-    let beforeRound = daysData[counter - 2].SortedPlayersThisRound
-    let thisRank
-    let beforeRank
-    let rankChange = `<i class="fa-solid fa-circle">`
-    let rankChangeValue = ""
-    for (let x = 0; x < beforeRound.length; x++) {
-        if (playerName === beforeRound[x].Name) {
-            beforeRank = x
+        let rankChangeValue = ""
+        let rankChange = `<i class="fa-solid fa-circle">`
+        if (beforeRank < thisRank) {
+            rankChange = `<i class="fa-solid fa-arrow-down">`
+            rankChangeValue = beforeRank - thisRank
+        } else if (beforeRank > thisRank) {
+            rankChange = `<i class="fa-solid fa-arrow-up">`
+            rankChangeValue = beforeRank - thisRank
         }
-    }
-    for (let x = 0; x < thisRound.length; x++) {
-        if (playerName === thisRound[x].Name) {
-            thisRank = x
+        // if (daysData[counter - 1].day === 30 && playerName === thisRound[0].Name) {
+        //     rankChange = `<i class="fa-solid fa-crown" style="color: #fee500;"></i>`
+        // }
+        if (screen.width < 786) {
+            playerName = smallScreenName(player.Name)
         }
+        playersHtml += `<div class="playerline w-100 d-flex justify-content-between align-items-center bg-white">
+            <span class="rank fw-bold">${thisRank}</span>
+            <span class="rank-change" title="Previous position: ${beforeRank}">${rankChange}<span>${rankChangeValue}</span></i></span>
+            <span class="image"><img class="generateProfile" id="${player.Id}" src="images/${player.Image}" alt=""></span>
+            <span class="player flex-grow-1"><a href="player-profile.html?${player.Id}"class="player-name p-0 generateProfile" id="${player.Id}" title="${player.Name}">${capitalize(playerName)}</a></span>
+            <span class="round">${player.TotalRounds}</span>
+            <span class="points">${player.TotalPoints}</span>
+        </div>
+        `
     }
-    if (beforeRank < thisRank) {
-        rankChange = `<i class="fa-solid fa-arrow-down">`
-        rankChangeValue = beforeRank - thisRank
-    } else if (beforeRank > thisRank) {
-        rankChange = `<i class="fa-solid fa-arrow-up">`
-        rankChangeValue = beforeRank - thisRank
-    }
-    console.log(playerName === thisRound[0].Name)
+    return playersHtml
 
-    if (daysData[counter - 1].day === 30 && playerName === thisRound[0].Name) {
-        rankChange = `<i class="fa-solid fa-crown" style="color: #fee500;"></i>`
-    }
-    if (screen.width < 786) {
-        playerName = smallScreenName(player.Name)
-    }
-    return `
-    <div class="playerline w-100 d-flex justify-content-between align-items-center bg-white">
-        <span class="rank fw-bold">${player.Rank}</span>
-        <span class="rank-change" title="Previous position: ${beforeRank + 1}">${rankChange}<span>${rankChangeValue}</span></i></span>
-        <span class="image"><img class="generateProfile" id="${player.Id}" src="images/${player.Image}" alt=""></span>
-        <span class="player flex-grow-1"><a href="player-profile.html?${player.Id}"class="player-name p-0 generateProfile" id="${player.Id}" title="${player.Name}">${capitalize(playerName)}</a></span>
-        <span class="round">${player.TotalRounds}</span>
-        <span class="points">${player.TotalPoints}</span>
-    </div>
-    `
 }
 // End Functions
 if (currentPage.includes("index.html") || currentPage === "/Game-Of-Life/") {
@@ -913,63 +617,35 @@ function generateProfilePage() {
     htmlTableLocation.innerHTML = pageHtml
 }
 function generateDayHtml(player) {
-    let div = document.createElement("div")
-    let oldRank = 0
-    let newRank = 1
-    for (let i = 1; i <= daysData.length; i++){
-        let counter = 0
-        if (daysData[daysData.length - i].bestScore.length === 0) {
-            counter += 1
-            continue
-        }
+    let container = ``
+    for (let i = 1 ; i <= player.RoundsScores.length; i++) {
+        let round = player.RoundsScores[player.RoundsScores.length - i]
         let playerName = player.Name
-        let rankChange = "circle"
-        let rankChangeValue = ""
-        let newRankList = daysData[daysData.length - i].SortedPlayersThisRound
-        let oldRankList
-        if (i !== daysData.length - counter) {
-            oldRankList = daysData[daysData.length - i - 1].SortedPlayersThisRound
-        } else {
-            oldRankList = daysData[daysData.length - i].SortedPlayersThisRound
-        }
-        
-        for (let x = 0; x < newRankList.length; x++) {
-            if (playerName === newRankList[x].Name) {
-                newRank = x + 1
+        if (round.roundScore) {
+            let thisRank = round.thisRoundRank
+            let rankChange = "circle"
+            let rankChangeValue = " "
+            let beforeRank 
+            if (i !== player.RoundsScores.length) {
+                beforeRank = player.RoundsScores[player.RoundsScores.length - i - 1].thisRoundRank
+            } 
+            console.log(thisRank + " thisRank")
+            console.log(beforeRank + " beforeRank")
+            if (beforeRank < thisRank) {
+                rankChange = `arrow-down`
+                rankChangeValue = beforeRank - thisRank
+            } else if (beforeRank > thisRank) {
+                rankChange = `arrow-up`
+                rankChangeValue = beforeRank - thisRank
             }
-        }
-        for (let x = 0; x < oldRankList.length; x++) {
-            if (playerName === oldRankList[x].Name) {
-                oldRank = x + 1
+
+            let date = round.date
+            if (screen.width < 786) {
+                date = smallScreenDate(daysData[daysData.length - i].date)
             }
-        }
-        if (oldRank < newRank) {
-            rankChange = "arrow-down"
-            rankChangeValue = oldRank - newRank
-        } else if (oldRank > newRank) {
-            rankChange = "arrow-up"
-            rankChangeValue = oldRank - newRank
-        }
-        if (player.Name.split(" ").length > 1) {
-            playerName = player.Name.split(" ").join("_")
-        }
 
-        let day = daysData[daysData.length - i].day
-        const bestScoreArray = daysData[daysData.length - i].bestScore
-        
-        let date = daysData[daysData.length - i].date
-        if (screen.width < 786) {
-            date = smallScreenDate(daysData[daysData.length - i].date)
-        }
-
-        const scores = daysData[daysData.length - i].scores
-        let score 
-        
-        
-        if (scores[playerName]) {
-            score = scores[playerName]
-            
-            let scoreSpan = `<span class="score">${score}</span>`
+            let scoreSpan = `<span class="score">${round.roundScore}</span>`
+            const bestScoreArray = daysData[daysData.length - i].bestScore
             for (const best of bestScoreArray) {
                 if (best === playerName) {
                     scoreSpan = `<span class="score first-icon" title="Highest Score In Round ${day}">${score}</span>`
@@ -982,18 +658,18 @@ function generateDayHtml(player) {
                     scoreSpan = `<span class="score best-ever" title="Highest Round Score Ever">${score}</span>`
                 }
             }
-            div.innerHTML += `
-            <div class="day-line d-flex align-items-center bg-white">
-                <span class="rank fw-bold">${newRank}</span>
-                <span class="rank-change"><i class="fa-solid fa-${rankChange}"><span>${rankChangeValue}</span></i></span>
-                <span class="date flex-grow-1">${date}</span>
-                <span class="round">${daysData[daysData.length - i].day}</span>
-                ${scoreSpan}
-            </div>
+            container += `
+                <div class="day-line d-flex align-items-center bg-white">
+                    <span class="rank fw-bold">${thisRank}</span>
+                    <span class="rank-change"  title="Previous position: ${beforeRank}"><i class="fa-solid fa-${rankChange}"><span>${rankChangeValue}</span></i></span>
+                    <span class="date flex-grow-1">${date}</span>
+                    <span class="round">${daysData[daysData.length - i].day}</span>
+                    ${scoreSpan}
+                </div>
             `
         }
     }
-    return div.innerHTML
+    return container
 }
 if (currentPage.includes("player-profile.html")) {
     generateProfilePage()
