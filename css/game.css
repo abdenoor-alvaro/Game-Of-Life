@@ -48,7 +48,7 @@ li {
 }
 /* Start News Slider */
 .latest-news {
-    margin-block: 50px;
+    margin: 50px 0px 80px;
 }
 .news-special-header {
     display: flex;
@@ -57,11 +57,11 @@ li {
 }
 .news-special-header a {
     font-size: 18px;
-    color: #3b475c;
+    color: #3b4754;
     cursor: pointer;
 }
 .news-special-header a:hover {
-    color: black;
+    color: #19057a;
 }
 #news-slider{
     margin-top: 80px;
@@ -228,6 +228,41 @@ li {
 }
 .owl-controls .owl-buttons .owl-next:after{
     content:"\f105";
+}
+.show-all-btnn {
+    width: fit-content;
+    margin: auto;
+}
+.show-all-btnn a {
+    text-transform: uppercase;
+    color: #550065;
+    padding: 8px 16px;
+    border: 2px solid #550065;
+    font-size: 14px;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+.show-all-btnn a:hover {
+    background-color: #550065;
+    color: white;
+}
+.show-news-btn {
+    width: fit-content;
+    margin: auto;
+    margin-top: 30px;
+}
+.show-news-btn a {
+    padding: 8px 30px;
+    color: #19057a;
+    border: 4px solid #19057a;
+    font-size: 18px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+.show-news-btn a:hover {
+    background-color: #19057a;
+    color: white;
 }
 @media only screen and (max-width:1280px) {
     .post-slide .post-content{
@@ -481,12 +516,12 @@ header input:checked ~ .burger span:nth-of-type(3) {
     text-align: center;
 }
 
-.show-all-btn {
+.show-rules-btn {
     width: fit-content;
     margin: auto;
     margin-top: 30px;
 }
-.show-all-btn a {
+.show-rules-btn a {
     text-decoration: underline;
     padding: 10px 30px;
     color: #05b9ca;
@@ -495,7 +530,7 @@ header input:checked ~ .burger span:nth-of-type(3) {
     font-weight: 700;
     transition: 0.3s;
 }
-.show-all-btn a:hover {
+.show-rules-btn a:hover {
     background-color: #05b9ca;
     color: white;
 }
@@ -1105,12 +1140,23 @@ hr {
 }
 /* End Player Profile Content */
 .round-header {
+    /* display: flex;
+    justify-content: space-between;
+    align-items: end; */
     font-weight: 500;
     padding-block: 10px;
     margin-bottom: 15px;
     position: relative;
     font-size: 24px;
 }
+/* .round-header a {
+    font-size: 18px;
+    color: #3b4754;
+    cursor: pointer;
+} */
+/* .round-header a:hover {
+    color: #19057a;
+} */
 .round-header span {
     font-size: 18px;
 }

@@ -231,35 +231,43 @@ const daysData = [
         day: 1,
         date: "Saturday 06 December 2023",
         scores: {
-            abdenoor_alvaro: false,
+            abdenoor_alvaro: 72,
             sahel_yacine: false,
             bourmel_islem: false,
-            boussebain_mahfoud: false,
-            slimani_abdenoor: false,
+            boussebain_mahfoud: 101,
+            slimani_abdenoor: 76,
             marceline: false,
             mohamed_djawad: false,
             kaouthar: false,
             ahmed_larbi: false,
             bhm_ikram: false,
             boussebain_mourad: false,
-            mahrouz_youcef: false,
-            il_sabile: false,
-            lee_chin: false,
+            mahrouz_youcef: 64,
+            il_sabile: 69,
+            lee_chin: 83,
             lagraa_hanene: false,
-            amar_harrouz: false,
+            amar_harrouz: 32,
             hayet: false,
             seoyoon_zahra: false,
             abdel_hamid: false,
-            wahiba_mohamedi: false,
+            wahiba_mohamedi: 34,
             bochra_assouma: false,
-            lircan_fetihovic: false,
+            lircan_fetihovic: 103,
             rose_rosette: false,
             chahinez_chanez: false,
             bnsdk_iman: false,
-            profeseur_youcef: false,
+            profeseur_youcef: 82,
         },
         bestScore: ""
     },
+    // {
+    //     day: 2,
+    //     date: "Saturday 06 December 2023",
+    //     scores: {
+    //         abdenoor_alvaro: 10,
+    //         sahel_yacine: 111,
+    //     }
+    // }
 ]
 
 // Start Latest News Data
@@ -464,11 +472,11 @@ const sortedPlayers = [...players].sort((a, b) => b.TotalPoints - a.TotalPoints)
 //     }
 // }
 
-// // End News Generate
+// End News Generate
 // Start Table Page
 // Start Functions
 function generateHtmlTablePage() {
-    const htmlTableLocation = document.querySelector(".content")
+    const htmlTableLocation = document.querySelector(".table-content")
     const html = `
     <div class="table-page-content">
         <div class="main-header fw-bold py-5 fs-1 mb-5">
@@ -498,10 +506,6 @@ function generatePlayerHtml() {
     let playersHtml = ``
     for (let i = 0; i < sortedPlayers.length; i++) {
         let player = sortedPlayers[i]
-        // let rank = player.Rank
-        // if ((i !== 0) && (player.TotalPoints === sortedPlayers[i - 1].TotalPoints) ) {
-        //     rank = sortedPlayers[i - 1].Rank
-        // }
         let playerName = player.Name
         
         let beforeRank  
@@ -539,7 +543,7 @@ function generatePlayerHtml() {
 }
 // End Functions
 if (currentPage.includes("index.html") || currentPage === "/Game-Of-Life/") {
-    generateHtmlTablePage(sortedPlayers)
+    generateHtmlTablePage()
 }
 // End Table Page
 
@@ -568,7 +572,7 @@ function generateProfilePage() {
         playerName = smallScreenName(player.Name)
     }
     document.querySelector('title').textContent = `${capitalize(playerName)}`
-    const htmlTableLocation = document.querySelector(".content")
+    const htmlTableLocation = document.querySelector(".player-profile-content")
     const pageHtml = `
     <div class="player-profile-content">
         <div class="main-header fw-bold py-5 mb-5">
@@ -676,9 +680,14 @@ if (currentPage.includes("player-profile.html")) {
 }
 // End Player Profile Page
 // Start Rounds Page
-function generateRoundPage() {
-    const htmlLocation = document.querySelector(".content")
-    for (const round of daysData) {
+function generateRoundPage(inHomePage) {
+    const htmlLocation = document.querySelector(".rounds-content")
+    for (let x = 0; x < daysData.length; x++) {
+        if (x !== daysData.length - 1 && inHomePage) {
+            console.log("helo")
+            continue
+        }
+        let round = daysData[x]
         let date = round.date
         if (screen.width < 786) {
             date = smallScreenDate(round.date)
@@ -748,7 +757,7 @@ function generatePlayerHtmlOnRoundsPage(sortedList, day) {
         <div class="playerline w-100 d-flex justify-content-between align-items-center bg-white">
             <span class="rank fw-bold">${rank}</span>
             <span class="image"><img class="generateProfile" id="${player.Id}" src="images/${player.Image}" alt=""></span>
-            <span class="player flex-grow-1"><a href="player-profile.html?${player.Id}"class="player-name p-0 generateProfile" id="${player.Id}">${playerName}</a></span>
+            <span class="player flex-grow-1"><a href="player-profile.html?${player.Id}"class="player-name p-0 generateProfile" id="${player.Id}">${capitalize(playerName)}</a></span>
             ${pointSpan}
         </div>
         `
@@ -759,6 +768,9 @@ function generatePlayerHtmlOnRoundsPage(sortedList, day) {
 if (currentPage.includes("rounds.html")) {
     generateRoundPage()
 }
+// if (currentPage.includes("index.html")) {
+//     generateRoundPage(true)
+// }
 // End Rounds Page
 // Start Rules Page
 function showMore() {
