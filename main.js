@@ -232,7 +232,7 @@ const daysData = [
         date: "Saturday 06 December 2023",
         scores: {
             abdenoor_alvaro: 72,
-            sahel_yacine: false,
+            sahel_yacine: 78,
             bourmel_islem: 32,
             boussebain_mahfoud: 101,
             slimani_abdenoor: 76,
@@ -248,7 +248,7 @@ const daysData = [
             lagraa_hanene: 65,
             amar_harrouz: 32,
             hayet: 34,
-            seoyoon_zahra: false,
+            seoyoon_zahra: 90.5,
             abdel_hamid: false,
             wahiba_mohamedi: 34,
             bochra_assouma: false,
