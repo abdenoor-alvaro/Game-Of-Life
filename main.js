@@ -221,7 +221,7 @@ const playersData = [
     { name: "bnsdk iman", image: "iman.jpg" },
     { name: "profeseur youcef", image: "profesuer-youcef.jpg" },
     { name: "meghdir habibo", image: "habibo.jpg" },
-    { name: "mani ilaa", image: "manel.jpg" },
+    { name: "abbou manel", image: "manel.jpg" },
     
 ]
 const players = playersData.map(playerData => new Player(playerData.name, playerData.image))
@@ -237,9 +237,9 @@ const daysData = [
             boussebain_mahfoud: 101,
             slimani_abdenoor: 76,
             marceline: false,
-            mohamed_djawad: false,
+            mohamed_djawad: 65.5,
             kaouthar: 33,
-            ahmed_larbi: false,
+            ahmed_larbi: 27,
             bhm_ikram: false,
             boussebain_mourad: false,
             mahrouz_youcef: 64,
@@ -257,6 +257,7 @@ const daysData = [
             chahinez_chanez: false,
             bnsdk_iman: false,
             profeseur_youcef: 82,
+            abbou_manel: 42,
         },
         bestScore: ""
     },
