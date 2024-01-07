@@ -205,7 +205,6 @@ const playersData = [
     { name: "ahmed larbi", image: "hmida.jpg" },
     { name: "bhm ikram", image: "ikram.jpg" },
     { name: "boussebain mourad", image: "mourad.jpg" },
-    { name: "mahrouz youcef", image: "mahrouz.jpg" },
     { name: "il sabile", image: "sabil.jpg" },
     { name: "lee chin", image: "lechin.jpg" },
     { name: "lagraa hanene", image: "hanene.jpg" },
@@ -241,8 +240,7 @@ const daysData = [
             kaouthar: 33,
             ahmed_larbi: 27,
             bhm_ikram: false,
-            boussebain_mourad: false,
-            mahrouz_youcef: 64,
+            boussebain_mourad: 43,
             il_sabile: 69,
             lee_chin: 83,
             lagraa_hanene: 65,
@@ -261,14 +259,39 @@ const daysData = [
         },
         bestScore: ""
     },
-    // {
-    //     day: 2,
-    //     date: "Saturday 06 December 2023",
-    //     scores: {
-    //         abdenoor_alvaro: 10,
-    //         sahel_yacine: 111,
-    //     }
-    // }
+    {
+        day: 2,
+        date: "Sunday 07 December 2023",
+        scores: {
+            abdenoor_alvaro: 108.5,
+            sahel_yacine: 72.5,
+            bourmel_islem: false,
+            boussebain_mahfoud: 88,
+            slimani_abdenoor: 55,
+            marceline: false,
+            mohamed_djawad: false,
+            kaouthar: false,
+            ahmed_larbi: false,
+            bhm_ikram: false,
+            boussebain_mourad: false,
+            il_sabile: false,
+            lee_chin: 101,
+            lagraa_hanene: 58,
+            amar_harrouz: false,
+            hayet: false,
+            seoyoon_zahra: false,
+            abdel_hamid: false,
+            wahiba_mohamedi: false,
+            bochra_assouma: false,
+            lircan_fetihovic: 101,
+            rose_rosette: false,
+            chahinez_chanez: false,
+            bnsdk_iman: false,
+            profeseur_youcef: 87,
+            abbou_manel: false,
+        },
+        bestScore: ""
+    },
 ]
 
 // Start Latest News Data
