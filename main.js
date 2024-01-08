@@ -211,7 +211,6 @@ const playersData = [
     { name: "amar harrouz", image: "amar.jpg" },
     { name: "hayet", image: "hayet.jpg" },
     { name: "seoyoon zahra", image: "zahra.jpg" },
-    { name: "abdel hamid", image: "abdelhamid.jpg" },
     { name: "wahiba mohamedi", image: "wahiba.jpg" },
     { name: "bochra assouma", image: "bouchra.jpg" },
     { name: "lircan fetihovic", image: "lucran.jpg" },
@@ -235,7 +234,7 @@ const daysData = [
             bourmel_islem: 32,
             boussebain_mahfoud: 101,
             slimani_abdenoor: 76,
-            marceline: false,
+            marceline: 19.5,
             mohamed_djawad: 65.5,
             kaouthar: 33,
             ahmed_larbi: 27,
@@ -247,13 +246,12 @@ const daysData = [
             amar_harrouz: 32,
             hayet: 34,
             seoyoon_zahra: 90.5,
-            abdel_hamid: false,
             wahiba_mohamedi: 34,
             bochra_assouma: false,
             lircan_fetihovic: 103,
             rose_rosette: false,
-            chahinez_chanez: false,
-            bnsdk_iman: false,
+            chahinez_chanez: 15,
+            bnsdk_iman: 19,
             profeseur_youcef: 82,
             abbou_manel: 42,
         },
@@ -269,18 +267,17 @@ const daysData = [
             boussebain_mahfoud: 88,
             slimani_abdenoor: 55,
             marceline: false,
-            mohamed_djawad: false,
+            mohamed_djawad: 63.5,
             kaouthar: false,
             ahmed_larbi: false,
             bhm_ikram: false,
-            boussebain_mourad: false,
-            il_sabile: false,
+            boussebain_mourad: 30,
+            il_sabile: 65,
             lee_chin: 101,
             lagraa_hanene: 58,
             amar_harrouz: false,
             hayet: false,
-            seoyoon_zahra: false,
-            abdel_hamid: false,
+            seoyoon_zahra: 101.5,
             wahiba_mohamedi: 42,
             bochra_assouma: false,
             lircan_fetihovic: 101,
@@ -644,6 +641,7 @@ function generateProfilePage() {
     
     htmlTableLocation.innerHTML = pageHtml
 }
+console.log(players[2])
 function generateDayHtml(player) {
     let container = ``
     for (let i = 1 ; i <= player.RoundsScores.length; i++) {
@@ -657,8 +655,6 @@ function generateDayHtml(player) {
             if (i !== player.RoundsScores.length) {
                 beforeRank = player.RoundsScores[player.RoundsScores.length - i - 1].thisRoundRank
             } 
-            console.log(thisRank + " thisRank")
-            console.log(beforeRank + " beforeRank")
             if (beforeRank < thisRank) {
                 rankChange = `arrow-down`
                 rankChangeValue = beforeRank - thisRank
@@ -675,17 +671,19 @@ function generateDayHtml(player) {
             let scoreSpan = `<span class="score">${round.roundScore}</span>`
             const bestScoreArray = daysData[daysData.length - i].bestScore
             for (const best of bestScoreArray) {
-                if (best === playerName) {
-                    scoreSpan = `<span class="score first-icon" title="Highest Score In Round ${day}">${score}</span>`
+                if (best.split("_").join(" ") === playerName) {
+                    scoreSpan = `<span class="score first-icon" title="Highest Score In Round ${round.roundNumber}">${round.roundScore}</span>`
                     player.TotalStars += 1
                 }
             }
     
             for (const highest of highestScorePlayers) {
-                if (highest.player === playerName && highest.day === day) {
-                    scoreSpan = `<span class="score best-ever" title="Highest Round Score Ever">${score}</span>`
+                console.log(highest.player)
+                if (highest.player.split("_").join(" ") === playerName && highest.day === round.roundNumber) {
+                    scoreSpan = `<span class="score best-ever" title="Highest Round Score Ever">${round.roundScore}</span>`
                 }
             }
+            console.log(scoreSpan)
             container += `
                 <div class="day-line d-flex align-items-center bg-white">
                     <span class="rank fw-bold">${thisRank}</span>
