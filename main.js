@@ -135,24 +135,6 @@ function disableScrolling() {
     indicator = true
     body.style.overflow = "visible"
 }
-function generateUniqueId() {
-    return "id=" + idCounter++
-}
-function capitalize(sentence) {
-    return sentence.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
-}
-function smallScreenName(name) {
-    let splitedName = name.split(" ")
-    if (splitedName.length < 2) {
-        return name
-    }
-    return splitedName[0][0] + ". " + splitedName[1]
-}
-function smallScreenDate(date) {
-    let dateArray = date.split(" ")
-    const smallDate = `${dateArray[1]} ${dateArray[2].slice(0, 3).toUpperCase()} ${dateArray[3]}`
-    return smallDate
-}
 function openImage(imageSrc) {
     const fullscreen = document.getElementById('fullscreen');
     const fullscreenImage = document.getElementById('fullscreen-image');
@@ -175,6 +157,24 @@ function closeFullscreen() {
     const fullscreen = document.getElementById('fullscreen');
     fullscreen.style.display = 'none';
     body.style.overflow = "visible"
+}
+function generateUniqueId() {
+    return "id=" + idCounter++
+}
+function capitalize(sentence) {
+    return sentence.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+}
+function smallScreenName(name) {
+    let splitedName = name.split(" ")
+    if (splitedName.length < 2) {
+        return name
+    }
+    return splitedName[0][0] + ". " + splitedName[1]
+}
+function smallScreenDate(date) {
+    let dateArray = date.split(" ")
+    const smallDate = `${dateArray[1]} ${dateArray[2].slice(0, 3).toUpperCase()} ${dateArray[3]}`
+    return smallDate
 }
 // End Global Functions 
 // Start Data
@@ -246,7 +246,7 @@ const daysData = [
             amar_harrouz: 32,
             hayet: 34,
             seoyoon_zahra: 90.5,
-            wahiba_mohamedi: 34,
+            wahiba_mohamedi: 35,
             bochra_assouma: false,
             lircan_fetihovic: 103,
             rose_rosette: false,
@@ -269,7 +269,7 @@ const daysData = [
             marceline: 36.5,
             mohamed_djawad: 63.5,
             kaouthar: false,
-            ahmed_larbi: false,
+            ahmed_larbi: 31,
             bhm_ikram: false,
             boussebain_mourad: 30,
             il_sabile: 65,
@@ -278,7 +278,7 @@ const daysData = [
             amar_harrouz: 38,
             hayet: 24,
             seoyoon_zahra: 101.5,
-            wahiba_mohamedi: 42,
+            wahiba_mohamedi: 43,
             bochra_assouma: false,
             lircan_fetihovic: 101,
             rose_rosette: false,
@@ -286,6 +286,38 @@ const daysData = [
             bnsdk_iman: 45,
             profeseur_youcef: 87,
             abbou_manel: 35,
+        },
+        bestScore: ""
+    },
+    {
+        day: 3,
+        date: "Monday 08 December 2023",
+        scores: {
+            abdenoor_alvaro: 90,
+            sahel_yacine: false,
+            bourmel_islem: false,
+            boussebain_mahfoud: 117,
+            slimani_abdenoor: false,
+            marceline: false,
+            mohamed_djawad: false,
+            kaouthar: false,
+            ahmed_larbi: false,
+            bhm_ikram: false,
+            boussebain_mourad: false,
+            il_sabile: 72,
+            lee_chin: false,
+            lagraa_hanene: false,
+            amar_harrouz: false,
+            hayet: false,
+            seoyoon_zahra: false,
+            wahiba_mohamedi: false,
+            bochra_assouma: false,
+            lircan_fetihovic: false,
+            rose_rosette: false,
+            chahinez_chanez: false,
+            bnsdk_iman: false,
+            profeseur_youcef: 103,
+            abbou_manel: false,
         },
         bestScore: ""
     },
