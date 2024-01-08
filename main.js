@@ -275,7 +275,7 @@ const daysData = [
             il_sabile: 65,
             lee_chin: 101,
             lagraa_hanene: 58,
-            amar_harrouz: false,
+            amar_harrouz: 38,
             hayet: false,
             seoyoon_zahra: 101.5,
             wahiba_mohamedi: 42,
@@ -641,7 +641,6 @@ function generateProfilePage() {
     
     htmlTableLocation.innerHTML = pageHtml
 }
-console.log(players[2])
 function generateDayHtml(player) {
     let container = ``
     for (let i = 1 ; i <= player.RoundsScores.length; i++) {
