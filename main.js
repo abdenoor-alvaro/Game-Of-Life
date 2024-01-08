@@ -283,7 +283,7 @@ const daysData = [
             lircan_fetihovic: 101,
             rose_rosette: false,
             chahinez_chanez: 10,
-            bnsdk_iman: false,
+            bnsdk_iman: 45,
             profeseur_youcef: 87,
             abbou_manel: 35,
         },
