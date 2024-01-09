@@ -306,7 +306,7 @@ const daysData = [
             boussebain_mourad: 40,
             il_sabile: 72,
             lee_chin: 84,
-            lagraa_hanene: false,
+            lagraa_hanene: 47,
             amar_harrouz: false,
             hayet: 62,
             seoyoon_zahra: 99,
