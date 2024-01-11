@@ -700,6 +700,7 @@ function generateProfilePage() {
     }
     document.querySelector('title').textContent = `${capitalize(playerName)}`
     const htmlTableLocation = document.querySelector(".player-profile-content")
+    // console.log(capitalize(playerName).split(" ")[1])
     const pageHtml = `
     <div class="player-profile-content">
         <div class="main-header fw-bold py-5 mb-5">
@@ -720,7 +721,7 @@ function generateProfilePage() {
                 ${generateDayHtml(player)}
                 <hr>
                 <div class="player-stats">
-                    <div class="player-stats-header">${capitalize(playerName).split(" ")[1]}'s <span>Stats</span> </div>
+                    <div class="player-stats-header">${capitalize(playerName).split(" ").length > 1 ? capitalize(playerName).split(" ")[1]: capitalize(playerName)}'s <span>Stats</span> </div>
                     <div class="stats">
                         <div class="stat">
                             <div class="value">${player.bestScore}</div>
@@ -783,12 +784,10 @@ function generateDayHtml(player) {
             }
     
             for (const highest of highestScorePlayers) {
-                console.log(highest.player)
                 if (highest.player.split("_").join(" ") === playerName && highest.day === round.roundNumber) {
                     scoreSpan = `<span class="score best-ever" title="Highest Round Score Ever">${round.roundScore}</span>`
                 }
             }
-            console.log(scoreSpan)
             container += `
                 <div class="day-line d-flex align-items-center bg-white">
                     <span class="rank fw-bold">${thisRank}</span>
