@@ -354,7 +354,7 @@ const daysData = [
             lee_chin: 106,
             lagraa_hanene: 71.5,
             amar_harrouz: false,
-            hayet: false,
+            hayet: 69,
             seoyoon_zahra: false,
             wahiba_mohamedi: 41,
             bochra_assouma: 62,
