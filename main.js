@@ -223,7 +223,7 @@ const players = playersData.map(playerData => new Player(playerData.name, player
 const daysData = [
     {
         day: 1,
-        date: "Saturday 06 December 2023",
+        date: "Saturday 06 January 2024",
         scores: {
             abdenoor_alvaro: 72,
             sahel_yacine: 78,
@@ -252,7 +252,7 @@ const daysData = [
     },
     {
         day: 2,
-        date: "Sunday 07 December 2023",
+        date: "Sunday 07 January 2024",
         scores: {
             abdenoor_alvaro: 108.5,
             sahel_yacine: 72.5,
@@ -281,7 +281,7 @@ const daysData = [
     },
     {
         day: 3,
-        date: "Monday 08 December 2023",
+        date: "Monday 08 January 2024",
         scores: {
             abdenoor_alvaro: 90,
             sahel_yacine: 74.5,
@@ -310,7 +310,7 @@ const daysData = [
     },
     {
         day: 4,
-        date: "Tuesday 09 December 2023",
+        date: "Tuesday 09 January 2024",
         scores: {
             abdenoor_alvaro: 61.5,
             sahel_yacine: 61.5,
@@ -339,7 +339,7 @@ const daysData = [
     },
     {
         day: 5,
-        date: "Wednesday 10 December 2023",
+        date: "Wednesday 10 January 2024",
         scores: {
             abdenoor_alvaro: 66.5,
             sahel_yacine: 65.5,
@@ -368,7 +368,7 @@ const daysData = [
     },
     // {
     //     day: 6,
-    //     date: "Thursday 11 December 2023",
+    //     date: "Thursday 11 January 2024",
     //     scores: {
     //         abdenoor_alvaro: false,
     //         sahel_yacine: false,
