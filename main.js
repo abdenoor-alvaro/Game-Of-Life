@@ -216,6 +216,7 @@ const playersData = [
     { name: "bnsdk iman", image: "iman.jpg" },
     { name: "profeseur youcef", image: "profesuer-youcef.jpg" },
     { name: "abbou manel", image: "manel.jpg" },
+    { name: "taous", image: "rose.jpg" },
     
 ]
 const players = playersData.map(playerData => new Player(playerData.name, playerData.image))
@@ -247,6 +248,7 @@ const daysData = [
             bnsdk_iman: 19,
             profeseur_youcef: 82,
             abbou_manel: 42,
+            taous: 22,
         },
         bestScore: ""
     },
@@ -276,6 +278,7 @@ const daysData = [
             bnsdk_iman: 45,
             profeseur_youcef: 87,
             abbou_manel: 35,
+            taous: 18,
         },
         bestScore: ""
     },
@@ -305,6 +308,7 @@ const daysData = [
             bnsdk_iman: 61.5,
             profeseur_youcef: 105,
             abbou_manel: 41,
+            taous: 28,
         },
         bestScore: ""
     },
@@ -334,6 +338,7 @@ const daysData = [
             bnsdk_iman: 43,
             profeseur_youcef: 74.5,
             abbou_manel: 37.5,
+            taous: 36,
         },
         bestScore: ""
     },
@@ -363,6 +368,7 @@ const daysData = [
             bnsdk_iman: 54,
             profeseur_youcef: 103,
             abbou_manel: 40.5,
+            taous: 35.5,
         },
         bestScore: ""
     },
@@ -375,7 +381,7 @@ const daysData = [
             bourmel_islem: 62.5,
             boussebain_mahfoud: 122,
             slimani_abdenoor: false,
-            marceline: false,
+            marceline: 43.5,
             mohamed_djawad: 76.5,
             ahmed_larbi: 34,
             boussebain_mourad: 30,
@@ -388,16 +394,17 @@ const daysData = [
             wahiba_mohamedi: 26,
             bochra_assouma: 60,
             lircan_fetihovic: false,
-            chahinez_chanez: false,
-            bnsdk_iman: false,
+            chahinez_chanez: 34,
+            bnsdk_iman: 51,
             profeseur_youcef: 126.5,
             abbou_manel: 52.5,
+            taous: 38.5,
         },
         bestScore: ""
     },
     // {
     //     day: 7,
-    //     date: "Friday 12 January 2024",
+    //     date: "Saturday 13 January 2024",
     //     scores: {
     //         abdenoor_alvaro: false,
     //         sahel_yacine: false,
