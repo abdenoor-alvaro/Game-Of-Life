@@ -433,7 +433,7 @@ const daysData = [
             boussebain_mahfoud: 71,
             slimani_abdenoor: false,
             marceline: false,
-            mohamed_djawad: false,
+            mohamed_djawad: 82,
             ahmed_larbi: false,
             boussebain_mourad: false,
             il_sabile: 62,
