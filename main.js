@@ -484,7 +484,7 @@ const daysData = [
             boussebain_mourad: false,
             il_sabile: 50,
             lee_chin: false,
-            lagraa_hanene: false,
+            lagraa_hanene: 72.5,
             hayet: false,
             seoyoon_zahra: false,
             wahiba_mohamedi: 58.5,
