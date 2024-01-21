@@ -88,7 +88,7 @@
                 <br>
                 <br>
                 <h2>الاستيقاظ باكرا:</h2>
-                
+<!--                 
                 - الفترة الرئيسية (من 6:00 الى 6:30) = <span>8 نقاط</span> 
                 <br>
                 - الاستيقاظ قبل الفترة الرئيسية <span>1+</span> لكل فترة
@@ -99,11 +99,15 @@
                 <br>
                 -  الاستيقاظ بعد 7:00 =  <span> 0 نقطة </span>  
                 <br><br>
-                <span>جدول توضيحي:</span> 
-                <table>
+                <span>جدول توضيحي:</span>  -->
+                <table class="wake-up-table">
                     <tr>
                         <th>فترة الاستيقاظ</th>
                         <th>النقطة</th>
+                    </tr>
+                    <tr>
+                        <td> بعد 7:00  </td>
+                        <td>0</td>
                     </tr>
                     <tr>
                         <td> من 6:30 الى 7:00 </td>
@@ -129,7 +133,12 @@
                         <td> من 4:00 الى 4:30 </td>
                         <td>12</td>
                     </tr>
+                    <tr>
+                        <td> قبل 4:00  </td>
+                        <td>13</td>
+                    </tr>
                 </table>
+                
                 <div class="show-more" onclick="showMore()" id="show-more-2">عرض تفاصيل اكثر</div>
                 <!-- <div class="show-more" onclick="showMore()" id="show-more-2">عرض تفاصيل اكثر</div> -->
                 <div class="more-details show-more-2">
@@ -146,11 +155,11 @@
                 - لعب مباراة كرة قدم = <span> 4 نقاط </span>  
                 <br><br>
                 <h2>الصلاة:</h2>
-                - الصلاة مع الجماعة =  <span> 3 نقاط </span>
+                <!-- - الصلاة مع الجماعة =  <span> 3 نقاط </span>
                 <br>
-                - استثناء صلاة الفجر مع الجماعة =   <span> 5 نقاط </span>
+                - صلاة الفجر مع الجماعة =   <span> 5 نقاط </span>
                 <br>
-                - الصلاة الفردية في وقتها (قضاء) =   <span> 2 نقاط </span>
+                - الصلاة الفردية قبل خروج وقتها (قضاء) =   <span> 2 نقاط </span>
                 <br>
                 - صلاة النافلة (جميع النوافل بأنواعها) =  <span> 1 نقطة </span> 
                 <br>
@@ -161,6 +170,66 @@
                 - استثناء صلاة الفجر في اول وقتها =  <span> 5 نقاط </span>
                 <br>
                 - صلاة القضاء =  <span> 2 نقاط </span>
+                <br>
+                <br>
+                <span>جدول توضيحي:</span>  -->
+                <div class="prayer-table-container">
+                    <table class="prayer-table">
+                        <tr>
+                            <th rowspan="2">الصلاة</th>
+                            <th colspan="2">رجال</th>
+                            <th colspan="2">نساء</th>
+                        </tr>
+                        <tr>
+                            <th>مع الجماعة</th>
+                            <th>فردية قبل خروج وقتها</th>
+                            <th>في اول وقتها</th>
+                            <th>متأخرة قبل خروج وقتها</th>
+                        </tr>
+                        <tr>
+                            <td class="prayer-name">صلاة الفجر</td>
+                            <td>5</td>
+                            <td>2</td>
+                            <td>5</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td class="prayer-name">صلاة الظهر</td>
+                            <td>3</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td class="prayer-name">صلاة العصر</td>
+                            <td>3</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td class="prayer-name">صلاة المغرب</td>
+                            <td>3</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td class="prayer-name">صلاة العشاء</td>
+                            <td>3</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>3</td>
+                        </tr>
+                        <!-- <tr>
+                            <td>صلاة النافلة</td>
+                            <td>12</td>
+                        </tr> -->
+                    </table>
+                </div>
+                <br>
+                - لكل صلاة نافلة (جميع النوافل بأنواعها) =  <span> 1 نقطة </span> 
+                <br>
                 <br>
                 <br>
                 <h2>-النشاطات المختلفة:</h2>
@@ -196,7 +265,7 @@
                 <br><br>
                 <h2>النوم باكرا:</h2>
                 
-                - الفترة الرئيسية (من 21:30 الى 22:00) =  <span> 5 نقاط </span>
+                <!-- - الفترة الرئيسية (من 21:30 الى 22:00) =  <span> 5 نقاط </span>
                 <br>
                 - النوم قبل الفترة الرئيسية <span> 1+ </span> لكل فترة
                 <br>
@@ -204,7 +273,45 @@
                 <br>
                 - النوم بعد الفترة الرئيسية <span> 1.5- </span>لكل فترة
                 <br>
-                - النوم بعد 23:00 =  <span> 0 نقطة </span> 
+                - النوم بعد 23:00 =  <span> 0 نقطة </span>  -->
+                <table class="wake-up-table">
+                    <tr>
+                        <th>فترة النوم</th>
+                        <th>النقطة</th>
+                    </tr>
+                    <tr>
+                        <td> قبل 20:00 </td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>من 20:00 الى 20:30</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td> من 20:30 الى 21:00 </td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td> من 21:00 الى 21:30 </td>
+                        <td> 6 </td>
+                    </tr>
+                    <tr>
+                        <td> من 21:30 الى 22:00 </td>
+                        <td> 5 </td>
+                    </tr>
+                    <tr>
+                        <td>  من 22:00 الى 22:30  </td>
+                        <td>3.5</td>
+                    </tr>
+                    <tr>
+                        <td> من 22:30 الى 23:00 </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td> بعد 23:00  </td>
+                        <td>0</td>
+                    </tr>
+                </table>
                 <br> <br>
                 <h2>الصيام:  </h2>
                 - صيام اليوم نافلة او قضاء = <span> 6 نقاط </span>

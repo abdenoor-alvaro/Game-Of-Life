@@ -536,7 +536,7 @@ const daysData = [
             bochra_assouma: 84,
             chahinez_chanez: false,
             bnsdk_iman: false,
-            profeseur_youcef: false,
+            profeseur_youcef: 90,
             abbou_manel: false,
             taous: false,
         },
