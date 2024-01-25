@@ -597,6 +597,7 @@ const daysData = [
         date: "Tuesday 23 January 2024",
         scores: {
             abdenoor_alvaro: 75.5,
+            abdenoor_alvaro: 0,
             sahel_yacine: 68,
             bourmel_islem: 26.5,
             boussebain_mahfoud: 61,
