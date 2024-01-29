@@ -645,11 +645,11 @@ const daysData = [
             il_sabile: false,
             lee_chin: 94,
             lagraa_hanene: false,
-            seoyoon_zahra: false,
+            seoyoon_zahra: 64,
             bochra_assouma: false,
             chahinez_chanez: 65,
             bnsdk_iman: 23.5,
-            profeseur_youcef: false,
+            profeseur_youcef: 91,
             taous: 61,
         },
         bestScore: ""
