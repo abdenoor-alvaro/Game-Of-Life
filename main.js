@@ -632,9 +632,31 @@ const daysData = [
         },
         bestScore: ""
     },
+    {
+        day: 20,
+        date: "Sunday 28 January 2024",
+        scores: {
+            abdenoor_alvaro: 103,
+            sahel_yacine: 63,
+            bourmel_islem: false,
+            boussebain_mahfoud: 88,
+            marceline: 65,
+            mohamed_djawad: 55,
+            il_sabile: false,
+            lee_chin: 94,
+            lagraa_hanene: false,
+            seoyoon_zahra: false,
+            bochra_assouma: false,
+            chahinez_chanez: 65,
+            bnsdk_iman: 23.5,
+            profeseur_youcef: false,
+            taous: 61,
+        },
+        bestScore: ""
+    },
     // {
-    //     day: 20,
-    //     date: "Sunday 28 January 2024",
+    //     day: 21,
+    //     date: "Monday 29 January 2024",
     //     scores: {
     //         abdenoor_alvaro: false,
     //         sahel_yacine: false,
