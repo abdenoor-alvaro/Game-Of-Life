@@ -711,7 +711,7 @@ const daysData = [
             il_sabile: false,
             lee_chin: false,
             lagraa_hanene: false,
-            seoyoon_zahra: false,
+            seoyoon_zahra: 70,
             bochra_assouma: 33,
             chahinez_chanez: false,
             bnsdk_iman: false,
