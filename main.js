@@ -707,7 +707,7 @@ const daysData = [
             bourmel_islem: 44,
             boussebain_mahfoud: false,
             marceline: false,
-            mohamed_djawad: 73.5,
+            mohamed_djawad: false,
             il_sabile: false,
             lee_chin: false,
             lagraa_hanene: false,
