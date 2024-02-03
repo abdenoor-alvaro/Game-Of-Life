@@ -737,7 +737,7 @@ const daysData = [
             bochra_assouma: false,
             chahinez_chanez: false,
             bnsdk_iman: false,
-            profeseur_youcef: false,
+            profeseur_youcef: 82.5,
             taous: false,
         },
         bestScore: ""
