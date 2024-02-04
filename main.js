@@ -194,13 +194,11 @@ class Player {
 }
 
 const playersData = [
-    { name: "boussebain mahfoud",image: "mahfoud.jpg" },
     { name: "bourmel islem",image: "islem.jpg" },
     { name: "abdenoor alvaro",image: "abdenoor.jpg" },
     { name: "sahel yacine", image: "yacine.jpg" },
     { name: "marceline", image: "marceline.jpg" },
     { name: "mohamed djawad", image: "djawad.jpg" },
-    { name: "il sabile", image: "sabil.jpg" },
     { name: "lee chin", image: "lechin.jpg" },
     { name: "lagraa hanene", image: "hanene.jpg" },
     { name: "seoyoon zahra", image: "zahra.jpg" },
