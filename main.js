@@ -758,7 +758,7 @@ const daysData = [
         scores: {
             abdenoor_alvaro: 90,
             sahel_yacine: false,
-            bourmel_islem: false,
+            bourmel_islem: 47,
             marceline: false,
             mohamed_djawad: 61,
             lee_chin: 123,
@@ -778,7 +778,7 @@ const daysData = [
     //     scores: {
     //         abdenoor_alvaro: false,
     //         sahel_yacine: false,
-    //         bourmel_islem: false,
+    //         bourmel_islem: 48,
     //         marceline: false,
     //         mohamed_djawad: false,
     //         lee_chin: false,
