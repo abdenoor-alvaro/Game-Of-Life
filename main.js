@@ -772,7 +772,7 @@ const daysData = [
             mohamed_djawad: 67,
             lee_chin: 123,
             lagraa_hanene: 66.5,
-            seoyoon_zahra: false,
+            seoyoon_zahra: 40,
             profeseur_youcef: 71.5,
         },
         bestScore: ""
@@ -787,7 +787,7 @@ const daysData = [
             mohamed_djawad: 49,
             lee_chin: 114,
             lagraa_hanene: 63,
-            seoyoon_zahra: false,
+            seoyoon_zahra: 40,
             profeseur_youcef: 83,
         },
         bestScore: ""
