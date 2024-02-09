@@ -1046,9 +1046,12 @@ function generatePlayerHtml() {
             rankChange = `<i class="fa-solid fa-arrow-up">`
             rankChangeValue = beforeRank - thisRank
         }
-        // if (daysData[counter - 1].day === 30 && playerName === thisRound[0].Name) {
-        //     rankChange = `<i class="fa-solid fa-crown" style="color: #fee500;"></i>`
-        // }
+        console.log(daysData[daysData.length - 1].day === 30)
+        console.log(player.RoundsScores[29].thisRoundRank === 1)
+        if (daysData[daysData.length - 1].day === 30 && player.RoundsScores[29].thisRoundRank === 1) {
+            console.log("hello")
+            rankChange = `<i class="fa-solid fa-crown" style="color: #fee500;"></i>`
+        }
         if (screen.width < 786) {
             playerName = smallScreenName(player.Name)
         }
