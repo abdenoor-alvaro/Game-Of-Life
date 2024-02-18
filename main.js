@@ -205,7 +205,7 @@ const playersData = [
     { name: "amitaf fati", image: "fati.jpg" },
     { name: "mohamedi amina", image: "amina.jpg" },
     // { name: "boussebain mahfoud",image: "mahfoud.jpg" },
-    // { name: "bochra assouma", image: "bouchra.jpg" },
+    { name: "bochra assouma", image: "bouchra.jpg" },
     // { name: "seoyoon zahra", image: "zahra.jpg" },
     // { name: "marceline", image: "marceline.jpg" },
     // { name: "chahinez chanez", image: "chahinez.jpg" },
@@ -229,6 +229,7 @@ const daysData = [
             farah_farah: false,
             amitaf_fati: false,
             mohamedi_amina: false,
+            bochra_assouma: 83,
         },
         bestScore: ""
     },
