@@ -201,10 +201,9 @@ const playersData = [
     { name: "mohamed djawad", image: "djawad.jpg" },
     { name: "boussebain mahfoud",image: "mahfoud.jpg" },
     { name: "bochra assouma", image: "bouchra.jpg" },
-    // { name: "marceline", image: "marceline.jpg" },
-    // { name: "chahinez chanez", image: "chahinez.jpg" },
-    // { name: "bnsdk iman", image: "iman.jpg" },
-    // { name: "taous", image: "rose.jpg" },
+    { name: "chahinez chanez", image: "chahinez.jpg" },
+    { name: "bnsdk iman", image: "iman.jpg" },
+    { name: "taous", image: "rose.jpg" },
 ]
 const players = playersData.map(playerData => new Player(playerData.name, playerData.image))
 
@@ -216,10 +215,13 @@ const daysData = [
             abdenoor_alvaro: 60,
             sahel_yacine: 25,
             bourmel_islem: 34,
-            profeseur_youcef: false,
+            profeseur_youcef: 88,
             mohamed_djawad: 46,
             bochra_assouma: 83,
             boussebain_mahfoud: 52,
+            chahinez_chanez: 50,
+            bnsdk_iman: 56,
+            taous: 41,
         },
         bestScore: ""
     },
@@ -229,11 +231,31 @@ const daysData = [
         scores: {
             abdenoor_alvaro: 64.5,
             sahel_yacine: 10,
-            bourmel_islem: false,
-            profeseur_youcef: false,
+            bourmel_islem: 23.5,
+            profeseur_youcef: 80,
             mohamed_djawad: false,
             bochra_assouma: false,
             boussebain_mahfoud: 26,
+            chahinez_chanez: 55,
+            bnsdk_iman: 53.5,
+            taous: 49.5,
+        },
+        bestScore: ""
+    },
+    {
+        day: 3,
+        date: "Monday 19 February 2024",
+        scores: {
+            abdenoor_alvaro: 78,
+            sahel_yacine: 31.5,
+            bourmel_islem: 42,
+            profeseur_youcef: 92,
+            mohamed_djawad: false,
+            bochra_assouma: false,
+            boussebain_mahfoud: false,
+            chahinez_chanez: false,
+            bnsdk_iman: false,
+            taous: false,
         },
         bestScore: ""
     },
