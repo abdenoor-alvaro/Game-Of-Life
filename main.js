@@ -266,7 +266,7 @@ const daysData = [
             abdenoor_alvaro: 89,
             sahel_yacine: 63,
             bourmel_islem: false,
-            profeseur_youcef: false,
+            profeseur_youcef: 84.5,
             mohamed_djawad: 36,
             bochra_assouma: 79,
             boussebain_mahfoud: false,
