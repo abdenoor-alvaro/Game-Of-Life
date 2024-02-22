@@ -276,6 +276,40 @@ const daysData = [
         },
         bestScore: ""
     },
+    {
+        day: 5,
+        date: "Wednesday 21 February 2024",
+        scores: {
+            abdenoor_alvaro: 67,
+            sahel_yacine: 80,
+            bourmel_islem: false,
+            profeseur_youcef: 84.5,
+            mohamed_djawad: false,
+            bochra_assouma: false,
+            boussebain_mahfoud: false,
+            chahinez_chanez: false,
+            bnsdk_iman: false,
+            taous: false,
+        },
+        bestScore: ""
+    },
+    // {
+    //     day: 6,
+    //     date: "Thursday 22 February 2024",
+    //     scores: {
+    //         abdenoor_alvaro: false,
+    //         sahel_yacine: false,
+    //         bourmel_islem: false,
+    //         profeseur_youcef: false,
+    //         mohamed_djawad: false,
+    //         bochra_assouma: false,
+    //         boussebain_mahfoud: false,
+    //         chahinez_chanez: false,
+    //         bnsdk_iman: false,
+    //         taous: false,
+    //     },
+    //     bestScore: ""
+    // },
 ]
 
 // Start Latest News Data
