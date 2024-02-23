@@ -304,9 +304,9 @@ const daysData = [
             mohamed_djawad: false,
             bochra_assouma: false,
             boussebain_mahfoud: false,
-            chahinez_chanez: false,
-            bnsdk_iman: false,
-            taous: false,
+            chahinez_chanez: 66,
+            bnsdk_iman: 57.5,
+            taous: 44,
         },
         bestScore: ""
     },
