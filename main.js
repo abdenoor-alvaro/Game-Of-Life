@@ -255,7 +255,7 @@ const daysData = [
             boussebain_mahfoud: 56,
             chahinez_chanez: 50,
             bnsdk_iman: 54,
-            taous: false,
+            taous: 52,
         },
         bestScore: ""
     },
@@ -272,7 +272,7 @@ const daysData = [
             boussebain_mahfoud: 77,
             chahinez_chanez: 55,
             bnsdk_iman: 55.5,
-            taous: false,
+            taous: 53,
         },
         bestScore: ""
     },
@@ -289,13 +289,30 @@ const daysData = [
             boussebain_mahfoud: 86,
             chahinez_chanez: 65,
             bnsdk_iman: 52,
+            taous: 54,
+        },
+        bestScore: ""
+    },
+    {
+        day: 6,
+        date: "Thursday 22 February 2024",
+        scores: {
+            abdenoor_alvaro: 87,
+            sahel_yacine: 71,
+            bourmel_islem: false,
+            profeseur_youcef: false,
+            mohamed_djawad: false,
+            bochra_assouma: false,
+            boussebain_mahfoud: false,
+            chahinez_chanez: false,
+            bnsdk_iman: false,
             taous: false,
         },
         bestScore: ""
     },
     // {
-    //     day: 6,
-    //     date: "Thursday 22 February 2024",
+    //     day: 7,
+    //     date: "Saturday 24 February 2024",
     //     scores: {
     //         abdenoor_alvaro: false,
     //         sahel_yacine: false,
