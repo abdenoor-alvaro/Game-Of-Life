@@ -194,7 +194,6 @@ class Player {
 }
 
 const playersData = [
-    { name: "bourmel islem",image: "islem.jpg" },
     { name: "abdenoor alvaro",image: "abdenoor.jpg" },
     { name: "sahel yacine", image: "yacine.jpg" },
     { name: "profeseur youcef", image: "profesuer-youcef.jpg" },
@@ -214,7 +213,6 @@ const daysData = [
         scores: {
             abdenoor_alvaro: 60,
             sahel_yacine: 25,
-            bourmel_islem: 34,
             profeseur_youcef: 88,
             mohamed_djawad: 46,
             bochra_assouma: 83,
@@ -231,7 +229,6 @@ const daysData = [
         scores: {
             abdenoor_alvaro: 64.5,
             sahel_yacine: 10,
-            bourmel_islem: 23.5,
             profeseur_youcef: 80,
             mohamed_djawad: 47,
             bochra_assouma: 76,
@@ -248,7 +245,6 @@ const daysData = [
         scores: {
             abdenoor_alvaro: 78,
             sahel_yacine: 31.5,
-            bourmel_islem: 42,
             profeseur_youcef: 92,
             mohamed_djawad: 38,
             bochra_assouma: 86,
@@ -265,7 +261,6 @@ const daysData = [
         scores: {
             abdenoor_alvaro: 89,
             sahel_yacine: 63,
-            bourmel_islem: false,
             profeseur_youcef: 84.5,
             mohamed_djawad: 36,
             bochra_assouma: 79,
@@ -282,9 +277,8 @@ const daysData = [
         scores: {
             abdenoor_alvaro: 67,
             sahel_yacine: 80,
-            bourmel_islem: false,
             profeseur_youcef: 70,
-            mohamed_djawad: false,
+            mohamed_djawad: 37,
             bochra_assouma: 69,
             boussebain_mahfoud: 86,
             chahinez_chanez: 65,
@@ -299,10 +293,9 @@ const daysData = [
         scores: {
             abdenoor_alvaro: 87,
             sahel_yacine: 71,
-            bourmel_islem: false,
             profeseur_youcef: 83,
-            mohamed_djawad: false,
-            bochra_assouma: false,
+            mohamed_djawad: 32,
+            bochra_assouma: 74,
             boussebain_mahfoud: 112,
             chahinez_chanez: 66,
             bnsdk_iman: 57.5,
@@ -310,13 +303,28 @@ const daysData = [
         },
         bestScore: ""
     },
+    {
+        day: 7,
+        date: "Saturday 24 February 2024",
+        scores: {
+            abdenoor_alvaro: 68,
+            sahel_yacine: 45,
+            profeseur_youcef: false,
+            mohamed_djawad: 42,
+            bochra_assouma: 78,
+            boussebain_mahfoud: false,
+            chahinez_chanez: false,
+            bnsdk_iman: false,
+            taous: false,
+        },
+        bestScore: ""
+    },
     // {
-    //     day: 7,
-    //     date: "Saturday 24 February 2024",
+    //     day: 8,
+    //     date: "Sunday 25 February 2024",
     //     scores: {
     //         abdenoor_alvaro: false,
     //         sahel_yacine: false,
-    //         bourmel_islem: false,
     //         profeseur_youcef: false,
     //         mohamed_djawad: false,
     //         bochra_assouma: false,
