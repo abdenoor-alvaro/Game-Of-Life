@@ -309,7 +309,7 @@ const daysData = [
         scores: {
             abdenoor_alvaro: 68,
             sahel_yacine: 45,
-            profeseur_youcef: false,
+            profeseur_youcef: 75,
             mohamed_djawad: 42,
             bochra_assouma: 78,
             boussebain_mahfoud: false,
@@ -319,9 +319,41 @@ const daysData = [
         },
         bestScore: ""
     },
+    {
+        day: 8,
+        date: "Sunday 25 February 2024",
+        scores: {
+            abdenoor_alvaro: 63,
+            sahel_yacine: 70,
+            profeseur_youcef: 63.5,
+            mohamed_djawad: false,
+            bochra_assouma: false,
+            boussebain_mahfoud: false,
+            chahinez_chanez: false,
+            bnsdk_iman: false,
+            taous: false,
+        },
+        bestScore: ""
+    },
+    {
+        day: 9,
+        date: "Monday 26 February 2024",
+        scores: {
+            abdenoor_alvaro: 68,
+            sahel_yacine: 69,
+            profeseur_youcef: 89.5,
+            mohamed_djawad: false,
+            bochra_assouma: false,
+            boussebain_mahfoud: false,
+            chahinez_chanez: false,
+            bnsdk_iman: false,
+            taous: false,
+        },
+        bestScore: ""
+    },
     // {
-    //     day: 8,
-    //     date: "Sunday 25 February 2024",
+    //     day: 10,
+    //     date: "Tuesday 27 February 2024",
     //     scores: {
     //         abdenoor_alvaro: false,
     //         sahel_yacine: false,
