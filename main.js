@@ -386,9 +386,24 @@ const daysData = [
         },
         bestScore: ""
     },
+    {
+        day: 13,
+        date: "Saturday 02 March 2024",
+        scores: {
+            abdenoor_alvaro: 25.5,
+            sahel_yacine: 47,
+            profeseur_youcef: false,
+            mohamed_djawad: false,
+            boussebain_mahfoud: false,
+            chahinez_chanez: false,
+            bnsdk_iman: false,
+            taous: false,
+        },
+        bestScore: ""
+    },
     // {
-    //     day: 13,
-    //     date: "Saturday 02 March 2024",
+    //     day: 14,
+    //     date: "Sunday 03 March 2024",
     //     scores: {
     //         abdenoor_alvaro: false,
     //         sahel_yacine: false,
