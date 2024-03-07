@@ -419,6 +419,48 @@ const daysData = [
     //     day: 16,
     //     date: "Tuesday 05 March 2024",
     //     scores: {
+    //         abdenoor_alvaro: 53.5,
+    //         sahel_yacine: false,
+    //         profeseur_youcef: false,
+    //         boussebain_mahfoud: false,
+    //         chahinez_chanez: false,
+    //         bnsdk_iman: false,
+    //         taous: false,
+    //     },
+    //     bestScore: ""
+    // },
+    // {
+    //     day: 17,
+    //     date: "Wednesday 06 March 2024",
+    //     scores: {
+    //         abdenoor_alvaro: false,
+    //         sahel_yacine: false,
+    //         profeseur_youcef: false,
+    //         boussebain_mahfoud: false,
+    //         chahinez_chanez: false,
+    //         bnsdk_iman: false,
+    //         taous: 63.5,
+    //     },
+    //     bestScore: ""
+    // },
+    // {
+    //     day: 18,
+    //     date: "Thursday 07 March 2024",
+    //     scores: {
+    //         abdenoor_alvaro: false,
+    //         sahel_yacine: false,
+    //         profeseur_youcef: false,
+    //         boussebain_mahfoud: false,
+    //         chahinez_chanez: false,
+    //         bnsdk_iman: false,
+    //         taous: false,
+    //     },
+    //     bestScore: ""
+    // },
+    // {
+    //     day: 19,
+    //     date: "Saturday 08 March 2024",
+    //     scores: {
     //         abdenoor_alvaro: false,
     //         sahel_yacine: false,
     //         profeseur_youcef: false,
