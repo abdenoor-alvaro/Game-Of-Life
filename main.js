@@ -448,7 +448,7 @@ const daysData = [
         date: "Thursday 07 March 2024",
         scores: {
             abdenoor_alvaro: 45,
-            sahel_yacine: false,
+            sahel_yacine: 44.5,
             profeseur_youcef: false,
             boussebain_mahfoud: false,
             chahinez_chanez: false,
@@ -462,7 +462,7 @@ const daysData = [
         date: "Saturday 09 March 2024",
         scores: {
             abdenoor_alvaro: 58.5,
-            sahel_yacine: false,
+            sahel_yacine: 53,
             profeseur_youcef: false,
             boussebain_mahfoud: false,
             chahinez_chanez: false,
@@ -476,7 +476,7 @@ const daysData = [
         date: "Sunday 10 March 2024",
         scores: {
             abdenoor_alvaro: 41.5,
-            sahel_yacine: false,
+            sahel_yacine: 53,
             profeseur_youcef: false,
             boussebain_mahfoud: false,
             chahinez_chanez: false,
