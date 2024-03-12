@@ -449,7 +449,7 @@ const daysData = [
         scores: {
             abdenoor_alvaro: 45,
             sahel_yacine: 44.5,
-            profeseur_youcef: false,
+            profeseur_youcef: 65,
             boussebain_mahfoud: false,
             chahinez_chanez: 60,
             bnsdk_iman: 27,
@@ -463,7 +463,7 @@ const daysData = [
         scores: {
             abdenoor_alvaro: 58.5,
             sahel_yacine: 53,
-            profeseur_youcef: false,
+            profeseur_youcef: 55.5,
             boussebain_mahfoud: false,
             chahinez_chanez: 55,
             bnsdk_iman: 24.5,
@@ -477,6 +477,34 @@ const daysData = [
         scores: {
             abdenoor_alvaro: 41.5,
             sahel_yacine: 53,
+            profeseur_youcef: 74.5,
+            boussebain_mahfoud: false,
+            chahinez_chanez: false,
+            bnsdk_iman: false,
+            taous: false,
+        },
+        bestScore: ""
+    },
+    {
+        day: 21,
+        date: "Monday 11 March 2024",
+        scores: {
+            abdenoor_alvaro: 67,
+            sahel_yacine: false,
+            profeseur_youcef: false,
+            boussebain_mahfoud: false,
+            chahinez_chanez: false,
+            bnsdk_iman: false,
+            taous: false,
+        },
+        bestScore: ""
+    },
+    {
+        day: 22,
+        date: "Tuesday 12 March 2024",
+        scores: {
+            abdenoor_alvaro: 62,
+            sahel_yacine: false,
             profeseur_youcef: false,
             boussebain_mahfoud: false,
             chahinez_chanez: false,
@@ -486,8 +514,8 @@ const daysData = [
         bestScore: ""
     },
     // {
-    //     day: 21,
-    //     date: "Monday 11 March 2024",
+    //     day: 23,
+    //     date: "Wednesday 13 March 2024",
     //     scores: {
     //         abdenoor_alvaro: false,
     //         sahel_yacine: false,
