@@ -198,9 +198,9 @@ const playersData = [
     { name: "sahel yacine", image: "yacine.jpg" },
     { name: "profeseur youcef", image: "profesuer-youcef.jpg" },
     // { name: "boussebain mahfoud",image: "mahfoud.jpg" },
-    { name: "chahinez chanez", image: "chahinez.jpg" },
-    { name: "bnsdk iman", image: "iman.jpg" },
-    { name: "taous", image: "rose.jpg" },
+    // { name: "chahinez chanez", image: "chahinez.jpg" },
+    // { name: "bnsdk iman", image: "iman.jpg" },
+    // { name: "taous", image: "rose.jpg" },
 ]
 const players = playersData.map(playerData => new Player(playerData.name, playerData.image))
 
@@ -491,7 +491,7 @@ const daysData = [
         scores: {
             abdenoor_alvaro: 67,
             sahel_yacine: false,
-            profeseur_youcef: false,
+            profeseur_youcef: 80.5,
             boussebain_mahfoud: false,
             chahinez_chanez: false,
             bnsdk_iman: false,
@@ -513,9 +513,37 @@ const daysData = [
         },
         bestScore: ""
     },
+    {
+        day: 23,
+        date: "Wednesday 13 March 2024",
+        scores: {
+            abdenoor_alvaro: 41,
+            sahel_yacine: false,
+            profeseur_youcef: false,
+            boussebain_mahfoud: false,
+            chahinez_chanez: false,
+            bnsdk_iman: false,
+            taous: false,
+        },
+        bestScore: ""
+    },
+    {
+        day: 24,
+        date: "Thursday 14 March 2024",
+        scores: {
+            abdenoor_alvaro: 45,
+            sahel_yacine: false,
+            profeseur_youcef: false,
+            boussebain_mahfoud: false,
+            chahinez_chanez: false,
+            bnsdk_iman: false,
+            taous: false,
+        },
+        bestScore: ""
+    },
     // {
-    //     day: 23,
-    //     date: "Wednesday 13 March 2024",
+    //     day: 25,
+    //     date: "Saturday 16 March 2024",
     //     scores: {
     //         abdenoor_alvaro: false,
     //         sahel_yacine: false,
