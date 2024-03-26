@@ -195,8 +195,8 @@ class Player {
 
 const playersData = [
     { name: "abdenoor alvaro",image: "abdenoor.jpg" },
-    { name: "sahel yacine", image: "yacine.jpg" },
-    { name: "profeseur youcef", image: "profesuer-youcef.jpg" },
+    // { name: "sahel yacine", image: "yacine.jpg" },
+    // { name: "profeseur youcef", image: "profesuer-youcef.jpg" },
     // { name: "boussebain mahfoud",image: "mahfoud.jpg" },
     // { name: "chahinez chanez", image: "chahinez.jpg" },
     // { name: "bnsdk iman", image: "iman.jpg" },
@@ -541,20 +541,104 @@ const daysData = [
         },
         bestScore: ""
     },
-    // {
-    //     day: 25,
-    //     date: "Saturday 16 March 2024",
-    //     scores: {
-    //         abdenoor_alvaro: false,
-    //         sahel_yacine: false,
-    //         profeseur_youcef: false,
-    //         boussebain_mahfoud: false,
-    //         chahinez_chanez: false,
-    //         bnsdk_iman: false,
-    //         taous: false,
-    //     },
-    //     bestScore: ""
-    // },
+    {
+        day: 25,
+        date: "Saturday 16 March 2024",
+        scores: {
+            abdenoor_alvaro: 56,
+            sahel_yacine: false,
+            profeseur_youcef: false,
+            boussebain_mahfoud: false,
+            chahinez_chanez: false,
+            bnsdk_iman: false,
+            taous: false,
+        },
+        bestScore: ""
+    },
+    {
+        day: 26,
+        date: "Sunday 17 March 2024",
+        scores: {
+            abdenoor_alvaro: 43,
+            sahel_yacine: false,
+            profeseur_youcef: false,
+            boussebain_mahfoud: false,
+            chahinez_chanez: false,
+            bnsdk_iman: false,
+            taous: false,
+        },
+        bestScore: ""
+    },
+    {
+        day: 27,
+        date: "Monday 18 March 2024",
+        scores: {
+            abdenoor_alvaro: 45,
+            sahel_yacine: false,
+            profeseur_youcef: false,
+            boussebain_mahfoud: false,
+            chahinez_chanez: false,
+            bnsdk_iman: false,
+            taous: false,
+        },
+        bestScore: ""
+    },
+    {
+        day: 28,
+        date: "Tuesday 19 March 2024",
+        scores: {
+            abdenoor_alvaro: 54,
+            sahel_yacine: false,
+            profeseur_youcef: false,
+            boussebain_mahfoud: false,
+            chahinez_chanez: false,
+            bnsdk_iman: false,
+            taous: false,
+        },
+        bestScore: ""
+    },
+    {
+        day: 28,
+        date: "Tuesday 19 March 2024",
+        scores: {
+            abdenoor_alvaro: 54,
+            sahel_yacine: false,
+            profeseur_youcef: false,
+            boussebain_mahfoud: false,
+            chahinez_chanez: false,
+            bnsdk_iman: false,
+            taous: false,
+        },
+        bestScore: ""
+    },
+    {
+        day: 29,
+        date: "Wednesday 20 March 2024",
+        scores: {
+            abdenoor_alvaro: 37,
+            sahel_yacine: false,
+            profeseur_youcef: false,
+            boussebain_mahfoud: false,
+            chahinez_chanez: false,
+            bnsdk_iman: false,
+            taous: false,
+        },
+        bestScore: ""
+    },
+    {
+        day: 30,
+        date: "Thursday 21 March 2024",
+        scores: {
+            abdenoor_alvaro: 56.5,
+            sahel_yacine: false,
+            profeseur_youcef: false,
+            boussebain_mahfoud: false,
+            chahinez_chanez: false,
+            bnsdk_iman: false,
+            taous: false,
+        },
+        bestScore: ""
+    },
 ]
 
 // Start Latest News Data
