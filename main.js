@@ -195,12 +195,12 @@ class Player {
 
 const playersData = [
     { name: "abdenoor alvaro",image: "abdenoor.jpg" },
-    // { name: "sahel yacine", image: "yacine.jpg" },
-    // { name: "profeseur youcef", image: "profesuer-youcef.jpg" },
-    // { name: "boussebain mahfoud",image: "mahfoud.jpg" },
-    // { name: "chahinez chanez", image: "chahinez.jpg" },
-    // { name: "bnsdk iman", image: "iman.jpg" },
-    // { name: "taous", image: "rose.jpg" },
+    { name: "sahel yacine", image: "yacine.jpg" },
+    { name: "profeseur youcef", image: "profesuer-youcef.jpg" },
+    { name: "boussebain mahfoud",image: "mahfoud.jpg" },
+    { name: "chahinez chanez", image: "chahinez.jpg" },
+    { name: "bnsdk iman", image: "iman.jpg" },
+    { name: "taous", image: "rose.jpg" },
 ]
 const players = playersData.map(playerData => new Player(playerData.name, playerData.image))
 
