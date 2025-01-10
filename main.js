@@ -201,6 +201,10 @@ const playersData = [
     { name: "bourmel islem", image: "islem.jpg" },
     { name: "slimani abdenoor", image: "slimani.jpg" },
     { name: "bochra assouma", image: "bouchra.jpg" },
+    { name: "lagraa hanene", image: "hanene.jpg" },
+    { name: "il sabile", image: "sabil.jpg" },
+    { name: "zr chaimaa", image: "chaimaa.jpg" },
+    { name: "mk shaneez", image: "shaneez.jpg" },
 ]
 const players = playersData.map(playerData => new Player(playerData.name, playerData.image))
 
@@ -216,6 +220,10 @@ const daysData = [
             bourmel_islem: false,
             slimani_abdenoor: false,
             bochra_assouma: false,
+            lagraa_hanene: false,
+            il_sabile: false,
+            zr_chaimaa: false,
+            mk_shaneez: false,
         },
         bestScore: ""
     },
