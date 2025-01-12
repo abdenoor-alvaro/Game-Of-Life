@@ -203,8 +203,8 @@ const playersData = [
     { name: "bochra assouma", image: "bouchra.jpg" },
     { name: "lagraa hanene", image: "hanene.jpg" },
     { name: "il sabile", image: "sabil.jpg" },
-    { name: "zr chaimaa", image: "chaimaa.jpg" },
     { name: "mk shaneez", image: "shaneez.jpg" },
+    { name: "Ilaa Manî", image: "Manî.jpg" },
 ]
 const players = playersData.map(playerData => new Player(playerData.name, playerData.image))
 
@@ -213,17 +213,17 @@ const daysData = [
         day: 1,
         date: "Saturday 11 January 2025",
         scores: {
-            abdenoor_alvaro: false,
-            sahel_yacine: false,
+            abdenoor_alvaro: 38,
+            sahel_yacine: 47.5,
             boussebain_mahfoud: false,
             lee_chin: false,
             bourmel_islem: false,
-            slimani_abdenoor: false,
+            slimani_abdenoor: 55,
             bochra_assouma: false,
-            lagraa_hanene: false,
-            il_sabile: false,
-            zr_chaimaa: false,
-            mk_shaneez: false,
+            lagraa_hanene: 13,
+            il_sabile: 17,
+            mk_shaneez: 21.5,
+            Ilaa_Manî: false,
         },
         bestScore: ""
     },
