@@ -215,9 +215,9 @@ const daysData = [
         scores: {
             abdenoor_alvaro: 38,
             sahel_yacine: 47.5,
-            boussebain_mahfoud: false,
-            lee_chin: false,
-            bourmel_islem: false,
+            boussebain_mahfoud: 51,
+            lee_chin: 58,
+            bourmel_islem: 40,
             slimani_abdenoor: 55,
             bochra_assouma: false,
             lagraa_hanene: 13,
