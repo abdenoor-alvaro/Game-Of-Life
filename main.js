@@ -231,9 +231,9 @@ const daysData = [
         day: 2,
         date: "Sunday 12 January 2025",
         scores: {
-            abdenoor_alvaro: false,
+            abdenoor_alvaro: 52,
             sahel_yacine: 42.5,
-            boussebain_mahfoud: 52,
+            boussebain_mahfoud: false,
             lee_chin: false,
             bourmel_islem: false,
             slimani_abdenoor: false,
