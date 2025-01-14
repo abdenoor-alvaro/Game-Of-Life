@@ -259,7 +259,7 @@ const daysData = [
             bourmel_islem: 25,
             slimani_abdenoor: 48,
             bochra_assouma: false,
-            lagraa_hanene: false,
+            lagraa_hanene: 29,
             il_sabile: 17,
             mk_shaneez: false,
             Ilaa_Manî: false,
