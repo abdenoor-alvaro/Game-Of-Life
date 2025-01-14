@@ -205,6 +205,7 @@ const playersData = [
     { name: "il sabile", image: "sabil.jpg" },
     { name: "mk shaneez", image: "shaneez.jpg" },
     { name: "Ilaa Manî", image: "Manî.jpg" },
+    { name: "seoyoon zahra", image: "zahra.jpg" },
 ]
 const players = playersData.map(playerData => new Player(playerData.name, playerData.image))
 
@@ -224,6 +225,7 @@ const daysData = [
             il_sabile: 17,
             mk_shaneez: 21.5,
             Ilaa_Manî: false,
+            seoyoon_zahra: 54,
         },
         bestScore: ""
     },
@@ -235,19 +237,39 @@ const daysData = [
             sahel_yacine: 42.5,
             boussebain_mahfoud: 51,
             lee_chin: 45,
-            bourmel_islem: false,
-            slimani_abdenoor: false,
+            bourmel_islem: 35,
+            slimani_abdenoor: 30,
             bochra_assouma: 23,
             lagraa_hanene: 36,
             il_sabile: 17.5,
             mk_shaneez: false,
             Ilaa_Manî: false,
+            seoyoon_zahra: 56,
         },
         bestScore: ""
     },
     {
         day: 3,
         date: "Monday 13 January 2025",
+        scores: {
+            abdenoor_alvaro: 56,
+            sahel_yacine: 41,
+            boussebain_mahfoud: 78,
+            lee_chin: false,
+            bourmel_islem: 25,
+            slimani_abdenoor: 48,
+            bochra_assouma: false,
+            lagraa_hanene: false,
+            il_sabile: 17,
+            mk_shaneez: false,
+            Ilaa_Manî: false,
+            seoyoon_zahra: false,
+        },
+        bestScore: ""
+    },
+    {
+        day: 4,
+        date: "Tuesday 14 January 2025",
         scores: {
             abdenoor_alvaro: false,
             sahel_yacine: false,
@@ -260,6 +282,7 @@ const daysData = [
             il_sabile: false,
             mk_shaneez: false,
             Ilaa_Manî: false,
+            seoyoon_zahra: false,
         },
         bestScore: ""
     },
