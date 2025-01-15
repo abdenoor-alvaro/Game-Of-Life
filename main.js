@@ -204,7 +204,6 @@ const playersData = [
     { name: "lagraa hanene", image: "hanene.jpg" },
     { name: "il sabile", image: "sabil.jpg" },
     { name: "mk shaneez", image: "shaneez.jpg" },
-    { name: "Ilaa Manî", image: "Manî.jpg" },
     { name: "seoyoon zahra", image: "zahra.jpg" },
 ]
 const players = playersData.map(playerData => new Player(playerData.name, playerData.image))
@@ -224,7 +223,6 @@ const daysData = [
             lagraa_hanene: 13,
             il_sabile: 17,
             mk_shaneez: 21.5,
-            Ilaa_Manî: false,
             seoyoon_zahra: 54,
         },
         bestScore: ""
@@ -243,7 +241,6 @@ const daysData = [
             lagraa_hanene: 36,
             il_sabile: 17.5,
             mk_shaneez: 13,
-            Ilaa_Manî: false,
             seoyoon_zahra: 56,
         },
         bestScore: ""
@@ -262,7 +259,6 @@ const daysData = [
             lagraa_hanene: 29,
             il_sabile: 17,
             mk_shaneez: 19,
-            Ilaa_Manî: false,
             seoyoon_zahra: 32,
         },
         bestScore: ""
@@ -281,7 +277,6 @@ const daysData = [
             lagraa_hanene: false,
             il_sabile: false,
             mk_shaneez: false,
-            Ilaa_Manî: false,
             seoyoon_zahra: false,
         },
         bestScore: ""
@@ -300,7 +295,6 @@ const daysData = [
             lagraa_hanene: false,
             il_sabile: false,
             mk_shaneez: false,
-            Ilaa_Manî: false,
             seoyoon_zahra: false,
         },
         bestScore: ""
