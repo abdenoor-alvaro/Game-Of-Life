@@ -277,7 +277,7 @@ const daysData = [
             lagraa_hanene: false,
             il_sabile: false,
             mk_shaneez: false,
-            seoyoon_zahra: false,
+            seoyoon_zahra: 66,
         },
         bestScore: ""
     },
