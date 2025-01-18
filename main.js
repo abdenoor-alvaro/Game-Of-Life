@@ -274,8 +274,8 @@ const daysData = [
             bourmel_islem: 36,
             slimani_abdenoor: 60,
             bochra_assouma: 44,
-            lagraa_hanene: false,
-            il_sabile: false,
+            lagraa_hanene: 36,
+            il_sabile: 17,
             mk_shaneez: false,
             seoyoon_zahra: 66,
         },
@@ -284,6 +284,42 @@ const daysData = [
     {
         day: 5,
         date: "Wednesday 15 January 2025",
+        scores: {
+            abdenoor_alvaro: 53,
+            sahel_yacine: 48,
+            boussebain_mahfoud: 99,
+            lee_chin: 55.5,
+            bourmel_islem: 57,
+            slimani_abdenoor: 48,
+            bochra_assouma: 44,
+            lagraa_hanene: 21,
+            il_sabile: 21,
+            mk_shaneez: false,
+            seoyoon_zahra: 24,
+        },
+        bestScore: ""
+    },
+    {
+        day: 6,
+        date: "Thursday 16 January 2025",
+        scores: {
+            abdenoor_alvaro: 60,
+            sahel_yacine: 34,
+            boussebain_mahfoud: 46,
+            lee_chin: 58,
+            bourmel_islem: 40,
+            slimani_abdenoor: 49,
+            bochra_assouma: false,
+            lagraa_hanene: 19,
+            il_sabile: 27,
+            mk_shaneez: false,
+            seoyoon_zahra: 36,
+        },
+        bestScore: ""
+    },
+    {
+        day: 7,
+        date: "Saturday 18 January 2025",
         scores: {
             abdenoor_alvaro: false,
             sahel_yacine: false,
