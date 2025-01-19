@@ -321,6 +321,24 @@ const daysData = [
         day: 7,
         date: "Saturday 18 January 2025",
         scores: {
+            abdenoor_alvaro: 33,
+            sahel_yacine: 36,
+            boussebain_mahfoud: 68,
+            lee_chin: 60,
+            bourmel_islem: 36,
+            slimani_abdenoor: 46,
+            bochra_assouma: false,
+            lagraa_hanene: 23,
+            il_sabile: 35,
+            mk_shaneez: false,
+            seoyoon_zahra: false,
+        },
+        bestScore: ""
+    },
+    {
+        day: 8,
+        date: "Sunday 19 January 2025",
+        scores: {
             abdenoor_alvaro: false,
             sahel_yacine: false,
             boussebain_mahfoud: false,
