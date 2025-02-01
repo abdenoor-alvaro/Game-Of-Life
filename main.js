@@ -194,7 +194,7 @@ class Player {
 }
 
 const playersData = [
-    { name: "abdenoor alvaro",image: "abdenoor.jpg" },
+    // { name: "abdenoor alvaro",image: "abdenoor.jpg" },
     { name: "sahel yacine", image: "yacine.jpg" },
     { name: "boussebain mahfoud", image: "mahfoud.jpg" },
     { name: "lee chin", image: "lechin.jpg" },
@@ -389,113 +389,113 @@ const daysData = [
         date: "Thursday 23 January 2025",
         scores: {
             abdenoor_alvaro: 48,
-            sahel_yacine: false,
+            sahel_yacine: 45,
             boussebain_mahfoud: 40,
             lee_chin: 45,
-            bourmel_islem: false,
+            bourmel_islem: 32,
             slimani_abdenoor: 52,
-            lagraa_hanene: false,
+            lagraa_hanene: 16,
             il_sabile: 33,
             seoyoon_zahra: false,
         },
         bestScore: ""
     },
-    // {
-    //     day: 13,
-    //     date: "Saturday 25 January 2025",
-    //     scores: {
-    //         abdenoor_alvaro: false,
-    //         sahel_yacine: false,
-    //         boussebain_mahfoud: false,
-    //         lee_chin: false,
-    //         bourmel_islem: false,
-    //         slimani_abdenoor: false,
-    //         lagraa_hanene: false,
-    //         il_sabile: false,
-    //         seoyoon_zahra: false,
-    //     },
-    //     bestScore: ""
-    // },
-    // {
-    //     day: 14,
-    //     date: "Sunday 26 January 2025",
-    //     scores: {
-    //         abdenoor_alvaro: false,
-    //         sahel_yacine: false,
-    //         boussebain_mahfoud: false,
-    //         lee_chin: false,
-    //         bourmel_islem: false,
-    //         slimani_abdenoor: false,
-    //         lagraa_hanene: false,
-    //         il_sabile: false,
-    //         seoyoon_zahra: false,
-    //     },
-    //     bestScore: ""
-    // },
-    // {
-    //     day: 15,
-    //     date: "Monday 27 January 2025",
-    //     scores: {
-    //         abdenoor_alvaro: false,
-    //         sahel_yacine: false,
-    //         boussebain_mahfoud: false,
-    //         lee_chin: false,
-    //         bourmel_islem: false,
-    //         slimani_abdenoor: false,
-    //         lagraa_hanene: false,
-    //         il_sabile: false,
-    //         seoyoon_zahra: false,
-    //     },
-    //     bestScore: ""
-    // },
-    // {
-    //     day: 16,
-    //     date: "Tuesday 28 January 2025",
-    //     scores: {
-    //         abdenoor_alvaro: false,
-    //         sahel_yacine: false,
-    //         boussebain_mahfoud: false,
-    //         lee_chin: false,
-    //         bourmel_islem: false,
-    //         slimani_abdenoor: false,
-    //         lagraa_hanene: false,
-    //         il_sabile: false,
-    //         seoyoon_zahra: false,
-    //     },
-    //     bestScore: ""
-    // },
-    // {
-    //     day: 17,
-    //     date: "Wednesday 29 January 2025",
-    //     scores: {
-    //         abdenoor_alvaro: false,
-    //         sahel_yacine: false,
-    //         boussebain_mahfoud: false,
-    //         lee_chin: false,
-    //         bourmel_islem: false,
-    //         slimani_abdenoor: false,
-    //         lagraa_hanene: false,
-    //         il_sabile: false,
-    //         seoyoon_zahra: false,
-    //     },
-    //     bestScore: ""
-    // },
-    // {
-    //     day: 18,
-    //     date: "Thursday 30 January 2025",
-    //     scores: {
-    //         abdenoor_alvaro: false,
-    //         sahel_yacine: false,
-    //         boussebain_mahfoud: false,
-    //         lee_chin: false,
-    //         bourmel_islem: false,
-    //         slimani_abdenoor: false,
-    //         lagraa_hanene: false,
-    //         il_sabile: false,
-    //         seoyoon_zahra: false,
-    //     },
-    //     bestScore: ""
-    // },
+    {
+        day: 13,
+        date: "Saturday 25 January 2025",
+        scores: {
+            abdenoor_alvaro: false,
+            sahel_yacine: 36,
+            boussebain_mahfoud: 44,
+            lee_chin: 45,
+            bourmel_islem: 22,
+            slimani_abdenoor: 35,
+            lagraa_hanene: 19.5,
+            il_sabile: 44,
+            seoyoon_zahra: false,
+        },
+        bestScore: ""
+    },
+    {
+        day: 14,
+        date: "Sunday 26 January 2025",
+        scores: {
+            abdenoor_alvaro: false,
+            sahel_yacine: 42,
+            boussebain_mahfoud: 20,
+            lee_chin: 60,
+            bourmel_islem: 48,
+            slimani_abdenoor: 33,
+            lagraa_hanene: 27,
+            il_sabile: 50,
+            seoyoon_zahra: false,
+        },
+        bestScore: ""
+    },
+    {
+        day: 15,
+        date: "Monday 27 January 2025",
+        scores: {
+            abdenoor_alvaro: false,
+            sahel_yacine: 34,
+            boussebain_mahfoud: 40,
+            lee_chin: 71,
+            bourmel_islem: 64.5,
+            slimani_abdenoor: 30,
+            lagraa_hanene: 38,
+            il_sabile: 44,
+            seoyoon_zahra: false,
+        },
+        bestScore: ""
+    },
+    {
+        day: 16,
+        date: "Tuesday 28 January 2025",
+        scores: {
+            abdenoor_alvaro: false,
+            sahel_yacine: 45,
+            boussebain_mahfoud: 17,
+            lee_chin: 50,
+            bourmel_islem: 58.5,
+            slimani_abdenoor: 30,
+            lagraa_hanene: 22,
+            il_sabile: 32,
+            seoyoon_zahra: false,
+        },
+        bestScore: ""
+    },
+    {
+        day: 17,
+        date: "Wednesday 29 January 2025",
+        scores: {
+            abdenoor_alvaro: false,
+            sahel_yacine: false,
+            boussebain_mahfoud: false,
+            lee_chin: 58,
+            bourmel_islem: 53,
+            slimani_abdenoor: false,
+            lagraa_hanene: 23,
+            il_sabile: 36.5,
+            seoyoon_zahra: false,
+        },
+        bestScore: ""
+    },
+    {
+        day: 18,
+        date: "Thursday 30 January 2025",
+        scores: {
+            abdenoor_alvaro: false,
+            sahel_yacine: false,
+            boussebain_mahfoud: false,
+            lee_chin: 60,
+            bourmel_islem: false,
+            slimani_abdenoor: false,
+            lagraa_hanene: 42,
+            il_sabile: 50.5,
+            seoyoon_zahra: false,
+        },
+        bestScore: ""
+    },
     // {
     //     day: 19,
     //     date: "Saturday 01 February 2025",
